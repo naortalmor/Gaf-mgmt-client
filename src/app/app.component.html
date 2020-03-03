@@ -1,8 +1,15 @@
-<div>
-  מערכת לניהול הגף
+<div class="buttons-container" *ngIf="!(mode$ | async); else data">
+  <button class="home-button" (click)="selectMode(modes.MIFGAF)">ניהול מפגפים</button>
+  <button class="home-button" (click)="selectMode(modes.EVENINGS)">ניהול ערבי צוות</button>
+  <button class="home-button" (click)="selectMode(modes.LAUNCHES)">ארוחות צהריים</button>
 </div>
-<div>
-  <div>ניהול מפגפים</div>
-  <div>ניהול ערבי צוות</div>
-  <div>ארוחות צהריים</div>
-</div>
+<ng-template #data>
+  <div [ngSwitch]="mode$ | async">
+    <app-mifgafs *ngSwitchCase="modes.MIFGAF">
+    </app-mifgafs>
+    <app-evenings *ngSwitchCase="modes.EVENINGS">
+    </app-evenings>
+    <app-launches *ngSwitchCase="modes.LAUNCHES">
+    </app-launches>
+  </div>
+</ng-template>

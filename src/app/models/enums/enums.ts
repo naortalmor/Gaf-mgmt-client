@@ -1,5 +1,5 @@
-export enum Tabs {
-  MIFGAF,
-  LAUNCHES,
-  EVENINGS
+export enum Modes {
+  MIFGAF = 'MIFGAF',
+  LAUNCHES = 'LAUNCHES',
+  EVENINGS = 'EVENINGS'
 }
