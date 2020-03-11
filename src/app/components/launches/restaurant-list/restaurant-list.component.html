@@ -6,5 +6,5 @@
   <button (click)="onAddRestaurant()">add restaurant</button>
 </div>
 <div *ngIf="toAddRestaurant">
-  <app-add-restaurant></app-add-restaurant>
+  <app-add-restaurant (addRestaurant)="newRestaurant($event)"></app-add-restaurant>
 </div>

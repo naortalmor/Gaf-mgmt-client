@@ -4,13 +4,19 @@
     float: right;
 }
 
-input, option, select{
-    border: 1px solid silver;
-    border-radius: 4px;
+input{
     display: flex;
 }
 
-label{
-    font-family: Arial, Helvetica, sans-serif;
+
+mat-form-field, mat-checkbox, star-rating, label{
     display: flex;
+}
+
+mat-label{
+    float: right;
+}
+
+mat-checkbox, star-rating, label{
+    margin-bottom: 5px;
 }

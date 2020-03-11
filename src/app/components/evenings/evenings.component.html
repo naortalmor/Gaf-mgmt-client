@@ -2,4 +2,6 @@
 
 <app-evnings-history> BLA </app-evnings-history>
 
-<app-schedual-new-evening> BKA </app-schedual-new-evening>
+<app-schedual-new-evening
+[events]="events$ | async"
+> BKA </app-schedual-new-evening>

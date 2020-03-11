@@ -1,0 +1,24 @@
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5em;
+  padding: 2em;
+}
+
+.home-button {
+  width: 40%;
+  align-self: center;
+  margin: 0.4em;
+  background-image: linear-gradient(to right, #7fd9ec , #0600ff6b);
+  border-radius: 25px;
+  border: none;
+  height: 2.5em;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.home-button:hover {
+  background-color: red;
+}

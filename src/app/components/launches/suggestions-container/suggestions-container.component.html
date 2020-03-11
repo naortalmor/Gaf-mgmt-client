@@ -1,2 +1,4 @@
-<app-restaurant-list [restaurants]="restaurants">
-</app-restaurant-list>
+<div>
+  <app-restaurant-list (addRestaurant)="onAddRestaurant($event)" [restaurants]="restaurants">
+  </app-restaurant-list>
+</div>

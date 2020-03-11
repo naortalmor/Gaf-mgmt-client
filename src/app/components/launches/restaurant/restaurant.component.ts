@@ -1,4 +1,4 @@
-import { Restaurant } from 'src/app/models/restaurant';
+import { Restaurant } from 'src/app/models/interfaces/restaurant';
 import { Component, Input } from '@angular/core';
 
 @Component({
