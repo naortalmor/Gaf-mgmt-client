@@ -4,12 +4,11 @@ import { Tabs } from './../../models/enums/enums';
 import { Restaurant } from '../../models/interfaces/restaurant';
 import { RestaurantsService } from './../../services/restaurants.service';
 import { AppState } from './../../store/state';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 import { User } from '../../models/interfaces/user';
-import { thisWeekPersonsReducer } from 'src/app/store/this-week-persons/this-week-persons.reducer';
 import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
 
 @Component({
@@ -19,16 +18,16 @@ import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LaunchesComponent {
-  users$: Observable<User[]>;
-  restaurants$: Observable<Restaurant[]>;
-  restaurantSurvey$: Observable<RestaurantSurvey[]>;
-  suggestionsFilter$: Observable<FilterSuggestions>;
-  selectedTab: string;
+  users$:Observable<User[]>;
+  restaurants$:Observable<Restaurant[]>;
+  restaurantSurvey$:Observable<RestaurantSurvey[]>;
+  suggestionsFilter$:Observable<FilterSuggestions>;
+  selectedTab:string;
   tabs = Tabs;
-  userRestaurantSelection: Restaurant;
+  userRestaurantSelection:Restaurant;
 
-  constructor(private store: Store<AppState>,
-              private restaurantsService: RestaurantsService) {
+  constructor(private store:Store<AppState>,
+              private restaurantsService:RestaurantsService) {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
     this.selectedTab = Tabs.OTHER;
@@ -38,20 +37,20 @@ export class LaunchesComponent {
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
   }
 
-  changeTab(newTab: string): void {
+  changeTab(newTab:string):void {
     this.selectedTab = newTab;
   }
 
-  onAddRestaurant(restaurant: Restaurant){
-    console.log(restaurant)
-    this.store.dispatch(ADD_RESTAURANT({restaurant}))
+  onAddRestaurant(restaurant:Restaurant) {
+    console.log(restaurant);
+    this.store.dispatch(ADD_RESTAURANT({restaurant}));
   }
 
-  selectRestaurant(selectedRestaurant: Restaurant) {
+  selectRestaurant(selectedRestaurant:Restaurant) {
     this.userRestaurantSelection = selectedRestaurant;
   }
 
-  onFilterChanged(filter: FilterSuggestions): void {
-    this.store.dispatch(CHANGE_FILTER({filter}))
+  onFilterChanged(filter:FilterSuggestions):void {
+    this.store.dispatch(CHANGE_FILTER({filter}));
   }
 }
