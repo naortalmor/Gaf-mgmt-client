@@ -62,7 +62,7 @@ export class ChartComponent implements OnChanges {
 
   private insertChartData(chartData:chartData):void {
     let restaurantResultIndex:number = this.chartResult.findIndex(result => result.name === chartData.name);
-    if (restaurantResultIndex) {
+    if (restaurantResultIndex !== -1) {
       this.chartResult[restaurantResultIndex].value = chartData.value;
     } else {
       this.chartResult.push(chartData);
