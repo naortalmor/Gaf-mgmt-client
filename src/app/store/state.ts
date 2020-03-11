@@ -13,4 +13,6 @@ export interface AppState {
   users: User[];
   thisWeekPersons: Person[];
   suggestionsFilter: FilterSuggestions;
+  currentUser:User;
+  allUsers:User[];
 }

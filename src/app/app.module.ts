@@ -38,6 +38,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
 import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
     MatCheckboxModule,
     NgxStarRatingModule,
     FontAwesomeModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
