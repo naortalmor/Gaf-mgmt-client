@@ -1,4 +1,13 @@
-<p>evenings works!</p>
+<div id="cotainerListAndDetails">
+    <div id="sectionEveningList"> 
+        <app-evening-list (selectEveningBubbled)="onSelectEveningBubbled($event)" id="containerEveningList" [evenings]="evenings"></app-evening-list>
+    </div>
+    
+    <div id="sectionEveningDetails" *ngIf="selectedEvening">
+        <app-evening-details [selectedEvening]="selectedEvening" (closeEveningEmittter)="onCloseEventDetails()"></app-evening-details>
+    </div>
+    
+</div>
 
 <app-evnings-history> BLA </app-evnings-history>
 

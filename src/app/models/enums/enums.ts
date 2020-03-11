@@ -21,3 +21,7 @@ export enum Availability {
   MAYBE = "Not sure..",
   CANT = "Defently Can't!"
 }
+
+export enum ChartType {
+  pie
+}

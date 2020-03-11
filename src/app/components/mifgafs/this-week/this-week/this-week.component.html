@@ -1,11 +1,8 @@
-<div>
-    <div>
-        <span>מפגפים</span>
-    </div>
-    <div>
-        <span>השבוע</span>
-    </div>
-    <div *ngFor="let person of currentWeekPersons">
-        <app-person [person]="person"></app-person>
+<div class="main">
+    <span>מביאים במפגף הקרוב</span>
+    <div class="winners">
+        <div *ngFor="let person of currentWeekPersons">
+            <app-person [person]="person"></app-person>
+        </div>
     </div>
 </div>
