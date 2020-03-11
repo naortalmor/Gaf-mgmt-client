@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+input{
+    display: flex;
+}
+
+
+mat-form-field, mat-checkbox, star-rating, label{
+    display: flex;
+}
+
+mat-label{
+    float: right;
+}
+
+mat-checkbox, star-rating, label{
+    margin-bottom: 5px;
+}

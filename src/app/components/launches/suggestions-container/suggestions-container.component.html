@@ -1,6 +1,7 @@
 <div class="col">
   <app-filter-suggestions (filterChangedEmitter)="onFilterChanged($event)">
   </app-filter-suggestions>
-  <app-restaurant-list [restaurants]="restaurants | filterSuggestions:filter">
+  <app-restaurant-list [restaurants]="restaurants | filterSuggestions:filter" 
+                       (addRestaurant)="onAddRestaurant($event)">
   </app-restaurant-list>
 </div>

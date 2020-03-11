@@ -1,0 +1,7 @@
+<div class="flex">
+  <h3 class="flx1 underLine">{{header}}</h3>
+  <div class="flx1 self-ctr" *ngFor="let voter of voters">
+    <span>{{voter}}</span>
+  </div>
+  <button class="flx1" (click)="close()">סגור</button>
+</div>

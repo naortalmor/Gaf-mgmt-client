@@ -9,6 +9,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 import { User } from '../../models/interfaces/user';
+import { thisWeekPersonsReducer } from 'src/app/store/this-week-persons/this-week-persons.reducer';
+import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
 
 @Component({
   selector: 'app-launches',
@@ -38,6 +40,11 @@ export class LaunchesComponent {
 
   changeTab(newTab: string): void {
     this.selectedTab = newTab;
+  }
+
+  onAddRestaurant(restaurant: Restaurant){
+    console.log(restaurant)
+    this.store.dispatch(ADD_RESTAURANT({restaurant}))
   }
 
   selectRestaurant(selectedRestaurant: Restaurant) {
