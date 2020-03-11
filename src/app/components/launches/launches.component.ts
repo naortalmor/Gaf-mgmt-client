@@ -1,4 +1,4 @@
-import { Restaurant } from './../../models/restaurant';
+import { Restaurant } from '../../models/interfaces/restaurant';
 import { RestaurantsService } from './../../services/restaurants.service';
 import { AppState } from './../../store/state';
 import { Component } from '@angular/core';

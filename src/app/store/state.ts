@@ -1,4 +1,4 @@
-import { Restaurant } from './../models/restaurant';
+import { Restaurant } from '../models/interfaces/restaurant';
 
 export interface AppState {
   mode: string;

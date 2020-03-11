@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MULTI } from './data';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { MULTI, SINGLE } from './data';
+import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
+import { Restaurant } from '../../models/interfaces/restaurant';
+import { User } from '../../models/interfaces/user';
+
+const CHART_HEIGHT:number = 700;
+const CHART_WIDTH:number = 300;
 
 @Component({
   selector: 'app-chart',
@@ -7,11 +13,22 @@ import { MULTI } from './data';
   styleUrls: ['./chart.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChartComponent {
-  multi:any[];
-  view:number[];
+export class ChartComponent implements OnInit, OnChanges {
+  @Input() restaurantSurvey:RestaurantSurvey[];
+  @Input() restaurant:Restaurant;
+  @Input() users:User;
+
+  view:[number, number];
+  colorScheme:chartColorSchema;
+  result:chartData[];
+  gradient:boolean;
   legend:boolean;
+  legendPosition:string;
   showLabels:boolean;
+  isDoughnut:boolean;
+
+
+  multi:any[];
   animations:boolean;
   xAxis:boolean;
   yAxis:boolean;
@@ -20,13 +37,21 @@ export class ChartComponent {
   xAxisLabel:string;
   yAxisLabel:string;
   timeline:boolean;
-  colorScheme:{ domain:string[] };
 
   constructor() {
-    this.multi = MULTI;
-    this.view = [700, 300];
+    this.view = [CHART_HEIGHT, CHART_WIDTH];
+    this.colorScheme = {
+      domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    };
+    this.result = SINGLE;
+    this.gradient = false;
     this.legend = true;
+    this.legendPosition = 'below';
     this.showLabels = true;
+    this.isDoughnut = false;
+
+
+    this.multi = MULTI;
     this.animations = true;
     this.xAxis = true;
     this.yAxis = true;
@@ -35,9 +60,26 @@ export class ChartComponent {
     this.xAxisLabel = 'Year';
     this.yAxisLabel = 'Population';
     this.timeline = true;
-    this.colorScheme = {
-      domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
-    };
+  }
+
+  ngOnChanges(changes:SimpleChanges):void {
+    if(changes.restaurantSurvey) {
+      this.updateChartData();
+    }
+  }
+
+  ngOnInit():void {
+    this.updateChartData();
+  }
+
+  private updateChartData():void {
+    this.restaurantSurvey.forEach((survey:RestaurantSurvey) => {
+      const chartData:chartData = {
+        name:survey.restaurantId.toString(),
+        value:survey.votersId.length
+      };
+      this.result.push(chartData)
+    })
   }
 
   onSelect(event) {
@@ -52,4 +94,13 @@ export class ChartComponent {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
 
   }
+}
+
+interface chartColorSchema {
+  domain:string[];
+}
+
+interface chartData {
+  name:string;
+  value:number;
 }

@@ -31,3 +31,49 @@
   (activate)="onActivate($event)"
   (deactivate)="onDeactivate($event)">
 </ngx-charts-line-chart>
+
+<span> --------------------------------------------------------------------------------------------------------------- </span>
+<ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="result"
+  [gradient]="gradient"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
+
+<span> --------------------------------------------------------------------------------------------------------------- </span>
+
+<ngx-charts-gauge
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="result"
+  [legend]="legend"
+  [legendPosition]="legendPosition"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)">
+</ngx-charts-gauge>
+
+<span> --------------------------------------------------------------------------------------------------------------- </span>
+
+<ngx-charts-pie-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="result"
+  [gradient]="gradient"
+  [legend]="legend"
+  [legendPosition]="legendPosition"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)"
+>
+</ngx-charts-pie-chart>

@@ -1,3 +1,18 @@
+export const SINGLE = [
+  {
+    name: "וטרינה",
+    value: 10
+  },
+  {
+    name: "סטייק האוס",
+    value: 5
+  },
+  {
+    name: "מייט בר",
+    value: 15
+  }
+];
+
 export const MULTI = [
   {
     "name": "Germany",
