@@ -9,6 +9,7 @@ import { EveningsComponent } from './components/evenings/evenings.component';
 import { StoreModule } from '@ngrx/store';
 import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
+import { CalanderComponent } from './components/calander/calander.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SchedualNewEveningComponent } from './components/schedual-new-evening/s
     LaunchesComponent,
     EveningsComponent,
     EvningsHistoryComponent,
-    SchedualNewEveningComponent
+    SchedualNewEveningComponent,
+    CalanderComponent
   ],
   imports: [
     BrowserModule,
