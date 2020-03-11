@@ -1,0 +1,15 @@
+.tab {
+  margin: 1em;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.selectedTab {
+  border-bottom: 1px solid #1c5192;
+}
+
+.tab:hover {
+  font-size: 22px;
+  color: #3F51B5;
+}
