@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
-import {colors} from '../../models/enums/color'
 
 @Component({
   selector: 'app-evenings',
@@ -8,16 +7,12 @@ import {colors} from '../../models/enums/color'
   styleUrls: ['./evenings.component.css']
 })
 export class EveningsComponent implements OnInit {
+  events$: CalendarEvent[];
 
-  events: CalendarEvent[] =  [{
-    start: new Date(),
-    end: new Date(),
-    title: 'I cant',
-    color: colors.red,
-    allDay: true,
-  }];
-  
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+    this.events$ = this.store.select('events');
+  }
+   
 
   ngOnInit() {
   }
