@@ -26,7 +26,7 @@ export class LaunchesComponent {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
     this.selectedTab = Tabs.OTHER;
-    this.restaurants$ = this.store.select('resturants');
+    this.restaurants$ = this.store.select('restaurants');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
   }
 
