@@ -1,6 +1,3 @@
-import { RestaurantTypes } from './../models/enums/enums';
-import { INIT_RESTAURANTS } from './../store/restaurant/restaurant.actions';
-import { Restaurant } from './../models/restaurant';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { AppState } from '../store/state';
