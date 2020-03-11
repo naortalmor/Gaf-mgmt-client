@@ -7,13 +7,17 @@ import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
 import { LaunchesComponent } from './components/launches/launches.component';
 import { EveningsComponent } from './components/evenings/evenings.component';
 import { StoreModule } from '@ngrx/store';
+import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
+import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MifgafsComponent,
     LaunchesComponent,
-    EveningsComponent
+    EveningsComponent,
+    EvningsHistoryComponent,
+    SchedualNewEveningComponent
   ],
   imports: [
     BrowserModule,
