@@ -1,7 +1,7 @@
 import {reducers} from './store/reducers';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {AppComponent} from './app.component';
 import {MifgafsComponent} from './components/mifgafs/mifgafs.component';
@@ -41,6 +41,7 @@ import { AvailabilityMenuComponent } from './components/availability-menu/availa
 import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
 import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { VotersNamesComponent } from './components/voters-names/voters-names.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
     PersonComponent,
     AvailabilityMenuComponent,
     FilterSuggestionsComponent,
-    FilterSuggestionsPipe
+    FilterSuggestionsPipe,
+    VotersNamesComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { HttpClientModule } from '@angular/common/http';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    }),
+    })
+,
     RoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

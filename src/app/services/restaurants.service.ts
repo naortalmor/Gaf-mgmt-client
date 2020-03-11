@@ -29,15 +29,15 @@ export class RestaurantsService {
     const restaurantSurvey:RestaurantSurvey[] = [
       {
         restaurantId: 1,
-        votersId: [1, 2, 3]
+        votersIds: [1, 2, 3]
       },
       {
         restaurantId: 2,
-        votersId: [4, 5]
+        votersIds: [4, 5]
       },
       {
         restaurantId: 3,
-        votersId: [3, 5]
+        votersIds: [3, 5]
       },
     ];
     this.store.dispatch(INIT_RESTAURANTS_SURVEY({restaurantSurvey}));
