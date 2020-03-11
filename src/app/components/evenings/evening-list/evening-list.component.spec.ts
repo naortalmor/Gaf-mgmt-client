@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GafMemberCardComponent } from './gaf-member-card.component';
+import { EveningListComponent } from './evening-list.component';
 
-describe('GafMemberCardComponent', () => {
-  let component: GafMemberCardComponent;
-  let fixture: ComponentFixture<GafMemberCardComponent>;
+describe('EveningListComponent', () => {
+  let component: EveningListComponent;
+  let fixture: ComponentFixture<EveningListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GafMemberCardComponent ]
+      declarations: [ EveningListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GafMemberCardComponent);
+    fixture = TestBed.createComponent(EveningListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

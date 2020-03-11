@@ -1,4 +1,14 @@
-<app-gaf-member-card> test </app-gaf-member-card>
+<div id="cotainerListAndDetails">
+    <div id="sectionEveningList"> 
+        <app-evening-list (selectEveningBubbled)="onSelectEveningBubbled($event)" id="containerEveningList" [evenings]="evenings"></app-evening-list>
+    </div>
+    
+    <div id="sectionEveningDetails" *ngIf="selectedEvening">
+        <app-evening-details [selectedEvening]="selectedEvening" (closeEveningEmittter)="onCloseEventDetails()"></app-evening-details>
+    </div>
+    
+</div>
+
 <app-evnings-history> BLA </app-evnings-history>
 
 <app-schedual-new-evening> BKA </app-schedual-new-evening>

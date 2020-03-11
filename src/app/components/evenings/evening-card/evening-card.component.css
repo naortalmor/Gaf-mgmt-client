@@ -1,5 +1,13 @@
 .example-card {
     max-width: 400px;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    margin-right: 5px;
+  }
+  
+  .image-card {
+      height: 200px;
+      width: 320px;
   }
   
   .example-header-image {
