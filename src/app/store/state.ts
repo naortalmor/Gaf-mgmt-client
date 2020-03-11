@@ -7,7 +7,7 @@ import { Person } from '../models/interfaces/person';
 export interface AppState {
   mode: string;
   events: CalendarEvent[];
-  resturants: Restaurant[];
+  restaurants: Restaurant[];
   restaurantSurvey:RestaurantSurvey[];
   users:User[];
   thisWeekPersons:Person[];
