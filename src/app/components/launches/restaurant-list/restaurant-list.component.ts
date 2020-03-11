@@ -8,4 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RestaurantListComponent {
   @Input() restaurants: Restaurant[];
+  toAddRestaurant = false;
+
+
+  onAddRestaurant(){
+this.toAddRestaurant = true
+console.log(this.toAddRestaurant);
+
+  }
 }
+
+

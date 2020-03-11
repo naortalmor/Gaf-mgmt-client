@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { RestaurantTypes } from 'src/app/models/enums/enums';
+
 
 @Component({
   selector: 'app-add-restaurant',
@@ -9,11 +11,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 export class AddRestaurant implements OnInit{
     newRestuarantForm: FormGroup;
+    RestaurantTypes = Object.values(RestaurantTypes);
 
     ngOnInit() {
         this.newRestuarantForm = new FormGroup({
           name: new FormControl(''),
-          adress: new FormControl(''),
+          address: new FormControl(''),
           cuisine: new FormControl(''),
           options: new FormControl('')
         });

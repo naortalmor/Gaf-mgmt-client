@@ -12,6 +12,9 @@ import { RestaurantComponent } from './components/launches/restaurant/restaurant
 import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 import { CalanderComponent } from './components/calander/calander.component';
+import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,15 @@ import { CalanderComponent } from './components/calander/calander.component';
     RestaurantComponent,
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
-    CalanderComponent
+    CalanderComponent,
+    AddRestaurant
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

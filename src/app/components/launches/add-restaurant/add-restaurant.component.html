@@ -1,8 +1,12 @@
-<div>
-    <form [FormGroup] = 'newRestaurantForm'>
+<div class="container">
+    <form [formGroup]="newRestuarantForm">
         <label>שם</label>
-            <input type="text" formControlName="name">
+            <input type="text"  id='name' formControlName="name">
           <label>כתובת</label>
             <input type="text" formControlName="address">
-    </form>
+            <label>סגנון</label>
+            <select formControlName="cuisine">
+                <option *ngFor="let restaurantType of RestaurantTypes">{{restaurantType}}</option>
+            </select>
+            </form>
 </div>
