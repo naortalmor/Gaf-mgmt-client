@@ -32,6 +32,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     AngularFirestoreModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
