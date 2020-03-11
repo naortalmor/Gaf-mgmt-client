@@ -7,13 +7,15 @@ import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
 import { LaunchesComponent } from './components/launches/launches.component';
 import { EveningsComponent } from './components/evenings/evenings.component';
 import { StoreModule } from '@ngrx/store';
+import { GafMemberCardComponent } from './components/evenings/gaf-member-card/gaf-member-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MifgafsComponent,
     LaunchesComponent,
-    EveningsComponent
+    EveningsComponent,
+    GafMemberCardComponent
   ],
   imports: [
     BrowserModule,
