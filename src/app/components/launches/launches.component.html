@@ -9,7 +9,7 @@
   </app-tab>
 </div>
 <div class="col ctr">
-  <app-suggestions-container *ngIf="tabs.SUGGESTIONS === selectedTab"
+  <app-suggestions-container (addRestaurant)="onAddRestaurant($event)" *ngIf="tabs.SUGGESTIONS === selectedTab"
                              class="launch-container"
                              [restaurants]="restaurants$ | async"
                              [filter]="suggestionsFilter$ | async"

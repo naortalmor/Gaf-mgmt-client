@@ -1,3 +1,16 @@
+
+
+import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
+import { CommonModule } from '@angular/common';
+
+import { RatingModule } from 'ng-starrating';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule,
+  MatOption,
+  MatOptionModule,
+} from '@angular/material';
 import {reducers} from './store/reducers';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
@@ -26,6 +39,7 @@ import {ThisWeekComponent} from './components/mifgafs/this-week/this-week/this-w
 import {PersonComponent} from './components/mifgafs/person/person/person.component';
 import {LoginComponent} from './components/login/login.component';
 import {RoutingModule} from './routes/routing.module';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {HomeComponent} from './components/home/home.component';
 // Firebase services + enviorment module
 import {AngularFireModule} from '@angular/fire';
@@ -33,8 +47,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatInputModule} from '@angular/material/input'
+import {MatSelectModule} from '@angular/material/select';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
@@ -55,6 +68,7 @@ import { VotersNamesComponent } from './components/voters-names/voters-names.com
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
+    AddRestaurant,
     LoginComponent,
     HomeComponent,
     SuggestionsContainerComponent,
@@ -69,11 +83,22 @@ import { VotersNamesComponent } from './components/voters-names/voters-names.com
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot(reducers),
+    FormsModule,
+    ReactiveFormsModule,
+    RatingModule,
+    MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCheckboxModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    MatSelectModule,
+    MatOptionModule,
+
     FormsModule,
     StoreModule.forRoot(reducers),
     CalendarModule.forRoot({
