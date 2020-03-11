@@ -20,21 +20,22 @@ export class LoginComponent implements OnDestroy {
     if (this.authService.isLoggedIn) {
       this.router.navigate(['home']);
     }
+    this.authstateSubscription = this.authService.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.router.navigate(['home']);
+      }
+    });
   }
 
   ngOnDestroy() {
-    this.authstateSubscription.unsubscribe();
+    if (this.authstateSubscription) {
+      this.authstateSubscription.unsubscribe();
+    }
   }
 
   login() {
     this.isLoading = true;
-    this.authService.SignIn(this.email, this.password).then(value => {
-      this.authstateSubscription = this.authService.afAuth.authState.subscribe(user => {
-        if (user) {
-          this.router.navigate(['home']);
-        }
-      });
-    }).catch(reason => {
+    this.authService.SignIn(this.email, this.password).catch(reason => {
       this.isLoading = false;
       this.cdRef.detectChanges();
     });
