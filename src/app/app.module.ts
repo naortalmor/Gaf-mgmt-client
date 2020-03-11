@@ -61,18 +61,18 @@ import { EveningDetailsComponent } from './components/evenings/evening-details/e
     MatCardActions, 
     EveningListComponent, 
     EveningDetailsComponent, 
-    EveningCardComponent
-  ],
-  imports: [
-    BrowserModule,
-    StoreModule.forRoot(reducers),
+    EveningCardComponent,
     LoginComponent,
     HomeComponent,
     SuggestionsContainerComponent,
     TabComponent,
     LunchSurveyComponent,
     ThisWeekComponent,
-    PersonComponent,
+    PersonComponent
+  ],
+  imports: [
+    BrowserModule,
+    StoreModule.forRoot(reducers),
     BrowserAnimationsModule,
     MatButtonModule,
     NgxChartsModule,

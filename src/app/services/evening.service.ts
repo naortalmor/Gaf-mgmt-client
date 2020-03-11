@@ -18,7 +18,7 @@ export class EveningService {
             imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
             title: 'evening title1',
             content: 'content1',
-            images: ['https://material.angular.io/assets/img/examples/shiba2.jpg','https://material.angular.io/assets/img/examples/shiba2.jpg','https://material.angular.io/assets/img/examples/shiba2.jpg']
+            images: []
         },
         {
             id: 1,

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Evening } from 'src/app/models/evening';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-evening-details',
