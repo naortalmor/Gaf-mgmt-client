@@ -15,6 +15,8 @@ import { CalanderComponent } from './components/calander/calander.component';
 import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
 import { TabComponent } from './components/tab/tab.component';
 import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
+import { ThisWeekComponent } from './components/mifgafs/this-week/this-week/this-week.component';
+import { PersonComponent } from './components/mifgafs/person/person/person.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-s
     CalanderComponent,
     SuggestionsContainerComponent,
     TabComponent,
-    LunchSurveyComponent
+    LunchSurveyComponent,
+    ThisWeekComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
