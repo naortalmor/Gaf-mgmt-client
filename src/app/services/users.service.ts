@@ -15,27 +15,32 @@ export class UsersService {
       {
         id: 1,
         name: 'Saeed',
-        teamId: 1
+        teamId: 1,
+        typeId: 1
       },
       {
         id: 2,
         name: 'Naor',
-        teamId: 1
+        teamId: 1,
+        typeId: 1
       },
       {
         id: 3,
         name: 'Lior',
-        teamId: 1
+        teamId: 1,
+        typeId: 1
       },
       {
         id: 4,
         name: 'Tameer',
-        teamId: 1
+        teamId: 1,
+        typeId: 1
       },
       {
         id: 5,
         name: 'Aya',
-        teamId: 1
+        teamId: 1,
+        typeId: 1
       },
     ];
     this.store.dispatch(INIT_USERS({users}));
