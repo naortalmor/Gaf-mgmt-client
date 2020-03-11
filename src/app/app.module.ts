@@ -1,7 +1,7 @@
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
 import { LaunchesComponent } from './components/launches/launches.component';
@@ -15,6 +15,8 @@ import { RestaurantComponent } from './components/launches/restaurant/restaurant
 import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 import { CalanderComponent } from './components/calander/calander.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { RestaurantListComponent } from './components/launches/restaurant-list/restaurant-list.component';
 import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
 import { TabComponent } from './components/tab/tab.component';
@@ -42,11 +44,16 @@ import { PersonComponent } from './components/mifgafs/person/person/person.compo
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers),
+    BrowserAnimationsModule,
+    MatButtonModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    FormsModule
-  ],
+    FormsModule,
+    StoreModule.forRoot(reducers),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })  ],
   providers: [],
   bootstrap: [AppComponent]
 })
