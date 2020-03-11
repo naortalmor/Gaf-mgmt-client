@@ -7,6 +7,7 @@
   <div *ngIf="shouldDisplayFullData col" class="full-restaurant">
     <mat-checkbox class="checkbox-margin" [(ngModel)]="restaurant.isHvr" [disabled]="true">חבר</mat-checkbox>
     <mat-checkbox class="checkbox-margin" [(ngModel)]="restaurant.isKosher" [disabled]="true">כשר</mat-checkbox>
-    <ngx-star-rating [id]="test11" [(ngModel)]="stamRating" [disabled]="true"></ngx-star-rating>
+    <ngx-star-rating [id]="restaurant.id" [(ngModel)]="restaurant.rank" [disabled]="true"></ngx-star-rating>
+    <button mat-raised-button>הוסף לרשימה</button>
   </div>
 </div>
