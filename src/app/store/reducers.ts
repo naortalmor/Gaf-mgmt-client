@@ -8,7 +8,7 @@ import { thisWeekPersonsReducer } from './this-week-persons/this-week-persons.re
 export const reducers = {
   mode: modesReducer,
   events: eventsReducer,
-  resturants: restaurantsReducer,
+  restaurants: restaurantsReducer,
   restaurantSurvey: restaurantSurveyReducer,
   users: usersReducer,
   thisWeekPersons: thisWeekPersonsReducer
