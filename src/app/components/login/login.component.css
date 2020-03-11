@@ -1,0 +1,27 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+}
+.login-box {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e3e3e3;
+  border-radius: 2em;
+  padding: 10px;
+}
+
+.login-input {
+  margin: 5px;
+  background-color: white;
+  height: 30px;
+  width: 100px;
+  border-radius: 5em;
+  border-color: gray;
+  border-width: 1px;
+  padding: 5px;
+}
+
+.login-item {
+  padding:10px;
+}

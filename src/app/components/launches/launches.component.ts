@@ -15,7 +15,7 @@ import { User } from '../../models/interfaces/user';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LaunchesComponent {
-  @Input() users:User[];
+  users$: Observable<User[]>;
   restaurants$:Observable<Restaurant[]>;
   restaurantSurvey$:Observable<RestaurantSurvey[]>;
   selectedTab:string;
@@ -26,6 +26,7 @@ export class LaunchesComponent {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
     this.selectedTab = Tabs.OTHER;
+    this.users$ = this.store.select('users');
     this.restaurants$ = this.store.select('restaurants');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
   }
