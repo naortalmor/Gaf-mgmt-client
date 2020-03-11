@@ -1,1 +1,15 @@
-<p>launches works!</p>
+<div class="row ctr">
+  <app-tab [header]="tabs.OTHER"
+           [isSelected]="tabs.OTHER === selectedTab"
+           (selectTabEmitter)="changeTab(tabs.OTHER)">
+  </app-tab>
+  <app-tab [header]="tabs.SUGGESTIONS"
+           [isSelected]="tabs.SUGGESTIONS === selectedTab"
+           (selectTabEmitter)="changeTab(tabs.SUGGESTIONS)">
+  </app-tab>
+</div>
+<app-suggestions-container *ngIf="tabs.SUGGESTIONS === selectedTab"
+                           [restaurants]="restaurants$ | async">
+</app-suggestions-container>
+<app-lunch-survey>
+</app-lunch-survey>
