@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 export class RestaurantComponent {
   @Input() restaurant: Restaurant;
   shouldDisplayFullData: boolean;
+  stamRating = 3;
 
   constructor() {
     this.shouldDisplayFullData = false;
