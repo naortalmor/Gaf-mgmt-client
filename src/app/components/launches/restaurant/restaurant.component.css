@@ -1,0 +1,7 @@
+.restaurant {
+  border: 1px solid black;
+  justify-content: space-around;
+  padding: 5px 20px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
