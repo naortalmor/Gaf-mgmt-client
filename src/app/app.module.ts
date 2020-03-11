@@ -15,8 +15,6 @@ import { SchedualNewEveningComponent } from './components/schedual-new-evening/s
 import { CalanderComponent } from './components/calander/calander.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { StandartButtonComponent } from './components/standart-button/standart-button.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +24,6 @@ import { StandartButtonComponent } from './components/standart-button/standart-b
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
-    StandartButtonComponent
   ],
   imports: [
     BrowserModule,
