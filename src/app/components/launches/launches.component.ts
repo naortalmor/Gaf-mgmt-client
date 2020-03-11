@@ -12,18 +12,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./launches.component.css']
 })
 export class LaunchesComponent {
-  restaurants$: Observable<Restaurant[]>;
-  selectedTab: string;
+  restaurants$:Observable<Restaurant[]>;
+  selectedTab:string;
   tabs = Tabs;
 
-  constructor(private store: Store<AppState>,
-              private restaurantsService: RestaurantsService) {
-      this.restaurantsService.initRestaurants();
-      this.selectedTab = Tabs.OTHER;
-      this.restaurants$ = this.store.select('resturants');
+  constructor(private store:Store<AppState>,
+              private restaurantsService:RestaurantsService) {
+    this.restaurantsService.initRestaurants();
+    this.selectedTab = Tabs.OTHER;
+    this.restaurants$ = this.store.select('resturants');
   }
 
-  changeTab(newTab: string): void {
+  changeTab(newTab:string):void {
     this.selectedTab = newTab;
   }
 }
