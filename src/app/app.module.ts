@@ -1,7 +1,6 @@
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
 import { LaunchesComponent } from './components/launches/launches.component';
@@ -19,7 +18,12 @@ import { SuggestionsContainerComponent } from './components/launches/suggestions
 import { TabComponent } from './components/tab/tab.component';
 import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
 import { RatingModule } from 'ng-starrating';
-
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule
+} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,11 @@ import { RatingModule } from 'ng-starrating';
     StoreModule.forRoot(reducers),
     FormsModule,
     ReactiveFormsModule,
-    RatingModule
+    RatingModule,
+    MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
