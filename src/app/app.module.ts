@@ -32,7 +32,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
   ],
