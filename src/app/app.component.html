@@ -1,4 +1,4 @@
-<div class="buttons-container" *ngIf="!(mode$ | async); else data">
+<div class="col buttons-container" *ngIf="!(mode$ | async); else data">
   <button class="home-button" (click)="selectMode(modes.MIFGAF)">ניהול מפגפים</button>
   <button class="home-button" (click)="selectMode(modes.EVENINGS)">ניהול ערבי צוות</button>
   <button class="home-button" (click)="selectMode(modes.LAUNCHES)">ארוחות צהריים</button>
