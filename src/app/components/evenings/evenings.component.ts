@@ -7,6 +7,7 @@ import { EveningService } from 'src/app/services/evening.service';
 import { Evening } from '../../models/evening';
 import { async } from '@angular/core/testing';
 import { CalendarEvent } from 'angular-calendar';
+import { CREATE_EVENT } from 'src/app/store/events/events.action';
 
 @Component({
   selector: 'app-evenings',
@@ -36,4 +37,8 @@ export class EveningsComponent implements OnInit {
   onCloseEventDetails() {
     this.selectedEvening = undefined;
   }
+  addEvent(event:CalendarEvent): void {
+    this.store.dispatch(CREATE_EVENT({newEvent:event}));
+  }
+  
 }

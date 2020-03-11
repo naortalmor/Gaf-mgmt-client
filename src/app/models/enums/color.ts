@@ -5,10 +5,14 @@ export const colors: any = {
     },
     blue: {
       primary: '#1e90ff',
-      secondary: '#D1E8FF'
+      secondary: '# '
     },
     yellow: {
       primary: '#e3bc08',
       secondary: '#FDF1BA'
+    },
+    green: {
+      primary: '#228B22',
+      secondary: '#98FB98'
     }
   };

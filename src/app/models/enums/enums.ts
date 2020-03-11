@@ -14,3 +14,13 @@ export enum Tabs {
   OTHER = 'אחרים רוצים',
   SUGGESTIONS = 'הצעות'
 }
+
+export enum Availability {
+  AVAILABLE = "AvailAble!",
+  MAYBE = "Not sure..",
+  CANT = "Defently Can't!"
+}
+
+export enum ChartType {
+  pie
+}

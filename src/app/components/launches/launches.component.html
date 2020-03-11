@@ -9,14 +9,17 @@
   </app-tab>
 </div>
 <div class="col ctr">
-  <app-suggestions-container *ngIf="tabs.SUGGESTIONS === selectedTab"
+  <app-suggestions-container (addRestaurant)="onAddRestaurant($event)" *ngIf="tabs.SUGGESTIONS === selectedTab"
                              class="launch-container"
-                             [restaurants]="restaurants$ | async">
+                             [restaurants]="restaurants$ | async"
+                             [filter]="suggestionsFilter$ | async"
+                             (filterChangedEmitter)="onFilterChanged($event)">
   </app-suggestions-container>
   <app-lunch-survey *ngIf="tabs.OTHER === selectedTab">
   </app-lunch-survey>
-  <app-chart [restaurants]="restaurants$ | async "
+  <app-restaurant-chart
+             [restaurants]="restaurants$ | async "
              [restaurantSurvey]="restaurantSurvey$ | async"
-              [users]="users$ | async">
-  </app-chart>
+             [users]="users$ | async">
+  </app-restaurant-chart>
 </div>

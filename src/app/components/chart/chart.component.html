@@ -1,13 +1,13 @@
-<ngx-charts-pie-chart
-  [view]="chartSizes"
-  [results]="chartResult"
-  [scheme]="colorScheme"
-  [gradient]="false"
-  [legend]="true"
-  [labels]="true"
-  [doughnut]="false"
-  [legendPosition]="'below'"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)">
-</ngx-charts-pie-chart>
+<div ngSwitch="{{chartType}}">
+  <ngx-charts-pie-chart *ngSwitchCase="chartTypes.pie"
+                        class="flx1"
+                        [results]="chartData"
+                        [view]="chartSizes"
+                        [scheme]="colorScheme"
+                        [gradient]="false"
+                        [legend]="false"
+                        [labels]="true"
+                        [doughnut]="false"
+                        (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
+</div>
