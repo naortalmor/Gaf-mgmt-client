@@ -13,4 +13,7 @@
 </app-suggestions-container>
 <app-lunch-survey>
 </app-lunch-survey>
-<app-chart></app-chart>
+<app-chart [restaurants]="restaurants$ | async "
+           [restaurantSurvey]="restaurantSurvey$ | async"
+            [users]="users">
+</app-chart>

@@ -9,7 +9,8 @@
     </app-mifgafs>
     <app-evenings *ngSwitchCase="modes.EVENINGS">
     </app-evenings>
-    <app-launches *ngSwitchCase="modes.LAUNCHES">
+    <app-launches *ngSwitchCase="modes.LAUNCHES"
+    [users]="users$ | async">
     </app-launches>
   </div>
 </ng-template>

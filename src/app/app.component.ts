@@ -4,6 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Modes } from './models/enums/enums';
+import { User } from './models/interfaces/user';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +15,14 @@ import { Modes } from './models/enums/enums';
 })
 export class AppComponent {
   mode$:Observable<string>;
+  users$:Observable<User[]>;
   modes:typeof Modes;
 
-  constructor(private store:Store<AppState>) {
+  constructor(private store:Store<AppState>,
+              private usersService:UsersService) {
+    this.usersService.initUsers();
     this.mode$ = this.store.select('mode');
+    this.users$ = this.store.select('users');
     this.modes = Modes;
   }
 

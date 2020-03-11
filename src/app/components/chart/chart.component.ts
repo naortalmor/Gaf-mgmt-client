@@ -15,7 +15,7 @@ const CHART_WIDTH:number = 300;
 })
 export class ChartComponent implements OnInit, OnChanges {
   @Input() restaurantSurvey:RestaurantSurvey[];
-  @Input() restaurant:Restaurant[];
+  @Input() restaurants:Restaurant[];
   @Input() users:User;
 
   view:[number, number];
@@ -43,7 +43,7 @@ export class ChartComponent implements OnInit, OnChanges {
     this.colorScheme = {
       domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
     };
-    this.result = SINGLE;
+    this.result = [];
     this.gradient = false;
     this.legend = true;
     this.legendPosition = 'below';
@@ -63,7 +63,7 @@ export class ChartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes:SimpleChanges):void {
-    if(changes.restaurantSurvey) {
+    if (changes.restaurantSurvey) {
       this.updateChartData();
     }
   }
@@ -74,14 +74,23 @@ export class ChartComponent implements OnInit, OnChanges {
 
   private updateChartData():void {
     this.restaurantSurvey.forEach((survey:RestaurantSurvey) => {
-      let restaurantName:string = this.restaurant.find(survey.restaurantId);
-      if(restaurantName)
-      const chartData:chartData = {
-        name:restaurantName,
-        value:survey.votersId.length
-      };
-      this.result.push(chartData)
-    })
+      let restaurantName:string = this.restaurants.find(restaurant => restaurant.id === survey.restaurantId).name;
+      if (restaurantName) {
+        const chartData:chartData = {
+          name: restaurantName,
+          value: survey.votersId.length
+        };
+        if(this.result.find(result => result.name === chartData.name)) {
+          this.result.map(result => {
+            if(result.name === chartData.name) {
+              result.value = chartData.value;
+            }
+          })
+        } else {
+          this.result.push(chartData);
+        }
+      }
+    });
   }
 
   onSelect(event) {
@@ -102,7 +111,7 @@ interface chartColorSchema {
   domain:string[];
 }
 
-interface chartData {
+export interface chartData {
   name:string;
   value:number;
 }
