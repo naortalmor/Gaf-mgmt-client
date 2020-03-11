@@ -1,4 +1,4 @@
-import { Restaurant } from './../../../models/restaurant';
+import { Restaurant } from '../../../models/interfaces/restaurant';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

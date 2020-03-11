@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Restaurant } from 'src/app/models/restaurant';
+import { Restaurant } from 'src/app/models/interfaces/restaurant';
 
 @Component({
   selector: 'app-suggestions-container',
