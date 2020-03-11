@@ -15,7 +15,7 @@ const CHART_WIDTH:number = 300;
 })
 export class ChartComponent implements OnInit, OnChanges {
   @Input() restaurantSurvey:RestaurantSurvey[];
-  @Input() restaurant:Restaurant;
+  @Input() restaurant:Restaurant[];
   @Input() users:User;
 
   view:[number, number];
@@ -74,8 +74,10 @@ export class ChartComponent implements OnInit, OnChanges {
 
   private updateChartData():void {
     this.restaurantSurvey.forEach((survey:RestaurantSurvey) => {
+      let restaurantName:string = this.restaurant.find(survey.restaurantId);
+      if(restaurantName)
       const chartData:chartData = {
-        name:survey.restaurantId.toString(),
+        name:restaurantName,
         value:survey.votersId.length
       };
       this.result.push(chartData)
