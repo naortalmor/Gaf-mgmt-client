@@ -11,6 +11,11 @@ import { ChartComponent } from './components/chart/chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { RestaurantListComponent } from './components/launches/restaurant-list/restaurant-list.component';
+import { RestaurantComponent } from './components/launches/restaurant/restaurant.component';
+import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
+import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
+import { CalanderComponent } from './components/calander/calander.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,12 @@ import { FormsModule } from '@angular/forms';
     LaunchesComponent,
     EveningsComponent,
     ChartComponent
+    EveningsComponent,
+    RestaurantListComponent,
+    RestaurantComponent,
+    EvningsHistoryComponent,
+    SchedualNewEveningComponent,
+    CalanderComponent
   ],
   imports: [
     BrowserModule,
