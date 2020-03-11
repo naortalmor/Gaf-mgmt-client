@@ -32,6 +32,9 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     AngularFirestoreModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    NgxStarRatingModule,
+    FontAwesomeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
