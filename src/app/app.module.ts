@@ -19,7 +19,7 @@ import { CalanderComponent } from './components/calander/calander.component';
     MifgafsComponent,
     LaunchesComponent,
     EveningsComponent,
-    GafMemberCardComponent
+    GafMemberCardComponent,
     RestaurantListComponent,
     RestaurantComponent,
     EvningsHistoryComponent,
