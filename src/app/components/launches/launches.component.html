@@ -11,5 +11,5 @@
 <app-suggestions-container *ngIf="tabs.SUGGESTIONS === selectedTab"
                            [restaurants]="restaurants$ | async">
 </app-suggestions-container>
-<app-lunch-survey>
+<app-lunch-survey *ngIf="tabs.OTHER === selectedTab">
 </app-lunch-survey>
