@@ -15,10 +15,10 @@ export class RestaurantsService {
 
   initRestaurants():void {
     const restaurants:Restaurant[] = [
-      {id: 1, name: 'מסעדה-1', address: '1', type: RestaurantTypes.ASIAN, rank: 5, isHvr: true, isKosher: true},
-      {id: 2, name: 'מסעדה-2', address: '2', type: RestaurantTypes.ASIAN, rank: 5, isHvr: true, isKosher: true},
-      {id: 3, name: 'מסעדה-3', address: '3', type: RestaurantTypes.ASIAN, rank: 5, isHvr: true, isKosher: true},
-      {id: 4, name: 'מסעדה-4', address: '4', type: RestaurantTypes.ASIAN, rank: 5, isHvr: true, isKosher: true},
+      {id: 1, name: 'מסעדה-1', address: '1', type: RestaurantTypes.ASIAN, rank: 1, isHvr: true, isKosher: true},
+      {id: 2, name: 'מסעדה-2', address: '2', type: RestaurantTypes.ASIAN, rank: 2, isHvr: true, isKosher: true},
+      {id: 3, name: 'מסעדה-3', address: '3', type: RestaurantTypes.ASIAN, rank: 3, isHvr: true, isKosher: true},
+      {id: 4, name: 'מסעדה-4', address: '4', type: RestaurantTypes.ASIAN, rank: 4, isHvr: true, isKosher: true},
       {id: 5, name: 'מסעדה-5', address: '5', type: RestaurantTypes.ASIAN, rank: 5, isHvr: true, isKosher: true}
     ];
 

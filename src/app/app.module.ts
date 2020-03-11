@@ -33,8 +33,11 @@ import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input'
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
+import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -55,7 +58,9 @@ import { HttpClientModule } from '@angular/common/http';
     TabComponent,
     LunchSurveyComponent,
     ThisWeekComponent,
-    PersonComponent
+    PersonComponent,
+    FilterSuggestionsComponent,
+    FilterSuggestionsPipe
   ],
   imports: [
     BrowserModule,
@@ -79,6 +84,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     NgxStarRatingModule,
     FontAwesomeModule,
+    MatInputModule,
     HttpClientModule
   ],
   providers: [AuthService],

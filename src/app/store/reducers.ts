@@ -1,3 +1,4 @@
+import { suggestionFilterReducer } from './suggestions-filter/suggestions-filter.reducer';
 import { modesReducer } from './modes/modes.reducer';
 import { eventsReducer } from './events/events.reducer';
 import { restaurantsReducer } from './restaurant/restaurant.reducer';
@@ -12,6 +13,7 @@ export const reducers = {
   restaurantSurvey: restaurantSurveyReducer,
   users: usersReducer,
   thisWeekPersons: thisWeekPersonsReducer,
+  suggestionsFilter: suggestionFilterReducer,
   currentUser: currentUserReducer,
   allUsers: allUsersReducer
 };
