@@ -15,6 +15,9 @@ import { CalanderComponent } from './components/calander/calander.component';
 import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
+import { TabComponent } from './components/tab/tab.component';
+import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { CommonModule } from '@angular/common';
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
-    AddRestaurant
+    AddRestaurant,
+    SuggestionsContainerComponent,
+    TabComponent,
+    LunchSurveyComponent
   ],
   imports: [
     BrowserModule,
