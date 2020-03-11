@@ -20,6 +20,7 @@ export class AddRestaurant implements OnInit{
     starColor = 'black'
     finishedRating: number = 0;
     @Output() addRestaurant = new EventEmitter<Restaurant>();
+    @Output() closeForm = new EventEmitter<void>();
 
     ngOnInit() {
         this.newRestuarantForm = new FormGroup({
@@ -44,5 +45,10 @@ export class AddRestaurant implements OnInit{
     rank: this.finishedRating}
     this.addRestaurant.emit(newRestuarant);
     } 
+
+    onCloseForm(){
+      console.log('closing')
+      this.closeForm.emit()
+    }
 }
 

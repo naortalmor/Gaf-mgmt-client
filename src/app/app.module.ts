@@ -2,7 +2,7 @@
 
 import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
 import { CommonModule } from '@angular/common';
-
+import {MatCardModule} from '@angular/material/card';
 import { RatingModule } from 'ng-starrating';
 import {
   MatFormFieldModule,
@@ -83,6 +83,7 @@ import { VotersNamesComponent } from './components/voters-names/voters-names.com
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
     StoreModule.forRoot(reducers),
     FormsModule,
     ReactiveFormsModule,
