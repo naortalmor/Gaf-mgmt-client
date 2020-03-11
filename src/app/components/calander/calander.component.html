@@ -67,11 +67,23 @@
     [events]="events"
     [refresh]="refresh"
     [activeDayIsOpen]="activeDayIsOpen"
-    (dayClicked)="dayClicked($event.day)"
+    (dayClicked)="dayClicked($event)"
+    (click)="print($event)"
     (eventClicked)="handleEvent('Clicked', $event.event)"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-month-view>
+  <div
+  *ngIf="isPanelOpen"
+  [style.left.px]="position.x"
+  [style.top.px]="position.y"
+   class="full-screen-menu"
+    > 
+    <app-availability-menu
+    (optionChosen)="addEvent($event, viewDate)"
+    >
+       </app-availability-menu>
+  </div>
   <mwl-calendar-week-view
     *ngSwitchCase="CalendarView.Week"
     [viewDate]="viewDate"
@@ -92,5 +104,5 @@
   </mwl-calendar-day-view>
 </div>
 
-  <button mat-icon-button color="warn"> Add </button>
-  <button mat-button color="primary">Primary</button>
+
+

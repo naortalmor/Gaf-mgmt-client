@@ -26,6 +26,8 @@ import {
 } from 'angular-calendar';
 import { EventEmitter } from '@angular/core';
 import {colors} from '../../models/enums/color'
+import { NumberCardModule } from '@swimlane/ngx-charts';
+import { Position } from '../../models/interfaces/position';
 
 @Component({
   selector: 'app-calander',
@@ -37,6 +39,8 @@ export class CalanderComponent implements OnInit {
   @Output() eventAdded:EventEmitter<CalendarEvent>;
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
+  position:Position;
+  isPanelOpen: boolean;
   view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;
@@ -72,34 +76,26 @@ export class CalanderComponent implements OnInit {
   
   constructor() {
     this.eventAdded = new EventEmitter<CalendarEvent>();
+    this.isPanelOpen = false;
   }
 
 
   ngOnInit() {
   }
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
+  dayClicked(event:any): void {
+    if (isSameMonth(event.day.date, this.viewDate)) {
       if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
+        (isSameDay(this.viewDate, event.day.date) && this.activeDayIsOpen === true)
       ) {
         this.activeDayIsOpen = false;
       } else {
         this.activeDayIsOpen = true;
       }
-      this.viewDate = date;
+      this.viewDate = event.day.date;
     }
-
-    this.eventAdded.emit(
-      {
-        start: date,
-        end: date,
-        title: 'I cant',
-        color: colors.red,
-        allDay: true,
-      }
-    );
+    this.isPanelOpen = true;
+    this.position = {x:event.sourceEvent.x, y:event.sourceEvent.y};
   }
 
   eventTimesChanged({
@@ -124,21 +120,21 @@ export class CalanderComponent implements OnInit {
     this.modalData = { event, action };
   }
 
-  addEvent(): void {
-    // this.events = [
-    //   ...this.events,
-    //   {
-    //     title: 'New event',
-    //     start: startOfDay(new Date()),
-    //     end: endOfDay(new Date()),
-    //     color: colors.red,
-    //     draggable: true,
-    //     resizable: {
-    //       beforeStart: true,
-    //       afterEnd: true
-    //     }
-    //   }
-    // ];
+  addEvent(option:NumberCardModule): void {
+    let colorToMark = colors.green;
+    if (option !== 1) {
+      colorToMark = option == 2 ? colors.yellow : colors.red;
+    }
+    this.eventAdded.emit(
+      {
+        start: this.viewDate,
+        end: this.viewDate,
+        title: 'I cant',
+        color: colorToMark,
+        allDay: true,
+      }
+    );
+    this.isPanelOpen = false;
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
@@ -152,5 +148,4 @@ export class CalanderComponent implements OnInit {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
-
 }
