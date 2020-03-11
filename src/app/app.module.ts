@@ -1,7 +1,7 @@
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
 import { LaunchesComponent } from './components/launches/launches.component';
@@ -53,7 +53,8 @@ import { PersonComponent } from './components/mifgafs/person/person/person.compo
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })  ],
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

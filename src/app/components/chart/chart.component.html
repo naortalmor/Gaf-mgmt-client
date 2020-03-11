@@ -1,13 +1,19 @@
-<ngx-charts-pie-chart
-  [view]="chartSizes"
-  [results]="chartResult"
-  [scheme]="colorScheme"
-  [gradient]="false"
-  [legend]="true"
-  [labels]="true"
-  [doughnut]="false"
-  [legendPosition]="'below'"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)">
-</ngx-charts-pie-chart>
+<div class="chart ctr">
+  <app-voters-names *ngIf="voters && voters.length"
+                    class="flx1"
+                    [header]="header"
+                    [voters]="voters"
+                    (closeEmitter)="closeVotersNames()">
+  </app-voters-names>
+  <ngx-charts-pie-chart
+    class="flx1"
+    [view]="chartSizes"
+    [results]="chartResult"
+    [scheme]="colorScheme"
+    [gradient]="false"
+    [legend]="false"
+    [labels]="true"
+    [doughnut]="false"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
+</div>

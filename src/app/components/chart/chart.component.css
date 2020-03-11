@@ -1,0 +1,9 @@
+.chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.flx1 {
+  flex: 1;
+}
