@@ -12,6 +12,8 @@ import { RestaurantComponent } from './components/launches/restaurant/restaurant
 import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 import { CalanderComponent } from './components/calander/calander.component';
+import { ThisWeekComponent } from './components/mifgafs/this-week/this-week/this-week.component';
+import { PersonComponent } from './components/mifgafs/person/person/person.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CalanderComponent } from './components/calander/calander.component';
     RestaurantComponent,
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
-    CalanderComponent
+    CalanderComponent,
+    ThisWeekComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
