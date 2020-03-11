@@ -14,6 +14,10 @@ import { EvningsHistoryComponent } from './components/evnings-history/evnings-hi
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 import { CalanderComponent } from './components/calander/calander.component';
 import { GafMemberCardComponent } from './components/evenings/gaf-member-card/gaf-member-card.component';
+import { EveningComponent } from './components/evenings/evening/evening.component';
+import { EveningListComponent } from './components/evenings/evening-list/evening-list.component';
+import { EveningDetailsComponent } from './components/evenings/evening-details/evening-details.component';
+import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,14 @@ import { GafMemberCardComponent } from './components/evenings/gaf-member-card/ga
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
-    MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions
+    MatCard, 
+    MatCardTitle, 
+    MatCardHeader, 
+    MatCardSubtitle, 
+    MatCardContent, 
+    MatCardActions, 
+    EveningComponent, 
+    EveningListComponent, EveningDetailsComponent, EveningCardComponent
   ],
   imports: [
     BrowserModule,
