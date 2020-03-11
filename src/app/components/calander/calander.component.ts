@@ -17,7 +17,7 @@ import {
   isSameMonth,
   addHours
 } from 'date-fns';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -28,6 +28,8 @@ import { EventEmitter } from '@angular/core';
 import {colors} from '../../models/enums/color'
 import { NumberCardModule } from '@swimlane/ngx-charts';
 import { Position } from '../../models/interfaces/position';
+import { UsersService } from 'src/app/services/users.service';
+import { User } from 'src/app/models/interfaces/user';
 
 @Component({
   selector: 'app-calander',
@@ -39,6 +41,7 @@ export class CalanderComponent implements OnInit {
   @Output() eventAdded:EventEmitter<CalendarEvent>;
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
+  user:User;
   position:Position;
   isPanelOpen: boolean;
   view: CalendarView = CalendarView.Month;
@@ -74,9 +77,10 @@ export class CalanderComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
   
-  constructor() {
+  constructor(private userService:UsersService) {
     this.eventAdded = new EventEmitter<CalendarEvent>();
     this.isPanelOpen = false;
+    this.userService.getCurrentUser().subscribe((user) => this.user = user);
   }
 
 
@@ -129,7 +133,7 @@ export class CalanderComponent implements OnInit {
       {
         start: this.viewDate,
         end: this.viewDate,
-        title: 'I cant',
+        title: this.user.name,
         color: colorToMark,
         allDay: true,
       }
