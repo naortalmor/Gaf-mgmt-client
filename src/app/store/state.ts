@@ -6,7 +6,7 @@ import { User } from '../models/interfaces/user';
 export interface AppState {
   mode: string;
   events: CalendarEvent[];
-  resturants: Restaurant[];
+  restaurants: Restaurant[];
   restaurantSurvey:RestaurantSurvey[];
   users:User[];
 }
