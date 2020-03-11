@@ -1,36 +1,55 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MULTI } from './data';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./char.component.css'],
+  styleUrls: ['./chart.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartComponent {
-  multi: any[];
-  view: any[] = [700, 300];
-
-  // options
-  legend: boolean = true;
-  showLabels: boolean = true;
-  animations: boolean = true;
-  xAxis: boolean = true;
-  yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
-  timeline: boolean = true;
-
-  colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
-  };
+  multi:any[];
+  view:number[];
+  legend:boolean;
+  showLabels:boolean;
+  animations:boolean;
+  xAxis:boolean;
+  yAxis:boolean;
+  showYAxisLabel:boolean;
+  showXAxisLabel:boolean;
+  xAxisLabel:string;
+  yAxisLabel:string;
+  timeline:boolean;
+  colorScheme:{ domain:string[] };
 
   constructor() {
-    Object.assign(this, { multi });
+    this.multi = MULTI;
+    this.view = [700, 300];
+    this.legend = true;
+    this.showLabels = true;
+    this.animations = true;
+    this.xAxis = true;
+    this.yAxis = true;
+    this.showYAxisLabel = true;
+    this.showXAxisLabel = true;
+    this.xAxisLabel = 'Year';
+    this.yAxisLabel = 'Population';
+    this.timeline = true;
+    this.colorScheme = {
+      domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    };
   }
 
   onSelect(event) {
     console.log(event);
+  }
+
+  onActivate(data):void {
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data):void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+
   }
 }
