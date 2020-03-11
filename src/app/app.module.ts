@@ -1,6 +1,7 @@
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
@@ -12,6 +13,7 @@ import { RestaurantComponent } from './components/launches/restaurant/restaurant
 import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 import { CalanderComponent } from './components/calander/calander.component';
+import { GafMemberCardComponent } from './components/evenings/gaf-member-card/gaf-member-card.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { CalanderComponent } from './components/calander/calander.component';
     RestaurantComponent,
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
-    CalanderComponent
+    CalanderComponent,
+    MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
