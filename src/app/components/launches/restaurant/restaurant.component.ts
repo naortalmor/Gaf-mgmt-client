@@ -8,4 +8,13 @@ import { Component, Input } from '@angular/core';
 })
 export class RestaurantComponent {
   @Input() restaurant: Restaurant;
+  shouldDisplayFullData: boolean;
+
+  constructor() {
+    this.shouldDisplayFullData = false;
+  }
+
+  toggleRestaurantFullData() {
+    this.shouldDisplayFullData = !this.shouldDisplayFullData;
+  }
 }
