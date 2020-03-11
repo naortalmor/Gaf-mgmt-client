@@ -1,4 +1,12 @@
-.this-week {
-    color: red;
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+.winners {
+    background: #353535;
+    padding: 20px;
+    width: min-content;
+}
