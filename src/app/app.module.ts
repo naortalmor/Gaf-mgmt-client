@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
 import { TabComponent } from './components/tab/tab.component';
 import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-s
     StoreModule.forRoot(reducers),
     FormsModule,
     ReactiveFormsModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

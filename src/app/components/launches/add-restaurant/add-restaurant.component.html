@@ -1,7 +1,9 @@
 <div class="container">
     <form [formGroup]="newRestuarantForm">
+        <mat-form-field>
         <label>שם</label>
             <input type="text"  id='name' formControlName="name">
+        </mat-form-field>
           <label>כתובת</label>
             <input type="text" formControlName="address">
             <label>סגנון</label>
@@ -13,4 +15,5 @@
             <label>כשר</label>
             <input type="checkbox" formControlName ="kosher">
             </form>
+            <star-rating value="0" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px" readonly="false" (rate)="onRate($event)"></star-rating>
 </div>

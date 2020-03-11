@@ -12,14 +12,23 @@ import { RestaurantTypes } from 'src/app/models/enums/enums';
 export class AddRestaurant implements OnInit{
     newRestuarantForm: FormGroup;
     RestaurantTypes = Object.values(RestaurantTypes);
+    rating:number = 3;
+    starCount:number = 5;
+    starColor = 'black'
 
     ngOnInit() {
         this.newRestuarantForm = new FormGroup({
           name: new FormControl(''),
           address: new FormControl(''),
           cuisine: new FormControl(''),
-          options: new FormControl('')
+          options: new FormControl(''),
+          hever: new FormControl(false),
+          kosher: new FormControl(false)
         });
+    }
+
+    onRate($event: number){
+        console.log($event);
     }
 }
 
