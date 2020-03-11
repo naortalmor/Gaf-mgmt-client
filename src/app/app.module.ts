@@ -2,6 +2,7 @@ import {reducers} from './store/reducers';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 import {AppComponent} from './app.component';
 import {MifgafsComponent} from './components/mifgafs/mifgafs.component';
 import {LaunchesComponent} from './components/launches/launches.component';
@@ -36,9 +37,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input'
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+<<<<<<< HEAD
+import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
+=======
 import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
 import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
 import { HttpClientModule } from '@angular/common/http';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -59,13 +64,18 @@ import { HttpClientModule } from '@angular/common/http';
     LunchSurveyComponent,
     ThisWeekComponent,
     PersonComponent,
+<<<<<<< HEAD
+    AvailabilityMenuComponent
+=======
     FilterSuggestionsComponent,
     FilterSuggestionsPipe
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatMenuModule,
     NgxChartsModule,
     BrowserAnimationsModule,
     FormsModule,
