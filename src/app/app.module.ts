@@ -32,9 +32,13 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+<<<<<<< HEAD
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+=======
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> mifgaf-this-week3
 
 @NgModule({
   declarations: [
@@ -75,9 +79,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     FormsModule,
+<<<<<<< HEAD
     MatCheckboxModule,
     NgxStarRatingModule,
     FontAwesomeModule
+=======
+    HttpClientModule
+>>>>>>> mifgaf-this-week3
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

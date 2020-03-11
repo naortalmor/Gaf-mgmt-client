@@ -22,8 +22,4 @@ export class MifgafsComponent implements OnInit {
   ngOnInit() {
     
   }
-
-  add() {
-    this.thisWeekPersons.subscribe(value => console.log(value))
-  }
 }
