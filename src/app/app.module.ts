@@ -34,9 +34,16 @@ import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input'
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+<<<<<<< HEAD
 import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
+=======
+import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
+import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -57,7 +64,12 @@ import { AvailabilityMenuComponent } from './components/availability-menu/availa
     LunchSurveyComponent,
     ThisWeekComponent,
     PersonComponent,
+<<<<<<< HEAD
     AvailabilityMenuComponent
+=======
+    FilterSuggestionsComponent,
+    FilterSuggestionsPipe
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
@@ -81,7 +93,9 @@ import { AvailabilityMenuComponent } from './components/availability-menu/availa
     FormsModule,
     MatCheckboxModule,
     NgxStarRatingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

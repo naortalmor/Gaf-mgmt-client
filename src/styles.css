@@ -41,3 +41,10 @@ body {
   background-color: red;
   color: #fff;
 }
+.p-m {
+  padding: 10px;
+}
+
+.m-m {
+  margin: 10px;
+}
