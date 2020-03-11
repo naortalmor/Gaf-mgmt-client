@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/state';
 import { User } from '../models/interfaces/user';
-import { INIT_USERS, INIT_ALL_USERS } from '../store/users/user.actions';
+import { INIT_USERS, INIT_ALL_USERS, INIT_CURRENT_USER } from '../store/users/user.actions';
 import { dispatch } from 'rxjs/internal/observable/pairs';
 import { HttpClient } from '@angular/common/http';
 
@@ -16,6 +16,13 @@ export class UsersService {
   initUsers():void {
     this.http.get('http://localhost:1111/mifgafim/getAllUsers')
     .subscribe((allUsers:User[]) => this.store.dispatch(INIT_USERS({users: allUsers})));
+    let user:User = {
+      id:1,
+      name:'Ran',
+      teamId:1,
+      typeId:1
+    };
+    this.store.dispatch(INIT_CURRENT_USER({currentUser: user}));
   }
 
   getAllUsers() {
