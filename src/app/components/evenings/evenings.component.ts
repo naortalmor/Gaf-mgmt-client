@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { EveningService } from 'src/app/services/evening.service';
 import { Evening } from '../../models/evening';
 import { async } from '@angular/core/testing';
+import { CalendarEvent } from 'angular-calendar';
 
 @Component({
   selector: 'app-evenings',
@@ -13,6 +14,7 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./evenings.component.css']
 })
 export class EveningsComponent implements OnInit {
+  events$: Observable<CalendarEvent[]>;
 
   evenings: Evening[];
   selectedEvening: Evening;
