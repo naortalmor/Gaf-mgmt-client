@@ -26,3 +26,11 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+.p-m {
+  padding: 10px;
+}
+
+.m-m {
+  margin: 10px;
+}
