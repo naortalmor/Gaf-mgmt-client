@@ -1,3 +1,5 @@
+import { CHANGE_FILTER } from './../../store/suggestions-filter/suggestions-filter.actions';
+import { FilterSuggestions } from './../../models/interfaces/suggestion-filter';
 import { Tabs } from './../../models/enums/enums';
 import { Restaurant } from '../../models/interfaces/restaurant';
 import { RestaurantsService } from './../../services/restaurants.service';
@@ -16,22 +18,33 @@ import { User } from '../../models/interfaces/user';
 })
 export class LaunchesComponent {
   users$: Observable<User[]>;
-  restaurants$:Observable<Restaurant[]>;
-  restaurantSurvey$:Observable<RestaurantSurvey[]>;
-  selectedTab:string;
+  restaurants$: Observable<Restaurant[]>;
+  restaurantSurvey$: Observable<RestaurantSurvey[]>;
+  suggestionsFilter$: Observable<FilterSuggestions>;
+  selectedTab: string;
   tabs = Tabs;
+  userRestaurantSelection: Restaurant;
 
-  constructor(private store:Store<AppState>,
-              private restaurantsService:RestaurantsService) {
+  constructor(private store: Store<AppState>,
+              private restaurantsService: RestaurantsService) {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
     this.selectedTab = Tabs.OTHER;
     this.users$ = this.store.select('users');
     this.restaurants$ = this.store.select('restaurants');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
+    this.suggestionsFilter$ = this.store.select('suggestionsFilter');
   }
 
-  changeTab(newTab:string):void {
+  changeTab(newTab: string): void {
     this.selectedTab = newTab;
+  }
+
+  selectRestaurant(selectedRestaurant: Restaurant) {
+    this.userRestaurantSelection = selectedRestaurant;
+  }
+
+  onFilterChanged(filter: FilterSuggestions): void {
+    this.store.dispatch(CHANGE_FILTER({filter}))
   }
 }

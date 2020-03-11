@@ -1,0 +1,15 @@
+<div class="filter-container">
+  <form [formGroup]="filterForm" (ngSubmit)="onSubmit()" class="col ctr">
+    <div class="row m-m">
+      <label class="filter-element p-m">
+        לפי שם
+        <input type="text" formControlName="name">
+      </label>
+      <label class="filter-element p-m">
+        דירוג מינימלי
+        <input type="number" formControlName="minRank" max="5" min="1">
+      </label>
+    </div>
+    <button mat-raised-button type="submit" class="m-m">סנן</button>
+  </form>
+</div>

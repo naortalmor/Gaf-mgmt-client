@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 import { Restaurant } from '../../models/interfaces/restaurant';
 import { User } from '../../models/interfaces/user';
@@ -6,7 +14,9 @@ import { chartData } from '../../models/interfaces/chart-data';
 
 const CHART_HEIGHT:number = 700;
 const CHART_WIDTH:number = 300;
+const NOT_FOUNT_IN_CHART:number = -1;
 const COLOR_SCHEME:string[] = ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'];
+const VOTERS_POP_UP_HEADER:string = 'שמות המצביעים';
 
 @Component({
   selector: 'app-chart',
@@ -17,15 +27,19 @@ const COLOR_SCHEME:string[] = ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a83
 export class ChartComponent implements OnChanges {
   @Input() restaurantSurvey:RestaurantSurvey[];
   @Input() restaurants:Restaurant[];
-  @Input() users:User;
+  @Input() users:User[];
 
   chartSizes:[number, number];
   chartResult:chartData[];
   colorScheme:chartColorSchema;
+  voters:string[];
+  header:string;
 
   constructor() {
     this.chartSizes = [CHART_HEIGHT, CHART_WIDTH];
     this.chartResult = [];
+    this.voters = [];
+    this.header = VOTERS_POP_UP_HEADER;
     this.colorScheme = {domain: COLOR_SCHEME};
   }
 
@@ -35,16 +49,23 @@ export class ChartComponent implements OnChanges {
     }
   }
 
-  onSelect(event) {
-    console.log(event);
+  onSelect(event:any):void {
+    let restaurant:Restaurant = this.restaurants.find(restaurant => restaurant.name === event.name);
+    if (restaurant) {
+      let restaurantSurvey:RestaurantSurvey = this.restaurantSurvey.find(survey => survey.restaurantId === restaurant.id);
+      if (restaurantSurvey) {
+        this.openVoters(restaurantSurvey.votersIds);
+      }
+    }
   }
 
-  onActivate(data):void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  closeVotersNames():void {
+    this.voters = [];
   }
 
-  onDeactivate(data):void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  private openVoters(votersIds:number[]):void {
+    let voters:User[] = this.users.filter(user => votersIds.includes(user.id));
+    this.voters = voters.map(voter => voter.name);
   }
 
   private updateChartData():void {
@@ -53,7 +74,7 @@ export class ChartComponent implements OnChanges {
       if (restaurant) {
         const chartData:chartData = {
           name: restaurant.name,
-          value: survey.votersId.length
+          value: survey.votersIds.length
         };
         this.insertChartData(chartData);
       }
@@ -62,7 +83,7 @@ export class ChartComponent implements OnChanges {
 
   private insertChartData(chartData:chartData):void {
     let restaurantResultIndex:number = this.chartResult.findIndex(result => result.name === chartData.name);
-    if (restaurantResultIndex !== -1) {
+    if (restaurantResultIndex !== NOT_FOUNT_IN_CHART) {
       this.chartResult[restaurantResultIndex].value = chartData.value;
     } else {
       this.chartResult.push(chartData);
@@ -72,4 +93,10 @@ export class ChartComponent implements OnChanges {
 
 interface chartColorSchema {
   domain:string[];
+}
+
+
+export interface DialogData {
+  animal:string;
+  name:string;
 }
