@@ -48,3 +48,7 @@ body {
 .m-m {
   margin: 10px;
 }
+
+.flx1 {
+  flex: 1;
+}
