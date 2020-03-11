@@ -4,6 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/state';
 import { MifgafService } from 'src/app/services/mifgaf.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-mifgafs',

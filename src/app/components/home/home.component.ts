@@ -17,9 +17,7 @@ export class HomeComponent {
   users$: Observable<User[]>;
   modes: typeof Modes;
 
-  constructor(private store: Store<AppState>,
-              private usersService: UsersService) {
-    this.usersService.initUsers();
+  constructor(private store: Store<AppState>) {
     this.mode$ = this.store.select('mode');
     this.users$ = this.store.select('users');
     this.modes = Modes;

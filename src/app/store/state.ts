@@ -11,4 +11,6 @@ export interface AppState {
   restaurantSurvey:RestaurantSurvey[];
   users:User[];
   thisWeekPersons:Person[];
+  currentUser:User;
+  allUsers:User[];
 }
