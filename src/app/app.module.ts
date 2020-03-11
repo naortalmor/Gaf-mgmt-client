@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { MifgafsComponent } from './components/mifgafs/mifgafs.component';
@@ -15,6 +15,7 @@ import { SchedualNewEveningComponent } from './components/schedual-new-evening/s
 import { CalanderComponent } from './components/calander/calander.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { StandartButtonComponent } from './components/standart-button/standart-button.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,13 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     EveningsComponent,
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
-    CalanderComponent
+    CalanderComponent,
+    StandartButtonComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     StoreModule.forRoot(reducers),
     CalendarModule.forRoot({
       provide: DateAdapter,

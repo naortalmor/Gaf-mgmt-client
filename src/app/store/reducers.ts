@@ -3,5 +3,5 @@ import { eventsReducer } from './events/events.reducer';
 
 export const reducers = {
   mode: modesReducer,
-  event: eventsReducer
+  events: eventsReducer
 }
