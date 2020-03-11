@@ -7,7 +7,8 @@ export enum Modes {
 export enum RestaurantTypes {
   ASIAN = 'אסייתי',
   ITALIAN = 'איטלקי',
-  CAFFE = 'בית קפה'
+  CAFFE = 'בית קפה',
+  BURGER = 'המבורגר'
 }
 
 export enum Tabs {
