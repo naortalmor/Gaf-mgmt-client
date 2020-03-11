@@ -17,7 +17,6 @@ const CHART_WIDTH:number = 300;
 const NOT_FOUNT_IN_CHART:number = -1;
 const COLOR_SCHEME:string[] = ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'];
 const VOTERS_POP_UP_HEADER:string = 'שמות המצביעים';
-const VOTERS_MODEL_ID:string = 'popupVoters';
 
 @Component({
   selector: 'app-chart',
@@ -29,7 +28,6 @@ export class ChartComponent implements OnChanges {
   @Input() restaurantSurvey:RestaurantSurvey[];
   @Input() restaurants:Restaurant[];
   @Input() users:User[];
-  @Output() openDialogEmitter:EventEmitter<User[]>;
 
   chartSizes:[number, number];
   chartResult:chartData[];
@@ -38,7 +36,6 @@ export class ChartComponent implements OnChanges {
   header:string;
 
   constructor() {
-    this.openDialogEmitter = new EventEmitter<User[]>();
     this.chartSizes = [CHART_HEIGHT, CHART_WIDTH];
     this.chartResult = [];
     this.voters = [];

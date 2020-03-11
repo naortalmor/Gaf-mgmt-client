@@ -41,6 +41,7 @@ import { AvailabilityMenuComponent } from './components/availability-menu/availa
 import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
 import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { VotersNamesComponent } from './components/voters-names/voters-names.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
     PersonComponent,
     AvailabilityMenuComponent,
     FilterSuggestionsComponent,
-    FilterSuggestionsPipe
+    FilterSuggestionsPipe,
+    VotersNamesComponent
   ],
   imports: [
     BrowserModule,
