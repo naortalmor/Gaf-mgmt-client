@@ -1,7 +1,7 @@
 import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
 
 import { RatingModule } from 'ng-starrating';
-import { MatFormFieldModule, MatInputModule, MatOptionModule, } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatOptionModule } from '@angular/material';
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,9 +17,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantComponent } from './components/launches/restaurant/restaurant.component';
-import { EvningsHistoryComponent } from './components/evnings-history/evnings-history.component';
-import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
-import { CalanderComponent } from './components/calander/calander.component';
+import { EvningsHistoryComponent } from './components/evenings/evnings-history/evnings-history.component';
+import { SchedualNewEveningComponent } from './components/evenings/schedual-new-evening/schedual-new-evening.component';
+import { CalanderComponent } from './components/evenings/calander/calander.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { RestaurantListComponent } from './components/launches/restaurant-list/restaurant-list.component';
