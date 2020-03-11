@@ -16,6 +16,9 @@ import { EvningsHistoryComponent } from './components/evnings-history/evnings-hi
 import { SchedualNewEveningComponent } from './components/schedual-new-evening/schedual-new-evening.component';
 import { CalanderComponent } from './components/calander/calander.component';
 import { RestaurantListComponent } from './components/launches/restaurant-list/restaurant-list.component';
+import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
+import { TabComponent } from './components/tab/tab.component';
+import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { RestaurantListComponent } from './components/launches/restaurant-list/r
     RestaurantComponent,
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
-    CalanderComponent
+    CalanderComponent,
+    SuggestionsContainerComponent,
+    TabComponent,
+    LunchSurveyComponent
   ],
   imports: [
     BrowserModule,

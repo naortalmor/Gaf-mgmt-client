@@ -9,3 +9,8 @@ export enum RestaurantTypes {
   ITALIAN = 'איטלקי',
   CAFFE = 'בית קפה'
 }
+
+export enum Tabs {
+  OTHER = 'אחרים רוצים',
+  SUGGESTIONS = 'הצעות'
+}

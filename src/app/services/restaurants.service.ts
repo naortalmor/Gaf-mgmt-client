@@ -9,7 +9,6 @@ import { AppState } from '../store/state';
 export class RestaurantsService {
 
   constructor(private store: Store<AppState>) {
-    this.initRestaurants();
   }
 
   initRestaurants() {
