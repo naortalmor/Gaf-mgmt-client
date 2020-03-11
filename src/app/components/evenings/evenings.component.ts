@@ -3,6 +3,7 @@ import { CalendarEvent } from 'angular-calendar';
 import { AppState } from 'src/app/store/state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CREATE_EVENT } from 'src/app/store/events/events.action';
 
 @Component({
   selector: 'app-evenings',
@@ -20,4 +21,8 @@ export class EveningsComponent implements OnInit {
   ngOnInit() {
   }
 
+  addEvent(event:CalendarEvent): void {
+    this.store.dispatch(CREATE_EVENT({newEvent:event}));
+  }
+  
 }

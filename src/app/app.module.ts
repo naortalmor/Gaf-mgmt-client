@@ -14,7 +14,8 @@ import {
 import {reducers} from './store/reducers';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 import {AppComponent} from './app.component';
 import {MifgafsComponent} from './components/mifgafs/mifgafs.component';
 import {LaunchesComponent} from './components/launches/launches.component';
@@ -47,6 +48,13 @@ import {environment} from '../environments/environment';
 import {AuthService} from './routes/services/auth.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {MatSelectModule} from '@angular/material/select';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
+import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
+import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { VotersNamesComponent } from './components/voters-names/voters-names.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +75,11 @@ import {MatSelectModule} from '@angular/material/select';
     TabComponent,
     LunchSurveyComponent,
     ThisWeekComponent,
-    PersonComponent
+    PersonComponent,
+    AvailabilityMenuComponent,
+    FilterSuggestionsComponent,
+    FilterSuggestionsPipe,
+    VotersNamesComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +93,7 @@ import {MatSelectModule} from '@angular/material/select';
   MatCheckboxModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatMenuModule,
     NgxChartsModule,
     BrowserAnimationsModule,
     MatSelectModule,
@@ -91,14 +104,20 @@ import {MatSelectModule} from '@angular/material/select';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    }),
+    })
+,
     RoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    NgxStarRatingModule,
+    FontAwesomeModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

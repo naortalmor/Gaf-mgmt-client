@@ -22,3 +22,29 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.clickable {
+  cursor: pointer;
+}
+
+.mat-success {
+  background-color: green;
+  color: #fff;
+}
+
+.mat-success {
+  background-color: yellow;
+  color: #fff;
+}
+
+.mat-success {
+  background-color: red;
+  color: #fff;
+}
+.p-m {
+  padding: 10px;
+}
+
+.m-m {
+  margin: 10px;
+}
