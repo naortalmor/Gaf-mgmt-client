@@ -1,80 +1,13 @@
-<div *ngIf="false">
-  <ngx-charts-area-chart
-    [view]="view"
-    [scheme]="colorScheme"
-    [legend]="legend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxis]="xAxis"
-    [yAxis]="yAxis"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    [timeline]="timeline"
-    [results]="multi"
-    (select)="onSelect($event)">
-  </ngx-charts-area-chart>
-
-  <span> ----------------------------------------------------------------------------------------------------------- </span>
-
-  <ngx-charts-line-chart
-    [view]="view"
-    [scheme]="colorScheme"
-    [legend]="legend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxis]="xAxis"
-    [yAxis]="yAxis"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    [timeline]="timeline"
-    [results]="multi"
-    (select)="onSelect($event)"
-    (activate)="onActivate($event)"
-    (deactivate)="onDeactivate($event)">
-  </ngx-charts-line-chart>
-
-  <span> --------------------------------------------------------------------------------------------------------------- </span>
-  <ngx-charts-bar-vertical
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="result"
-    [gradient]="gradient"
-    [xAxis]="xAxis"
-    [yAxis]="yAxis"
-    [legend]="legend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    (select)="onSelect($event)">
-  </ngx-charts-bar-vertical>
-
-  <span> --------------------------------------------------------------------------------------------------------------- </span>
-
-  <ngx-charts-gauge
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="result"
-    [legend]="legend"
-    [legendPosition]="legendPosition"
-    (select)="onSelect($event)"
-    (activate)="onActivate($event)"
-    (deactivate)="onDeactivate($event)">
-  </ngx-charts-gauge>
-
-  <span> --------------------------------------------------------------------------------------------------------------- </span>
-</div>
 <ngx-charts-pie-chart
-  [view]="view"
+  [view]="chartSizes"
+  [results]="chartResult"
   [scheme]="colorScheme"
-  [results]="result"
-  [gradient]="gradient"
-  [legend]="legend"
-  [legendPosition]="legendPosition"
-  [labels]="showLabels"
-  [doughnut]="isDoughnut"
+  [gradient]="false"
+  [legend]="true"
+  [labels]="true"
+  [doughnut]="false"
+  [legendPosition]="'below'"
   (select)="onSelect($event)"
   (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
->
+  (deactivate)="onDeactivate($event)">
 </ngx-charts-pie-chart>
