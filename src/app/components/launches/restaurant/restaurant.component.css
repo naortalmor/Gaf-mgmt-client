@@ -1,7 +1,19 @@
 .restaurant {
   border: 1px solid black;
-  justify-content: space-around;
   padding: 5px 20px;
   margin-top: 5px;
   border-radius: 10px;
+}
+
+.minimize-restaurant {
+  justify-content: space-around;
+}
+
+.full-restaurant {
+  align-self: center;
+  margin: 10px 0 5px 0;
+}
+
+.checkbox-margin {
+  margin: 0 10px;
 }
