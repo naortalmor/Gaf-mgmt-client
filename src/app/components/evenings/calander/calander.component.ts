@@ -25,9 +25,9 @@ import {
   CalendarView
 } from 'angular-calendar';
 import { EventEmitter } from '@angular/core';
-import {colors} from '../../models/enums/color'
+import {colors} from '../../../models/enums/color'
 import { NumberCardModule } from '@swimlane/ngx-charts';
-import { Position } from '../../models/interfaces/position';
+import { Position } from '../../../models/interfaces/position';
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/models/interfaces/user';
 
