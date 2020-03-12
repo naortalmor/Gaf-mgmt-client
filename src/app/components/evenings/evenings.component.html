@@ -25,5 +25,6 @@
 <app-schedual-new-evening *ngIf="!displayedPart"
 [events]="events$ | async"
 (eventAdded)="addEvent($event)"
+(eventDeleted)="deleteEvent($event)"
 > </app-schedual-new-evening>
 
