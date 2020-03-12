@@ -61,6 +61,11 @@ export class LaunchesComponent {
     this.restaurantsService.toggleRestaurantSurveyStatus();
   }
 
+  onSurveySubmitted(restaurantKey:string) {
+    console.log(restaurantKey);
+    this.onSurveyClosed();
+  }
+
   onSurveyClosed():void {
     this.restaurantsService.toggleRestaurantSurveyStatus();
   }

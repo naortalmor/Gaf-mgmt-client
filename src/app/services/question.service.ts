@@ -12,6 +12,7 @@ export class QuestionService {
         key: 'exist',
         label: 'באיזה מסעדה ברצונך לאכול',
         options: [
+          {key: '0', value: 'בחר מסעדה'},
           {key: 'rest1', value: 'מסעדה 1'},
           {key: 'rest2', value: 'מסעדה 2'},
           {key: 'rest3', value: 'מסעדה 3'},
