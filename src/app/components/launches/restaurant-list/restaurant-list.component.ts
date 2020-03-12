@@ -13,13 +13,17 @@ export class RestaurantListComponent {
 
 
   onAddRestaurant(){
-this.toAddRestaurant = true
+  this.toAddRestaurant = !this.toAddRestaurant
 console.log(this.toAddRestaurant);
 
   }
 
   newRestaurant($event: Restaurant){
       this.addRestaurant.emit($event);
+  }
+
+  closeForm(){
+    this.toAddRestaurant = false
   }
 }
 

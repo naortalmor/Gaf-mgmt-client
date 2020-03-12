@@ -8,6 +8,10 @@ input{
     display: flex;
 }
 
+.card {
+    max-height: 400;
+}
+
 
 mat-form-field, mat-checkbox, star-rating, label{
     display: flex;

@@ -1,3 +1,8 @@
+
+
+import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
+import { CommonModule } from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 import { RatingModule } from 'ng-starrating';
 import { MatFormFieldModule, MatInputModule, MatOptionModule, MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions } from '@angular/material';
 import { reducers } from './store/reducers';
@@ -93,6 +98,7 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
     StoreModule.forRoot(reducers),
     FormsModule,
     ReactiveFormsModule,

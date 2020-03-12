@@ -1,0 +1,6 @@
+app-add-restaurant, mat-raised-button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
