@@ -1,3 +1,6 @@
+import { INIT_EVENTS } from './../../store/events/events.action';
+import { config } from './../../consts/config';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EveningDetailsComponent } from './evening-details/evening-details.component';
 import { AppState } from './../../store/state';
@@ -17,19 +20,25 @@ import { CREATE_EVENT, DELETE_EVENT } from 'src/app/store/events/events.action';
 export class EveningsComponent implements OnInit {
   events$: Observable<CalendarEvent[]>;
   displayedPart: boolean;
-  evenings: Evening[];
+  evenings: Observable<Evening[]>;
   selectedEvening: Evening;
 
   constructor(private store: Store<AppState>,
-              private eveningService: EveningService) {
-    this.store.select('evenings').subscribe(result => {
-      this.evenings = result;
-    });
+              private http: HttpClient) {
+    this.evenings = this.store.select('evenings');
     this.events$ = this.store.select('events');
     this.displayedPart = true;
+    this.initEvents();
   };
 
   ngOnInit() {
+  }
+
+  initEvents(): void {
+    this.http.get(`${config.serverUrl}/events/getAllEvents`).subscribe((events:CalendarEvent[]) => {
+      this.store.dispatch(INIT_EVENTS({events: events.map((event: CalendarEvent) => ({...event, start: new Date(event.start),
+        end: new Date(event.end)}))}))
+    })
   }
 
   onSelectEveningBubbled($event) {
@@ -41,7 +50,13 @@ export class EveningsComponent implements OnInit {
   }
 
   addEvent(event:CalendarEvent): void {
-    this.store.dispatch(CREATE_EVENT({newEvent:event}));
+    this.http.post(`${config.serverUrl}/evenings/addEvent`, event).subscribe((newEvent: CalendarEvent) => {
+      this.store.dispatch(CREATE_EVENT({newEvent: {
+        ...newEvent,
+        start: new Date(newEvent.start),
+        end: new Date(newEvent.end)
+      }}));
+    })
   }
 
   deleteEvent(event:CalendarEvent): void {
