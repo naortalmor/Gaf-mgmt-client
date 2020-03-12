@@ -1,6 +1,20 @@
-<app-evnings-history> BLA </app-evnings-history>
+<button (click)="toggleDisplayedPart()"> Schedual </button>
 
-<app-schedual-new-evening
+<div *ngIf="displayedPart" id="cotainerListAndDetails">
+    <div id="sectionEveningList"> 
+        <app-evening-list (selectEveningBubbled)="onSelectEveningBubbled($event)" id="containerEveningList" [evenings]="evenings"></app-evening-list>
+    </div>
+    
+    <div id="sectionEveningDetails" *ngIf="selectedEvening">
+        <app-evening-details [selectedEvening]="selectedEvening" (closeEveningEmittter)="onCloseEventDetails()"></app-evening-details>
+    </div>
+    
+</div>
+
+<app-evnings-history> </app-evnings-history>
+
+<app-schedual-new-evening *ngIf="!displayedPart"
 [events]="events$ | async"
 (eventAdded)="addEvent($event)"
-> BKA </app-schedual-new-evening>
+> </app-schedual-new-evening>
+

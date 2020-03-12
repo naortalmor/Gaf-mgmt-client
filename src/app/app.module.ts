@@ -1,7 +1,5 @@
-import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
-
 import { RatingModule } from 'ng-starrating';
-import { MatFormFieldModule, MatInputModule, MatOptionModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatOptionModule, MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions } from '@angular/material';
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -41,6 +39,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EveningListComponent } from './components/evenings/evening-list/evening-list.component';
+import { EveningDetailsComponent } from './components/evenings/evening-details/evening-details.component';
 import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
 import { FilterSuggestionsComponent } from './components/launches/filter-suggestions/filter-suggestions.component';
 import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
@@ -48,6 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { VotersNamesComponent } from './components/voters-names/voters-names.component';
 import { RestaurantChartComponent } from './components/launches/restaurant-chart/restaurant-chart.component';
 import { SurveyComponent } from './components/survey/survey.component';
+import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
+import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,15 @@ import { SurveyComponent } from './components/survey/survey.component';
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
+    MatCard,
+    MatCardTitle,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardContent,
+    MatCardActions,
+    EveningListComponent,
+    EveningDetailsComponent,
+    EveningCardComponent,
     AddRestaurant,
     LoginComponent,
     HomeComponent,
@@ -93,7 +104,6 @@ import { SurveyComponent } from './components/survey/survey.component';
     BrowserAnimationsModule,
     MatSelectModule,
     MatOptionModule,
-
     FormsModule,
     StoreModule.forRoot(reducers),
     CalendarModule.forRoot({
@@ -106,7 +116,6 @@ import { SurveyComponent } from './components/survey/survey.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers),
     FormsModule,
     MatCheckboxModule,
     NgxStarRatingModule,

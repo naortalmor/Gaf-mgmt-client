@@ -1,0 +1,10 @@
+<mat-card class="example-card">
+    <img class="image-card" mat-card-image src={{evening.imageSrc}} alt="Photo of a past evening event">
+    <mat-card-content>
+        <h2>{{evening.title}}</h2>
+        <p>{{evening.content}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="emitSelectedEvening(evening)">VIEW</button>
+    </mat-card-actions>
+</mat-card>

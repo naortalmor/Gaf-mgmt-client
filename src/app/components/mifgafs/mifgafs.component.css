@@ -1,3 +1,48 @@
 .main {
     direction: rtl;
 }
+
+.title {
+    text-align: center;
+    margin: 20px;
+    font-size: 30pt;
+    color: #044b7d;
+}
+
+.mifgaf-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mifgaf-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #99d8ea;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 20px;
+    margin-bottom: 0;
+}
+
+.mifgaf-info-title {
+    font-size: 20pt;
+    margin: 10px 30px;
+    text-align: center;
+    color: #044b7d;
+    line-height: 18pt;
+}
+
+span.mifgaf-info-data {
+    margin: 10px 20px;
+    margin-top: 0;
+    color: #044b7d;
+    font-weight: bold;
+    font-size: 22pt;
+    text-align: center;
+    line-height: 20pt;
+}
