@@ -16,7 +16,7 @@ import { CREATE_EVENT } from 'src/app/store/events/events.action';
 })
 export class EveningsComponent implements OnInit {
   events$: Observable<CalendarEvent[]>;
-
+  displayedPart: boolean;
   evenings: Evening[];
   selectedEvening: Evening;
   
@@ -25,7 +25,9 @@ export class EveningsComponent implements OnInit {
     this.store.select('evenings').subscribe(result => {
       this.evenings = result;
     });
-  }
+    this.events$ = this.store.select('events');
+    this.displayedPart = true;
+  };
 
   ngOnInit() {
   }
@@ -37,8 +39,13 @@ export class EveningsComponent implements OnInit {
   onCloseEventDetails() {
     this.selectedEvening = undefined;
   }
+
   addEvent(event:CalendarEvent): void {
     this.store.dispatch(CREATE_EVENT({newEvent:event}));
+  }
+
+  toggleDisplayedPart(): void {
+    this.displayedPart = !this.displayedPart;
   }
   
 }

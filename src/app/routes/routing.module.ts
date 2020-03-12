@@ -5,12 +5,14 @@ import {HomeComponent} from '../components/home/home.component';
 import {MifgafsComponent} from '../components/mifgafs/mifgafs.component';
 import {EveningsComponent} from '../components/evenings/evenings.component';
 import {LaunchesComponent} from '../components/launches/launches.component';
-import {LoginComponent} from '../components/login/login.component';
+import {LoginComponent} from '../components/auth/login/login.component';
+import {GuestPageComponent} from '../components/auth/guest-page/guest-page.component';
 
 // Include route guard in routes array
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
+  { path: 'guest', component: GuestPageComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'mifgafs', component: MifgafsComponent, canActivate: [AuthGuard] },
   { path: 'evenings', component: EveningsComponent, canActivate: [AuthGuard] },

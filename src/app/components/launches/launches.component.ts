@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 import { User } from '../../models/interfaces/user';
 import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
+import { QuestionBase } from '../../models/question-model/question-base';
+import { QuestionService } from '../../services/question.service';
 
 @Component({
   selector: 'app-launches',
@@ -22,19 +24,24 @@ export class LaunchesComponent {
   restaurants$:Observable<Restaurant[]>;
   restaurantSurvey$:Observable<RestaurantSurvey[]>;
   suggestionsFilter$:Observable<FilterSuggestions>;
+  surveyQuestions$:Observable<QuestionBase<any>[]>;
+  surveyOpened$:Observable<boolean>;
   selectedTab:string;
   tabs = Tabs;
   userRestaurantSelection:Restaurant;
 
   constructor(private store:Store<AppState>,
+              private questionService:QuestionService,
               private restaurantsService:RestaurantsService) {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
+    this.surveyQuestions$ = questionService.getLaunchSurveyQuestions();
     this.selectedTab = Tabs.OTHER;
     this.users$ = this.store.select('users');
     this.restaurants$ = this.store.select('restaurants');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
+    this.surveyOpened$ = this.store.select('restaurantSurveyStatus');
   }
 
   changeTab(newTab:string):void {
@@ -45,8 +52,16 @@ export class LaunchesComponent {
     this.restaurantsService.saveNewRestaurant(restaurant);
   }
 
-  selectRestaurant(selectedRestaurant:Restaurant) {
+  selectRestaurant(selectedRestaurant:Restaurant):void {
     this.userRestaurantSelection = selectedRestaurant;
+  }
+
+  onOpenSurvey():void {
+    this.restaurantsService.toggleRestaurantSurveyStatus();
+  }
+
+  onSurveyClosed():void {
+    this.restaurantsService.toggleRestaurantSurveyStatus();
   }
 
   onFilterChanged(filter:FilterSuggestions):void {

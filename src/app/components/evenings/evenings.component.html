@@ -1,4 +1,6 @@
-<div id="cotainerListAndDetails">
+<button (click)="toggleDisplayedPart()"> Schedual </button>
+
+<div *ngIf="displayedPart" id="cotainerListAndDetails">
     <div id="sectionEveningList"> 
         <app-evening-list (selectEveningBubbled)="onSelectEveningBubbled($event)" id="containerEveningList" [evenings]="evenings"></app-evening-list>
     </div>
@@ -9,9 +11,10 @@
     
 </div>
 
-<app-evnings-history> BLA </app-evnings-history>
+<app-evnings-history> </app-evnings-history>
 
-<app-schedual-new-evening
+<app-schedual-new-evening *ngIf="!displayedPart"
 [events]="events$ | async"
 (eventAdded)="addEvent($event)"
-> BKA </app-schedual-new-evening>
+> </app-schedual-new-evening>
+

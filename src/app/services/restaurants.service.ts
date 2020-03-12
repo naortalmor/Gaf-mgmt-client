@@ -9,6 +9,7 @@ import { AppState } from '../store/state';
 import { INIT_RESTAURANTS_SURVEY } from '../store/restaurant-survey/restaurant-survey.actions';
 import { RestaurantSurvey } from '../models/interfaces/restaurant-survey';
 import { RestaurantTypes } from '../models/enums/enums';
+import { TOGGLE_RESTAURANT_STATUS } from '../store/restaurant-survey-opened/restaurant-survey-opened.actions';
 
 @Injectable({providedIn: 'root'})
 export class RestaurantsService {
@@ -44,5 +45,10 @@ export class RestaurantsService {
       },
     ];
     this.store.dispatch(INIT_RESTAURANTS_SURVEY({restaurantSurvey}));
+  }
+
+  toggleRestaurantSurveyStatus():void {
+    this.store.dispatch(TOGGLE_RESTAURANT_STATUS());
+
   }
 }

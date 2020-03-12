@@ -45,9 +45,7 @@ export class CalanderComponent implements OnInit {
   position:Position;
   isPanelOpen: boolean;
   view: CalendarView = CalendarView.Month;
-
   CalendarView = CalendarView;
-
   viewDate: Date = new Date();
 
   modalData: {
