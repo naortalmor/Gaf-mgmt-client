@@ -9,9 +9,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 import { User } from '../../models/user';
-import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
-import { QuestionBase } from '../../models/question-model/question-base';
-import { QuestionService } from '../../services/question.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-launches',
@@ -24,20 +22,22 @@ export class LaunchesComponent {
   restaurants$:Observable<Restaurant[]>;
   restaurantSurvey$:Observable<RestaurantSurvey[]>;
   suggestionsFilter$:Observable<FilterSuggestions>;
-  surveyQuestions$:Observable<QuestionBase<any>[]>;
   surveyOpened$:Observable<boolean>;
   selectedTab:string;
   tabs = Tabs;
   userRestaurantSelection:Restaurant;
+  connectedUser:User;
 
   constructor(private store:Store<AppState>,
-              private questionService:QuestionService,
+              private usersService:UsersService,
               private restaurantsService:RestaurantsService) {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
-    this.surveyQuestions$ = questionService.getLaunchSurveyQuestions();
+    this.restaurantsService.initRestaurantSurveyStatus();
     this.selectedTab = Tabs.OTHER;
     this.users$ = this.store.select('users');
+    this.connectedUser = undefined;
+    this.usersService.getCurrentUser().subscribe(user => this.connectedUser = user);
     this.restaurants$ = this.store.select('restaurants');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
@@ -57,16 +57,16 @@ export class LaunchesComponent {
   }
 
   onOpenSurvey():void {
-    this.restaurantsService.toggleRestaurantSurveyStatus();
+    this.restaurantsService.updateRestaurantSurveyStatus(true);
   }
 
-  onSurveySubmitted(restaurantKey:string) {
-    console.log(restaurantKey);
+  onSurveySubmitted(restaurant:Restaurant) {
+    this.restaurantsService.updateRestaurantSurvey(restaurant.id, this.connectedUser.uid);
     this.onSurveyClosed();
   }
 
   onSurveyClosed():void {
-    this.restaurantsService.toggleRestaurantSurveyStatus();
+    this.restaurantsService.updateRestaurantSurveyStatus(false);
   }
 
   onFilterChanged(filter:FilterSuggestions):void {

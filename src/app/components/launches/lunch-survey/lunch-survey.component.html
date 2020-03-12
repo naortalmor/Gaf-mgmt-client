@@ -1,9 +1,9 @@
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let question of questions" class="form-row">
+    <div *ngFor="let question of surveyQuestions" class="form-row">
       <app-survey [question]="question" [form]="form"></app-survey>
     </div>
-    <div class="form-row">
+    <div class="form-row submit-button">
       <button type="submit" [disabled]="!form.valid">שמור</button>
       <button type="button" (click)="onClose()">בטל סקר</button>
     </div>
