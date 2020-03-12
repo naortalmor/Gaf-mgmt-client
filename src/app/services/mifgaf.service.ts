@@ -6,11 +6,11 @@ import { Person } from '../models/interfaces/person';
 import { INIT_THIS_WEEK_PERSONS } from '../store/this-week-persons/this-week-persons.actions';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class MifgafService {
 
-  constructor(private store:Store<AppState>,
-              private http:HttpClient) {
+  constructor(private store: Store<AppState>,
+    private http: HttpClient) {
   }
 
   initThisWeekPersons() {
