@@ -1,5 +1,8 @@
-<button (click)="toggleDisplayedPart()"> Schedual </button>
-
+<div> 
+<button mat-fab color="primary" (click)="toggleDisplayedPart()"> 
+    <mat-icon>add</mat-icon>
+</button>
+</div>
 <div *ngIf="displayedPart" id="cotainerListAndDetails">
     <div id="sectionEveningList"> 
         <app-evening-list (selectEveningBubbled)="onSelectEveningBubbled($event)" id="containerEveningList" [evenings]="evenings"></app-evening-list>
