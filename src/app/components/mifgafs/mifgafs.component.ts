@@ -18,7 +18,7 @@ export class MifgafsComponent implements OnInit {
 
   constructor(private store:Store<AppState>,
               private mifgafService:MifgafService,
-              auth:AuthService) {
+              public auth:AuthService) {
     this.thisWeekPersons = this.store.select('thisWeekPersons');
     this.mifgafService.initThisWeekPersons();
     this.mifgafService.initInfoBubbles();
