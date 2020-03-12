@@ -17,6 +17,7 @@ export class MifgafService {
   constructor(private store: Store<AppState>,
     private http: HttpClient) {
       this.winnersObs = new Subject();
+      this.updateWinners([]);
       this.infoBubblesObs = new Subject();
   }
 

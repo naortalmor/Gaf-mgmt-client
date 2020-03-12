@@ -9,9 +9,9 @@
             </div>
             <span>צור תוכניות חדשות!</span>
         </div>
-        <span class="admin-button">סמן שהמפגף ברשות {{1}} התקיים</span>
+        <span class="admin-button">סמן שהמפגף ברשות מי שרשום למטה התקיים</span>
     </div>
-    <app-this-week [currentWeekPersons]="winners | async"></app-this-week>
+    <app-this-week [currentWeekPersons]="(winners | async)[0]"></app-this-week>
     <div class="mifgaf-info-container">
         <div *ngFor="let bubble of (bubbles | async)" class="mifgaf-info">
             <span class="mifgaf-info-title">{{bubble.title}}</span>
