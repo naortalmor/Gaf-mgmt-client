@@ -1,9 +1,39 @@
 .menu {
-  background-color: #99d8ea;
-  height: 45px;
+  background-color: #43609c;
+  color: #ffffff;
+  min-width: 1050px;
+  padding-top: 5px;
+}
+
+.menu-info {
+  margin: auto;
+  width: 1050px;
+}
+
+.menu-route-side {
+  float: right;
+}
+
+.menu-connected-user-side {
+  float: left;
+}
+
+.connected-user {
+  font-size: 16px;
+  font-stretch: condensed;
+  padding-left: 10px;
+  width: 200px;
+  align-self: center;
+  text-align: start;
+  overflow: hidden;
 }
 
 .active-route-button {
-  background-color: rgb(13, 22, 46);
-  color:white;
+  background-color: #5f9b4c;
+  font-weight: bold;
+}
+
+.active-route-button:disabled {
+  background-color: rgba(0, 0, 0, .26);
+  font-weight: normal;
 }

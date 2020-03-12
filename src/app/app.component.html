@@ -1,17 +1,32 @@
 <div class="col vh-l vw-l">
-  <div class="menu row">
-    <div class="row flx1">
-      <button mat-button
-              *ngFor="let rout of routOptions"
-              [routerLinkActive]="rout.activeButtonStyle"
-              routerLink="/{{rout.routerLink}}">
-        {{rout.buttonText}}
-      </button>
-    </div>
-    <div class="row flx1" *ngIf="authService.isLoggedIn">
-      <span *ngIf="connectedUser | async as user">שלום, {{user.displayName}}</span>
-      <button mat-button (click)="authService.SignOut()">התנתק</button>
-      <button mat-button *ngIf="!authService.isAdmin()" routerLink="/admin">מצב מנהל מערכת</button>
+  <div class="menu">
+    <div class="menu-info">
+      <div class="menu-route-side">
+        <button mat-button #a
+                class="button-style"
+                *ngFor="let rout of routOptions"
+                [disabled]="!authService.isLoggedIn"
+                [routerLinkActive]="rout.activeButtonStyle"
+                routerLink="/{{rout.routerLink}}">
+          {{rout.buttonText}}
+        </button>
+      </div>
+      <div *ngIf="authService.isLoggedIn" class="menu-connected-user-side row">
+        <div *ngIf="connectedUser | async as user"
+             class="connected-user">
+          {{connectedUserText}} {{user.displayName}}
+        </div>
+        <button mat-button
+                class="button-style"
+                (click)="authService.SignOut()">
+          {{disconnectButtonText}}
+        </button>
+        <button mat-button
+                *ngIf="authService.isAdmin()"
+                class="disconnect-button-style"
+                routerLink="/admin">{{adminButtonText}}
+        </button>
+      </div>
     </div>
   </div>
   <router-outlet></router-outlet>

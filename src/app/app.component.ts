@@ -4,6 +4,10 @@ import { UsersService } from './services/users.service';
 import { User } from './models/user';
 import { Observable } from 'rxjs';
 
+const CONNECTED_USER_TEXT:string = 'שלום,';
+const DISCONNECT_TEXT:string = 'התנתק';
+const ADMIN_BUTTON_TEXT:string = 'מצב מנהל מערכת';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,10 +17,16 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
   connectedUser:Observable<User>;
   routOptions:RouteOption[];
+  connectedUserText:string;
+  disconnectButtonText:string;
+  adminButtonText:string;
 
   constructor(public authService:AuthService,
               private usersService:UsersService) {
     this.routOptions = [];
+    this.connectedUserText = CONNECTED_USER_TEXT;
+    this.disconnectButtonText = DISCONNECT_TEXT;
+    this.adminButtonText = ADMIN_BUTTON_TEXT;
     //this.usersService.initUsers();
   }
 
