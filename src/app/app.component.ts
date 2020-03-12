@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ChangeDetectorRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ChangeDetectorRef, OnInit} from '@angular/core';
 import {AuthService} from './routes/services/auth.service';
 import {UsersService} from './services/users.service';
 import {User} from './models/user';
@@ -9,7 +9,7 @@ import {User} from './models/user';
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'GAF Management';
   user: User;
 
@@ -17,9 +17,12 @@ export class AppComponent {
               private usersService: UsersService,
               private cdRef: ChangeDetectorRef) {
     //this.usersService.initUsers();
+  }
+
+  ngOnInit() {
     this.usersService.getCurrentUser().subscribe(user => {
       this.user = user;
-      //this.cdRef.detectChanges();
+      this.cdRef.detectChanges();
     });
   }
 }
