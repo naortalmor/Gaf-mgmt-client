@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ChangeDetectorRef} from '@angular/core';
 import {AuthService} from './routes/services/auth.service';
-import { UsersService } from './services/users.service';
+import {UsersService} from './services/users.service';
+import {User} from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,15 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent {
   title = 'GAF Management';
+  user: User;
 
   constructor(public authService: AuthService,
-    private usersService:UsersService) {
-    this.usersService.initUsers();
+              private usersService: UsersService,
+              private cdRef: ChangeDetectorRef) {
+    //this.usersService.initUsers();
+    this.usersService.getCurrentUser().subscribe(user => {
+      this.user = user;
+      //this.cdRef.detectChanges();
+    });
   }
 }

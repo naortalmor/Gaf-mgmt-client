@@ -9,7 +9,7 @@
   width: 40%;
   align-self: center;
   margin: 0.4em;
-  background-image: linear-gradient(to right, #7fd9ec , #0600ff6b);
+  background-image: linear-gradient(to right, #b5d4da , #7fd9ec);
   border-radius: 25px;
   border: none;
   height: 2.5em;
@@ -45,5 +45,5 @@ li a:hover {
 }
 
 .home-button:hover {
-  background-color: red;
+  background-color: white;
 }
