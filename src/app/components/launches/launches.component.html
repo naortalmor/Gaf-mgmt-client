@@ -20,7 +20,9 @@
                     (submit)="onSurveySubmitted($event)"
                     (close)="onSurveyClosed()">
   </app-lunch-survey>
-  <button *ngIf="tabs.OTHER === selectedTab && !(surveyOpened$ | async)"
+  <button mat-button
+          class="button-style"
+          *ngIf="tabs.OTHER === selectedTab && !(surveyOpened$ | async)"
           (click)="onOpenSurvey()">פתח סקר
   </button>
   <app-restaurant-chart

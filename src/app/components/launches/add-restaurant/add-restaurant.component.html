@@ -24,9 +24,16 @@
       </form>
       <star-rating value="0" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px" readonly="false"
                    (rate)="onRate($event)"></star-rating>
-      <button class="row ctr" (click)="onSubmit()" [disabled]="!newRestuarantForm.valid">הוסף מסעדה</button>
+      <button mat-button
+              class="button-style"
+              (click)="onSubmit()"
+              [disabled]="!newRestuarantForm.valid">הוסף מסעדה
+      </button>
       <br>
-      <button class="row ctr" (click)="onCloseForm()">בטל</button>
+      <button mat-button
+              class="button-style"
+              (click)="onCloseForm()">בטל
+      </button>
     </div>
   </mat-card-content>
 </mat-card>

@@ -2,7 +2,11 @@
   <app-restaurant [restaurant]="restaurant"></app-restaurant>
 </div>
 <div>
-  <button *ngIf="!toAddRestaurant" class="row ctr" (click)="onAddRestaurant()">הוסף מסעדה</button>
+  <button *ngIf="!toAddRestaurant"
+          mat-button
+          class="button-style"
+          (click)="onAddRestaurant()">הוסף מסעדה
+  </button>
 </div>
 <div *ngIf="toAddRestaurant">
   <app-add-restaurant (closeForm)="closeForm()" (addRestaurant)="newRestaurant($event)"></app-add-restaurant>

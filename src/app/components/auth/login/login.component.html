@@ -24,7 +24,9 @@
 
     <!-- Calling GoogleAuth Api from AuthService -->
     <div class="p-m">
-      <button class="button-style" (click)="loginGoogle()">
+      <button mat-button
+              class="button-style"
+              (click)="loginGoogle()">
         {{connectButtonText}}
         <fa-icon [title]="'Gmail'" [icon]="['fab', 'google-plus-g']"></fa-icon>
       </button>
