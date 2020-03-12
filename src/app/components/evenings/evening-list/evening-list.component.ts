@@ -1,5 +1,5 @@
+import { Evening } from 'src/app/models/evening';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { EveningsComponent } from '../evenings.component';
 
 @Component({
   selector: 'app-evening-list',
@@ -8,10 +8,10 @@ import { EveningsComponent } from '../evenings.component';
 })
 export class EveningListComponent implements OnInit {
 
-  @Input() evenings: EveningsComponent;
-  @Output() selectEveningBubbled:EventEmitter<number>;
+  @Input() evenings: Evening[];
+  @Output() selectEveningBubbled: EventEmitter<number>;
 
-  constructor() { 
+  constructor() {
     this.selectEveningBubbled = new EventEmitter<number>();
   }
 
