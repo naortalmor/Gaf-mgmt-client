@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 import { User } from '../../models/user';
-import { QuestionService } from '../../services/question.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-launches',
@@ -26,13 +26,18 @@ export class LaunchesComponent {
   selectedTab:string;
   tabs = Tabs;
   userRestaurantSelection:Restaurant;
+  connectedUser:User;
 
   constructor(private store:Store<AppState>,
+              private usersService:UsersService,
               private restaurantsService:RestaurantsService) {
     this.restaurantsService.initRestaurants();
     this.restaurantsService.initRestaurantSurvey();
+    this.restaurantsService.initRestaurantSurveyStatus();
     this.selectedTab = Tabs.OTHER;
     this.users$ = this.store.select('users');
+    this.connectedUser = undefined;
+    this.usersService.getCurrentUser().subscribe(user => this.connectedUser = user);
     this.restaurants$ = this.store.select('restaurants');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
@@ -56,7 +61,7 @@ export class LaunchesComponent {
   }
 
   onSurveySubmitted(restaurant:Restaurant) {
-    console.log(restaurant);
+    this.restaurantsService.updateRestaurantSurvey(restaurant.id, this.connectedUser.uid);
     this.onSurveyClosed();
   }
 
