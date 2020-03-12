@@ -16,36 +16,36 @@ export class EveningService {
         {
             id: 0,
             imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-            title: 'evening title1',
-            content: 'content1',
+            title: 'חדר בריחה',
+            content: 'lorem ipsum',
             images: []
         },
         {
             id: 1,
             imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-            title: 'evening title2',
-            content: 'content2',
+            title: 'בירה בשרונה',
+            content: 'lorem ipsum',
             images: []
         },
         {
             id: 2,
             imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-            title: 'evening title3',
-            content: 'content3',
+            title: 'ארוחת בוקר במקס ברנר',
+            content: 'lorem ipsum',
             images: []
         },
         {
             id: 3,
             imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-            title: 'evening title4',
-            content: 'content4',
+            title: 'האקאתון',
+            content: 'lorem ipsum',
             images: []
         },
         {
             id: 4,
             imageSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-            title: 'evening title5',
-            content: 'content5',
+            title: 'VR',
+            content: 'lorem ipsum',
             images: []
         }
     ];
