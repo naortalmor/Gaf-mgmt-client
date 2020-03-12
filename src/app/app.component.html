@@ -6,7 +6,10 @@
     <li> <a [routerLinkActive]="['activeRoute']" routerLink="/lunches">ארוחות צהריים</a></li>
     <li style="float:left" ><a *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">התנתק</a></li>
   <li style="float:left" >
-    <a *ngIf="user">שלום, {{user.displayName}}</a>
+  <a *ngIf="user && authService.isLoggedIn">שלום, {{user.displayName}}</a>
+</li>
+  <li style="float:left" >
+    <a *ngIf="authService.isAdmin()" routerLink="/admin">ADMIN</a>
   </li>
  </ul>
  </div>

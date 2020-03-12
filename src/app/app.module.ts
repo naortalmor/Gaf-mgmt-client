@@ -55,6 +55,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
+import { AdminPageComponent } from './components/auth/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
     FilterSuggestionsPipe,
     VotersNamesComponent,
     RestaurantChartComponent,
-    SurveyComponent
+    SurveyComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
