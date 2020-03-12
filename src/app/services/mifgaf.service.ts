@@ -9,17 +9,20 @@ import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MifgafService {
+  winnersObs:Subject<Person[][]>;
 
   infoBubblesObs:Subject<{ title: string, data: string }[]>;
   private infoBubbles: { title: string, data: string }[];
 
   constructor(private store: Store<AppState>,
     private http: HttpClient) {
+      this.winnersObs = new Subject();
+      this.infoBubblesObs = new Subject();
   }
 
   initThisWeekPersons() {
     this.http.get(`${config.serverUrl}/mifgafim/winners`)
-      .subscribe((thisWeekPersons: Person[]) => this.store.dispatch(INIT_THIS_WEEK_PERSONS({ thisWeekPersons })));
+      .subscribe((winners: Person[][]) => this.updateWinners(winners));
   }
 
   initInfoBubbles() {
@@ -43,5 +46,7 @@ export class MifgafService {
     this.infoBubbles = bubbles;
   }
 
-
+  private updateWinners(plans):void {
+    this.winnersObs.next(plans);
+  }
 }

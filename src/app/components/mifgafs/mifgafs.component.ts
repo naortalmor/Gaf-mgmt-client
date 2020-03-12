@@ -13,16 +13,16 @@ import { AuthService } from 'src/app/routes/services/auth.service';
   styleUrls: ['./mifgafs.component.css']
 })
 export class MifgafsComponent implements OnInit {
-  thisWeekPersons:Observable<Person[]>;
   bubbles:Observable<{ title: string, data: string }[]>;
+  winners:Observable<Person[][]>;
 
   constructor(private store:Store<AppState>,
               private mifgafService:MifgafService,
               public auth:AuthService) {
-    this.thisWeekPersons = this.store.select('thisWeekPersons');
     this.mifgafService.initThisWeekPersons();
     this.mifgafService.initInfoBubbles();
     this.bubbles = this.mifgafService.infoBubblesObs;
+    this.winners = this.mifgafService.winnersObs;
    }
 
   ngOnInit() {
