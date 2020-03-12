@@ -8,25 +8,24 @@ import { Injectable } from '@angular/core';
 import { AppState } from '../store/state';
 import { INIT_RESTAURANTS_SURVEY } from '../store/restaurant-survey/restaurant-survey.actions';
 import { RestaurantSurvey } from '../models/interfaces/restaurant-survey';
-import { RestaurantTypes } from '../models/enums/enums';
-import { TOGGLE_RESTAURANT_STATUS } from '../store/restaurant-survey-opened/restaurant-survey-opened.actions';
+import { UPDATE_RESTAURANT_STATUS } from '../store/restaurant-survey-opened/restaurant-survey-opened.actions';
 
 @Injectable({providedIn: 'root'})
 export class RestaurantsService {
 
-  constructor(private store: Store<AppState>,
-              private http: HttpClient) {
+  constructor(private store:Store<AppState>,
+              private http:HttpClient) {
   }
 
   initRestaurants():void {
     this.http.get(`${config.serverUrl}/launches/getRestaurants`)
-    .subscribe((restaurants:Restaurant[]) => this.store.dispatch(INIT_RESTAURANTS({restaurants})));
+      .subscribe((restaurants:Restaurant[]) => this.store.dispatch(INIT_RESTAURANTS({restaurants})));
   }
 
-  saveNewRestaurant(newRestaurant: Restaurant): void {
-    this.http.post(`${config.serverUrl}/launches/addRestaurants`, newRestaurant).subscribe((restaurant: Restaurant) => {
+  saveNewRestaurant(newRestaurant:Restaurant):void {
+    this.http.post(`${config.serverUrl}/launches/addRestaurants`, newRestaurant).subscribe((restaurant:Restaurant) => {
       this.store.dispatch(ADD_RESTAURANT({restaurant}));
-    })
+    });
   }
 
   initRestaurantSurvey():void {
@@ -47,8 +46,9 @@ export class RestaurantsService {
     this.store.dispatch(INIT_RESTAURANTS_SURVEY({restaurantSurvey}));
   }
 
-  toggleRestaurantSurveyStatus():void {
-    this.store.dispatch(TOGGLE_RESTAURANT_STATUS());
-
+  updateRestaurantSurveyStatus(newStatus:boolean):void {
+    this.http.post(`${config.serverUrl}/launches/updateRestaurantSurveyStatus`, {newStatus}).subscribe((status:boolean) => {
+      this.store.dispatch(UPDATE_RESTAURANT_STATUS({restaurantSurveyStatus: status}));
+    });
   }
 }
