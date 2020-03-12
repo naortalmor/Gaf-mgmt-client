@@ -1,4 +1,4 @@
 export interface FilterSuggestions {
-  name?: string;
-  minRank?: number;
+  name?:string;
+  minRank?:number;
 }

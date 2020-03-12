@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { FilterSuggestions } from './../../../models/interfaces/suggestion-filter';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FilterSuggestions } from '../../../models/interfaces/suggestion-filter';
 import { Restaurant } from 'src/app/models/interfaces/restaurant';
 
 @Component({
@@ -8,20 +8,20 @@ import { Restaurant } from 'src/app/models/interfaces/restaurant';
   styleUrls: ['./suggestions-container.component.css']
 })
 export class SuggestionsContainerComponent {
-  @Input() restaurants: Restaurant[];
-  @Input() filter: FilterSuggestions;
+  @Input() restaurants:Restaurant[];
+  @Input() filter:FilterSuggestions;
   @Output() addRestaurant = new EventEmitter<Restaurant>();
-  @Output() filterChangedEmitter: EventEmitter<FilterSuggestions>;
+  @Output() filterChangedEmitter:EventEmitter<FilterSuggestions>;
 
   constructor() {
     this.filterChangedEmitter = new EventEmitter<FilterSuggestions>();
   }
 
-  onAddRestaurant($event: Restaurant){
+  onAddRestaurant($event:Restaurant) {
     this.addRestaurant.emit($event);
   }
 
-  onFilterChanged(filter: FilterSuggestions): void {
+  onFilterChanged(filter:FilterSuggestions):void {
     this.filterChangedEmitter.emit(filter);
   }
 }

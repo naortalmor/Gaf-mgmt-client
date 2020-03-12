@@ -1,9 +1,9 @@
-import { CHANGE_FILTER } from './../../store/suggestions-filter/suggestions-filter.actions';
-import { FilterSuggestions } from './../../models/interfaces/suggestion-filter';
-import { Tabs } from './../../models/enums/enums';
+import { CHANGE_FILTER } from '../../store/suggestions-filter/suggestions-filter.actions';
+import { FilterSuggestions } from '../../models/interfaces/suggestion-filter';
+import { Tabs } from '../../models/enums/enums';
 import { Restaurant } from '../../models/interfaces/restaurant';
-import { RestaurantsService } from './../../services/restaurants.service';
-import { AppState } from './../../store/state';
+import { RestaurantsService } from '../../services/restaurants.service';
+import { AppState } from '../../store/state';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';

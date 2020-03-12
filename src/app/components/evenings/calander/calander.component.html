@@ -36,7 +36,7 @@
     </div>
   </div>
 </div>
-<br />
+<br/>
 <div [ngSwitch]="view">
   <mwl-calendar-month-view
     *ngSwitchCase="CalendarView.Month"
@@ -50,15 +50,15 @@
   >
   </mwl-calendar-month-view>
   <div
-  *ngIf="isPanelOpen"
-  [style.left.px]="position.x"
-  [style.top.px]="position.y"
-   class="full-screen-menu"
-    > 
+    *ngIf="isPanelOpen"
+    [style.left.px]="position.x"
+    [style.top.px]="position.y"
+    class="full-screen-menu"
+  >
     <app-availability-menu
-    (optionChosen)="addEvent($event, viewDate)"
+      (optionChosen)="addEvent($event, viewDate)"
     >
-       </app-availability-menu>
+    </app-availability-menu>
   </div>
 </div>
 

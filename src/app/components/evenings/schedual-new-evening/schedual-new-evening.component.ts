@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 
 @Component({
@@ -14,9 +14,10 @@ export class SchedualNewEveningComponent implements OnInit, OnChanges {
   constructor() {
     this.eventAdded = new EventEmitter<CalendarEvent>();
     this.eventDeleted = new EventEmitter<CalendarEvent>();
-   }
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnChanges(changes) {
     if (changes.events) {
@@ -24,11 +25,11 @@ export class SchedualNewEveningComponent implements OnInit, OnChanges {
     }
   }
 
-  addEvent(event:CalendarEvent): void {
+  addEvent(event:CalendarEvent):void {
     this.eventAdded.emit(event);
   }
 
-  deleteEvent (event:CalendarEvent): void {
+  deleteEvent(event:CalendarEvent):void {
     this.eventDeleted.emit(event);
   }
 

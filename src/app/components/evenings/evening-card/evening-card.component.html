@@ -1,10 +1,10 @@
-<mat-card class="example-card">
-    <img class="image-card" mat-card-image src={{evening.imageSrc}} alt="Photo of a past evening event">
-    <mat-card-content>
-        <h2>{{evening.title}}</h2>
-        <p>{{evening.content}}</p>
-    </mat-card-content>
-    <mat-card-actions style="margin-left: 7em;"> 
-        <button mat-button color="primary" style="border: 1px red solid" (click)="emitSelectedEvening(evening)">VIEW</button>
-    </mat-card-actions> 
+<mat-card class="example-card p-m">
+  <img class="image-card" mat-card-image src={{evening.imageSrc}} alt="Photo of a past evening event">
+  <mat-card-content>
+    <h2>{{evening.title}}</h2>
+    <p>{{evening.content}}</p>
+  </mat-card-content>
+  <mat-card-actions style="margin-left: 7em;">
+    <button mat-button color="primary" style="border: 1px red solid" (click)="emitSelectedEvening()">VIEW</button>
+  </mat-card-actions>
 </mat-card>

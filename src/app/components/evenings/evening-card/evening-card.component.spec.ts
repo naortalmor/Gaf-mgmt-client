@@ -1,16 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EveningCardComponent } from './evening-card.component';
 
 describe('EveningCardComponent', () => {
-  let component: EveningCardComponent;
-  let fixture: ComponentFixture<EveningCardComponent>;
+  let component:EveningCardComponent;
+  let fixture:ComponentFixture<EveningCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EveningCardComponent ]
+      declarations: [EveningCardComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

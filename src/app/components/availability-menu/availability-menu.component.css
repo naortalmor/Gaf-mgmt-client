@@ -1,14 +1,14 @@
 .mat-success {
-    background-color: green;
-    color: #fff;
+  background-color: green;
+  color: #fff;
 }
 
 .mat-warn {
-    background-color: yellow;
-    color: rgb(0, 0, 0);
+  background-color: yellow;
+  color: rgb(0, 0, 0);
 }
 
 .mat-danger {
-    background-color: red;
-    color: #fff;
+  background-color: red;
+  color: #fff;
 }

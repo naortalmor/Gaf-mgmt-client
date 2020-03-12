@@ -1,14 +1,11 @@
-import { INIT_EVENTS } from './../../store/events/events.action';
-import { config } from './../../consts/config';
+import { INIT_EVENTS } from '../../store/events/events.action';
+import { config } from '../../consts/config';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { EveningDetailsComponent } from './evening-details/evening-details.component';
-import { AppState } from './../../store/state';
+import { AppState } from '../../store/state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { EveningService } from 'src/app/services/evening.service';
 import { Evening } from '../../models/evening';
-import { async } from '@angular/core/testing';
 import { CalendarEvent } from 'angular-calendar';
 import { CREATE_EVENT, DELETE_EVENT } from 'src/app/store/events/events.action';
 
@@ -18,13 +15,13 @@ import { CREATE_EVENT, DELETE_EVENT } from 'src/app/store/events/events.action';
   styleUrls: ['./evenings.component.css']
 })
 export class EveningsComponent implements OnInit {
-  events$: Observable<CalendarEvent[]>;
-  displayedPart: boolean;
-  evenings: Observable<Evening[]>;
-  selectedEvening: Evening;
+  events$:Observable<CalendarEvent[]>;
+  displayedPart:boolean;
+  evenings:Observable<Evening[]>;
+  selectedEvening:Evening;
 
-  constructor(private store: Store<AppState>,
-              private http: HttpClient) {
+  constructor(private store:Store<AppState>,
+              private http:HttpClient) {
     this.evenings = this.store.select('evenings');
     this.events$ = this.store.select('events');
     this.displayedPart = true;
@@ -34,36 +31,42 @@ export class EveningsComponent implements OnInit {
   ngOnInit() {
   }
 
-  initEvents(): void {
+  initEvents():void {
     this.http.get(`${config.serverUrl}/events/getAllEvents`).subscribe((events:CalendarEvent[]) => {
-      this.store.dispatch(INIT_EVENTS({events: events.map((event: CalendarEvent) => ({...event, start: new Date(event.start),
-        end: new Date(event.end)}))}))
-    })
+      this.store.dispatch(INIT_EVENTS({
+        events: events.map((event:CalendarEvent) => ({
+          ...event, start: new Date(event.start),
+          end: new Date(event.end)
+        }))
+      }));
+    });
   }
 
-  onSelectEveningBubbled($event) {
-    this.selectedEvening = this.evenings.find(eve => eve.id === $event)
+  onSelectEveningBubbled(evening:Evening) {
+    this.selectedEvening = evening;
   }
 
   onCloseEventDetails() {
     this.selectedEvening = undefined;
   }
 
-  addEvent(event:CalendarEvent): void {
-    this.http.post(`${config.serverUrl}/evenings/addEvent`, event).subscribe((newEvent: CalendarEvent) => {
-      this.store.dispatch(CREATE_EVENT({newEvent: {
-        ...newEvent,
-        start: new Date(newEvent.start),
-        end: new Date(newEvent.end)
-      }}));
-    })
+  addEvent(event:CalendarEvent):void {
+    this.http.post(`${config.serverUrl}/evenings/addEvent`, event).subscribe((newEvent:CalendarEvent) => {
+      this.store.dispatch(CREATE_EVENT({
+        newEvent: {
+          ...newEvent,
+          start: new Date(newEvent.start),
+          end: new Date(newEvent.end)
+        }
+      }));
+    });
   }
 
-  deleteEvent(event:CalendarEvent): void {
-    this.store.dispatch(DELETE_EVENT({deleteEvent:event}));
+  deleteEvent(event:CalendarEvent):void {
+    this.store.dispatch(DELETE_EVENT({deleteEvent: event}));
   }
 
-  toggleDisplayedPart(): void {
+  toggleDisplayedPart():void {
     this.displayedPart = !this.displayedPart;
   }
 

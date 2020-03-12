@@ -1,26 +1,19 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    float: right;
-}
-
-input{
-    display: flex;
+  float: right;
 }
 
 .card {
-    max-height: 400;
+  max-height: 400px;
 }
 
-
-mat-form-field, mat-checkbox, star-rating, label{
-    display: flex;
+mat-form-field, mat-checkbox, star-rating, label {
+  display: flex;
 }
 
-mat-label{
-    float: right;
+mat-label {
+  float: right;
 }
 
-mat-checkbox, star-rating, label{
-    margin-bottom: 5px;
+mat-checkbox, star-rating, label {
+  margin-bottom: 5px;
 }

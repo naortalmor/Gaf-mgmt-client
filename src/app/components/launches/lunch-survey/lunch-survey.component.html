@@ -1,11 +1,9 @@
-<div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let question of surveyQuestions" class="form-row">
-      <app-survey [question]="question" [form]="form"></app-survey>
-    </div>
-    <div class="form-row submit-button">
-      <button type="submit" [disabled]="!form.valid">שמור</button>
-      <button type="button" (click)="onClose()">בטל סקר</button>
-    </div>
-  </form>
-</div>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div *ngFor="let question of surveyQuestions" class="form-row">
+    <app-survey [question]="question" [form]="form"></app-survey>
+  </div>
+  <div class="form-row p-s spec">
+    <button type="submit" [disabled]="!form.valid">שמור</button>
+    <button type="button" (click)="onClose()">בטל סקר</button>
+  </div>
+</form>

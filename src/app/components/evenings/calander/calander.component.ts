@@ -1,31 +1,8 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
-  OnInit,
-  Input,
-  Output
-} from '@angular/core';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours
-} from 'date-fns';
-import { Subject, Observable } from 'rxjs';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView
-} from 'angular-calendar';
-import { EventEmitter } from '@angular/core';
-import {colors} from '../../../models/enums/color'
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { isSameDay, isSameMonth } from 'date-fns';
+import { Subject } from 'rxjs';
+import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
+import { colors } from '../../../models/enums/color';
 import { NumberCardModule } from '@swimlane/ngx-charts';
 import { Position } from '../../../models/interfaces/position';
 import { UsersService } from 'src/app/services/users.service';
@@ -40,41 +17,41 @@ export class CalanderComponent implements OnInit {
   @Input() events:CalendarEvent[];
   @Output() eventAdded:EventEmitter<CalendarEvent>;
   @Output() eventDeleted:EventEmitter<CalendarEvent>;
-  @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
+  @ViewChild('modalContent', {static: true}) modalContent:TemplateRef<any>;
 
   user:User;
   position:Position;
-  isPanelOpen: boolean;
-  view: CalendarView = CalendarView.Month;
+  isPanelOpen:boolean;
+  view:CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
-  viewDate: Date = new Date();
+  viewDate:Date = new Date();
 
-  modalData: {
-    action: string;
-    event: CalendarEvent;
+  modalData:{
+    action:string;
+    event:CalendarEvent;
   };
 
-  actions: CalendarEventAction[] = [
+  actions:CalendarEventAction[] = [
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
+      onClick: ({event}:{ event:CalendarEvent }):void => {
         this.handleEvent('Edited', event);
       }
     },
     {
       label: '<i class="fa fa-fw fa-times"></i>',
       a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
+      onClick: ({event}:{ event:CalendarEvent }):void => {
         this.events = this.events.filter(iEvent => iEvent !== event);
         this.handleEvent('Deleted', event);
       }
     }
   ];
 
-  activeDayIsOpen: boolean = true;
+  activeDayIsOpen:boolean = true;
 
-  refresh: Subject<any> = new Subject();
+  refresh:Subject<any> = new Subject();
 
   constructor(private userService:UsersService) {
     this.eventAdded = new EventEmitter<CalendarEvent>();
@@ -87,7 +64,7 @@ export class CalanderComponent implements OnInit {
   ngOnInit() {
   }
 
-  dayClicked(event:any): void {
+  dayClicked(event:any):void {
     if (isSameMonth(event.day.date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, event.day.date) && this.activeDayIsOpen === true)
@@ -99,14 +76,14 @@ export class CalanderComponent implements OnInit {
       this.viewDate = event.day.date;
     }
     this.isPanelOpen = true;
-    this.position = {x:event.sourceEvent.x, y:event.sourceEvent.y};
+    this.position = {x: event.sourceEvent.x, y: event.sourceEvent.y};
   }
 
   eventTimesChanged({
-    event,
-    newStart,
-    newEnd
-  }: CalendarEventTimesChangedEvent): void {
+                      event,
+                      newStart,
+                      newEnd
+                    }:CalendarEventTimesChangedEvent):void {
     this.events = this.events.map(iEvent => {
       if (iEvent === event) {
         return {
@@ -120,11 +97,11 @@ export class CalanderComponent implements OnInit {
     this.handleEvent('Dropped or resized', event);
   }
 
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
+  handleEvent(action:string, event:CalendarEvent):void {
+    this.modalData = {event, action};
   }
 
-  addEvent(option:NumberCardModule): void {
+  addEvent(option:NumberCardModule):void {
     let colorToMark = colors.green;
     if (option !== 1) {
       colorToMark = option == 2 ? colors.yellow : colors.red;
@@ -141,11 +118,11 @@ export class CalanderComponent implements OnInit {
     this.isPanelOpen = false;
   }
 
-  deleteEvent(eventToDelete: CalendarEvent) {
+  deleteEvent(eventToDelete:CalendarEvent) {
     this.eventDeleted.emit(eventToDelete);
   }
 
-  setView(view: CalendarView) {
+  setView(view:CalendarView) {
     this.view = view;
   }
 

@@ -1,15 +1,8 @@
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  margin: 5em;
-  padding: 2em;
-}
-
 .home-button {
   width: 40%;
   align-self: center;
   margin: 0.4em;
-  background-image: linear-gradient(to right, #b5d4da , #7fd9ec);
+  background-image: linear-gradient(to right, #b5d4da, #7fd9ec);
   border-radius: 25px;
   border: none;
   height: 2.5em;
@@ -17,31 +10,6 @@
   color: white;
   font-weight: bold;
   font-size: 20px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
 }
 
 .home-button:hover {

@@ -5,10 +5,6 @@
   border-radius: 10px;
 }
 
-.minimize-restaurant {
-  /* justify-content: space-around; */
-}
-
 .minimized-item {
   justify-self: center;
 }

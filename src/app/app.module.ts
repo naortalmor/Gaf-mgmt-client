@@ -26,8 +26,8 @@ import { RestaurantListComponent } from './components/launches/restaurant-list/r
 import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
 import { TabComponent } from './components/tab/tab.component';
 import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
-import { ThisWeekComponent } from './components/mifgafs/this-week/this-week/this-week.component';
-import { PersonComponent } from './components/mifgafs/person/person/person.component';
+import { ThisWeekComponent } from './components/mifgafs/this-week/this-week.component';
+import { PersonComponent } from './components/mifgafs/person/person.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RoutingModule } from './routes/routing.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';

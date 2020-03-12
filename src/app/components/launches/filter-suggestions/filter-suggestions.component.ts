@@ -1,6 +1,6 @@
-import { FilterSuggestions } from './../../../models/interfaces/suggestion-filter';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FilterSuggestions } from '../../../models/interfaces/suggestion-filter';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-filter-suggestions',
@@ -8,7 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./filter-suggestions.component.css']
 })
 export class FilterSuggestionsComponent {
-  @Output() filterChangedEmitter: EventEmitter<FilterSuggestions>;
+  @Output() filterChangedEmitter:EventEmitter<FilterSuggestions>;
 
   constructor() {
     this.filterChangedEmitter = new EventEmitter<FilterSuggestions>();

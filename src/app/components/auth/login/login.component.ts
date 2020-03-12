@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
-import {AuthService} from '../../../routes/services/auth.service';
-import {Router} from '@angular/router';
-import {Subscription} from 'rxjs';
-import {AppState} from '../../../store/state';
-import {Store} from '@ngrx/store';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { AuthService } from '../../../routes/services/auth.service';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AppState } from '../../../store/state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,15 @@ import {Store} from '@ngrx/store';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnDestroy {
-  email: string = '';
-  password: string = '';
-  isLoading: boolean = false;
-  authstateSubscription: Subscription;
+  email:string = '';
+  password:string = '';
+  isLoading:boolean = false;
+  authstateSubscription:Subscription;
 
-  constructor(public authService: AuthService,
-              public router: Router,
-              private cdRef: ChangeDetectorRef,
-              private store: Store<AppState>) {
+  constructor(public authService:AuthService,
+              public router:Router,
+              private cdRef:ChangeDetectorRef,
+              private store:Store<AppState>) {
     if (this.authService.isLoggedIn) {
       this.router.navigate(['home']);
     }

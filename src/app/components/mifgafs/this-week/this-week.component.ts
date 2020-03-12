@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Person } from 'src/app/models/interfaces/person';
 
 @Component({
@@ -6,12 +6,9 @@ import { Person } from 'src/app/models/interfaces/person';
   templateUrl: './this-week.component.html',
   styleUrls: ['./this-week.component.css']
 })
-export class ThisWeekComponent implements OnInit {
+export class ThisWeekComponent {
   @Input() currentWeekPersons:Person[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
-
 }

@@ -8,6 +8,7 @@ html, body {
 
 body {
   margin: 0;
+  font-size: 12px;
   direction: rtl;
   background-color: #F0F8FF;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -38,6 +39,50 @@ li a:hover {
   background-color: #111;
 }
 
+.f-s {
+  font-size: 10px;
+}
+
+.f-m {
+  font-size: 14px;
+}
+
+.f-l {
+  font-size: 18px;
+}
+
+.f-xl {
+  font-size: 22px;
+}
+
+.c-w {
+  color: white;
+}
+
+.c-gray {
+  color: gray;
+}
+
+.c-d-blue {
+  color: #050940;
+}
+
+.bc-sky-blue {
+  background-color: #007c91;
+}
+
+.bc-white {
+  background-color: white;
+}
+
+.t-al-ctr {
+  text-align: center;
+}
+
+.f-w-b {
+  font-weight: bold;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -46,6 +91,10 @@ li a:hover {
 .col {
   display: flex;
   flex-direction: column;
+}
+
+.flx-wrap {
+  flex-wrap: wrap;
 }
 
 .flx1 {
@@ -65,8 +114,41 @@ li a:hover {
   align-items: center;
 }
 
+.ctr-self {
+  align-self: center;
+  justify-self: center;
+}
+
 .clickable {
   cursor: pointer;
+}
+
+.vh-s {
+  height: 10vh;
+}
+
+.vh-m {
+  height: 50vh;
+}
+
+.vh-l {
+  height: 100vh;
+}
+
+.vw-s {
+  width: 10vw;
+}
+
+.vw-m {
+  width: 50vw;
+}
+
+.vw-l {
+  width: 100vw;
+}
+
+.spec {
+  justify-content: space-around;
 }
 
 .p-s {
