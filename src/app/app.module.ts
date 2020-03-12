@@ -52,6 +52,7 @@ import { RestaurantChartComponent } from './components/launches/restaurant-chart
 import { SurveyComponent } from './components/survey/survey.component';
 import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
 import { GuestPageComponent } from './components/auth/guest-page/guest-page.component';
+import {MatIconModule} from '@angular/material/icon';
 
 import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
@@ -97,6 +98,7 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
