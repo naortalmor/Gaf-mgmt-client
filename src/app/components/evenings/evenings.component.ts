@@ -19,9 +19,9 @@ export class EveningsComponent implements OnInit {
   displayedPart: boolean;
   evenings: Evening[];
   selectedEvening: Evening;
-  
+
   constructor(private store: Store<AppState>,
-              private eveningService: EveningService) { 
+              private eveningService: EveningService) {
     this.store.select('evenings').subscribe(result => {
       this.evenings = result;
     });
@@ -33,7 +33,7 @@ export class EveningsComponent implements OnInit {
   }
 
   onSelectEveningBubbled($event) {
-    this.selectedEvening = this.evenings[$event]
+    this.selectedEvening = this.evenings.find(eve => eve.id === $event)
   }
 
   onCloseEventDetails() {
@@ -51,5 +51,5 @@ export class EveningsComponent implements OnInit {
   toggleDisplayedPart(): void {
     this.displayedPart = !this.displayedPart;
   }
-  
+
 }

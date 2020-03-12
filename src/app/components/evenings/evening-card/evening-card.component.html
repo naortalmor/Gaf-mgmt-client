@@ -4,7 +4,7 @@
         <h2>{{evening.title}}</h2>
         <p>{{evening.content}}</p>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-button (click)="emitSelectedEvening(evening)">VIEW</button>
-    </mat-card-actions>
+    <mat-card-actions style="margin-left: 7em;"> 
+        <button mat-button color="primary" style="border: 1px red solid" (click)="emitSelectedEvening(evening)">VIEW</button>
+    </mat-card-actions> 
 </mat-card>
