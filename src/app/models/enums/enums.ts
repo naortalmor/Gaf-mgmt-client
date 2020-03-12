@@ -7,7 +7,8 @@ export enum Modes {
 export enum RestaurantTypes {
   ASIAN = 'אסייתי',
   ITALIAN = 'איטלקי',
-  CAFFE = 'בית קפה'
+  CAFFE = 'בית קפה',
+  BURGER = 'המבורגר'
 }
 
 export enum Tabs {
@@ -16,11 +17,16 @@ export enum Tabs {
 }
 
 export enum Availability {
-  AVAILABLE = "AvailAble!",
-  MAYBE = "Not sure..",
-  CANT = "Defently Can't!"
+  AVAILABLE = 'AvailAble!',
+  MAYBE = 'Not sure..',
+  CANT = 'Defently Can\'t!'
 }
 
 export enum ChartType {
   pie
+}
+
+export enum SurveyType {
+  textBox,
+  dropdown
 }

@@ -6,7 +6,11 @@
 }
 
 .minimize-restaurant {
-  justify-content: space-around;
+  /* justify-content: space-around; */
+}
+
+.minimized-item {
+  justify-self: center;
 }
 
 .full-restaurant {
@@ -18,3 +22,4 @@
 .checkbox-margin {
   margin: 0 10px;
 }
+

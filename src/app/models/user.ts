@@ -4,4 +4,11 @@ export interface User {
   displayName: string;
   photoURL: string;
   emailVerified: boolean;
+  roles: Roles;
+}
+
+export interface Roles {
+  guest?: boolean;
+  user?: boolean;
+  admin?: boolean;
 }

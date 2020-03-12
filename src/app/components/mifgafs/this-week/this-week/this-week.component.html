@@ -1,6 +1,8 @@
-<div>
-    <span>מביאים אוכל למפגף הקרוב</span>
-    <div *ngFor="let person of currentWeekPersons">
-        <app-person [person]="person"></app-person>
+<div class="main">
+    <span class="winners-title">מביאים במפגף הקרוב:</span>
+    <div class="winners">
+        <div *ngFor="let person of currentWeekPersons">
+            <app-person [person]="person"></app-person>
+        </div>
     </div>
 </div>

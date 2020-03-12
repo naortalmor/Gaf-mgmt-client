@@ -12,6 +12,7 @@ export interface AppState {
   restaurants: Restaurant[];
   evenings: Evening[];
   restaurantSurvey: RestaurantSurvey[];
+  restaurantSurveyStatus:boolean;
   users: User[];
   thisWeekPersons: Person[];
   suggestionsFilter: FilterSuggestions;

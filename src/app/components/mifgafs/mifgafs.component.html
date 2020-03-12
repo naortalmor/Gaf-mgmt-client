@@ -2,17 +2,13 @@
     <div class="title">מפגפים!</div>
     <app-this-week [currentWeekPersons]="thisWeekPersons | async"></app-this-week>
     <div class="mifgaf-info-container">
-        <div class="mifgaf-info">
-            <span class="mifgaf-info-title">מתי אני מביא?</span>
-            <span class="mifgaf-info-data">בעוד 0 פגישות</span>
+        <div *ngFor="let bubble of (bubbles | async)" class="mifgaf-info">
+            <span class="mifgaf-info-title">{{bubble.title}}</span>
+            <span class="mifgaf-info-data">{{bubble.data}}</span>
         </div>
         <div class="mifgaf-info">
-            <span class="mifgaf-info-title">מתי הבאתי לאחרונה?</span>
-            <span class="mifgaf-info-data">1.1.1970</span>
-        </div>
-        <div class="mifgaf-info">
-            <span class="mifgaf-info-title">איזה יום היום?</span>
-            <span class="mifgaf-info-data">רביעי</span>
+            <span class="mifgaf-info-title">חיימון לימון</span>
+            <span class="mifgaf-info-data">מוסיף המון</span>
         </div>
         <div class="mifgaf-info">
             <span class="mifgaf-info-title">מה קרה לה?</span>
