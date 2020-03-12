@@ -39,7 +39,6 @@ import { environment } from '../environments/environment';
 import { AuthService } from './routes/services/auth.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatSelectModule } from '@angular/material/select';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { EveningListComponent } from './components/evenings/evening-list/evening-list.component';
 import { EveningDetailsComponent } from './components/evenings/evening-details/evening-details.component';
@@ -117,7 +116,6 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
     ReactiveFormsModule,
     FormsModule,
     MatCheckboxModule,
-    NgxStarRatingModule,
     FontAwesomeModule,
     MatInputModule,
     HttpClientModule,
