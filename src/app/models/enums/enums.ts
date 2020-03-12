@@ -16,11 +16,16 @@ export enum Tabs {
 }
 
 export enum Availability {
-  AVAILABLE = "AvailAble!",
-  MAYBE = "Not sure..",
-  CANT = "Defently Can't!"
+  AVAILABLE = 'AvailAble!',
+  MAYBE = 'Not sure..',
+  CANT = 'Defently Can\'t!'
 }
 
 export enum ChartType {
   pie
+}
+
+export enum SurveyType {
+  textBox,
+  dropdown
 }

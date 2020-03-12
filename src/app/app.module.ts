@@ -47,6 +47,7 @@ import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { VotersNamesComponent } from './components/voters-names/voters-names.component';
 import { RestaurantChartComponent } from './components/launches/restaurant-chart/restaurant-chart.component';
+import { SurveyComponent } from './components/survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { RestaurantChartComponent } from './components/launches/restaurant-chart
     FilterSuggestionsComponent,
     FilterSuggestionsPipe,
     VotersNamesComponent,
-    RestaurantChartComponent
+    RestaurantChartComponent,
+    SurveyComponent
   ],
   imports: [
     BrowserModule,
