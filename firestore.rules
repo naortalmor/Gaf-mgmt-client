@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+
+  function getRole(role) {
+    return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+  }
+  
+  
+  match /users/{document} {
+
+  allow read;
+  allow create;
+  allow update: if getRole('admin') == true;
+  }
+
+  match /databases/{database}/documents {
+
+    match /{document=**} {
+        allow read: if true;
+  allow update: if true;
+  allow create, delete: if true;
+    }
+  }
+}
