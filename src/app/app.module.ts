@@ -47,6 +47,7 @@ import { FilterSuggestionsPipe } from './pipes/filter-suggestions.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { VotersNamesComponent } from './components/voters-names/voters-names.component';
 import { RestaurantChartComponent } from './components/launches/restaurant-chart/restaurant-chart.component';
+import { SurveyComponent } from './components/survey/survey.component';
 import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
 import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
 
@@ -62,14 +63,14 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
-    MatCard, 
-    MatCardTitle, 
-    MatCardHeader, 
-    MatCardSubtitle, 
-    MatCardContent, 
-    MatCardActions, 
-    EveningListComponent, 
-    EveningDetailsComponent, 
+    MatCard,
+    MatCardTitle,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardContent,
+    MatCardActions,
+    EveningListComponent,
+    EveningDetailsComponent,
     EveningCardComponent,
     AddRestaurant,
     LoginComponent,
@@ -83,7 +84,8 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
     FilterSuggestionsComponent,
     FilterSuggestionsPipe,
     VotersNamesComponent,
-    RestaurantChartComponent
+    RestaurantChartComponent,
+    SurveyComponent
   ],
   imports: [
     BrowserModule,
