@@ -33,7 +33,9 @@ export class AuthService {
         this.userData = authUser;
         this.afs.doc<User>(`users/${authUser.uid}`).valueChanges().subscribe((user:User) => {
           this.userData = user;
-          this.store.dispatch(INIT_CURRENT_USER({currentUser: this.userData}));
+          this.store.dispatch(INIT_CURRENT_USER({currentUser: {id: this.userData.uid,
+          name: this.userData.displayName, teamId: this.userData.roles.guest,
+           typeId: this.userData.roles.guest}}));
           localStorage.setItem('user', JSON.stringify(this.userData));
         });
       } else {
