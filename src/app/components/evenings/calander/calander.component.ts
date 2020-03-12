@@ -29,7 +29,7 @@ import {colors} from '../../../models/enums/color'
 import { NumberCardModule } from '@swimlane/ngx-charts';
 import { Position } from '../../../models/interfaces/position';
 import { UsersService } from 'src/app/services/users.service';
-import { User } from 'src/app/models/interfaces/user';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-calander',
@@ -74,7 +74,7 @@ export class CalanderComponent implements OnInit {
   activeDayIsOpen: boolean = true;
 
   refresh: Subject<any> = new Subject();
-  
+
   constructor(private userService:UsersService) {
     this.eventAdded = new EventEmitter<CalendarEvent>();
     this.isPanelOpen = false;
@@ -131,7 +131,7 @@ export class CalanderComponent implements OnInit {
       {
         start: this.viewDate,
         end: this.viewDate,
-        title: this.user.name,
+        title: this.user.displayName,
         color: colorToMark,
         allDay: true,
       }

@@ -4,7 +4,7 @@ import { Modes } from '../../models/enums/enums';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state';
 import { SELECT_MODE } from '../../store/modes/modes.actions';
-import { User } from '../../models/interfaces/user';
+import { User } from '../../models/user';
 import {AuthService} from '../../routes/services/auth.service';
 
 @Component({

@@ -1,4 +1,4 @@
 export interface RestaurantSurvey {
   restaurantId:number;
-  votersIds:number[];
+  votersIds:string[];
 }
