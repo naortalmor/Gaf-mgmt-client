@@ -1,12 +1,12 @@
 import { Restaurant } from 'src/app/models/interfaces/restaurant';
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.css']
 })
-export class RestaurantComponent implements OnChanges {
+export class RestaurantComponent  {
   @Input() restaurant: Restaurant;
   shouldDisplayFullData: boolean;
 
@@ -14,14 +14,7 @@ export class RestaurantComponent implements OnChanges {
     this.shouldDisplayFullData = false;
   }
 
-  ngOnChanges(changes) {
-    if (this.restaurant) {
-      console.log(this.restaurant);
-    }
-  }
-
   toggleRestaurantFullData() {
     this.shouldDisplayFullData = !this.shouldDisplayFullData;
-    console.log(this.restaurant);
   }
 }
