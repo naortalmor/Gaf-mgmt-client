@@ -6,17 +6,17 @@ import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { AppState } from '../store/state';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class EveningService {
 
-  constructor(private store: Store<AppState>,
-              private http: HttpClient) {
+  constructor(private store:Store<AppState>,
+              private http:HttpClient) {
     this.initEvenings();
   }
 
   initEvenings() {
-    this.http.get(`${config.serverUrl}/evenings/getTeamEvenings`).subscribe((evenings: Evening[]) => {
+    this.http.get(`${config.serverUrl}/evenings/getTeamEvenings`).subscribe((evenings:Evening[]) => {
       this.store.dispatch(INIT_EVENINGS({evenings}));
-    })
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Evening } from 'src/app/models/evening';
 
 @Component({
@@ -6,20 +6,15 @@ import { Evening } from 'src/app/models/evening';
   templateUrl: './evening-card.component.html',
   styleUrls: ['./evening-card.component.css']
 })
-export class EveningCardComponent implements OnInit {
-
+export class EveningCardComponent {
   @Input() evening:Evening;
-  @Output() selectEvening:EventEmitter<number>;
+  @Output() selectEvening:EventEmitter<void>;
 
-  constructor() { 
-    this.selectEvening = new EventEmitter<number>();
+  constructor() {
+    this.selectEvening = new EventEmitter<void>();
   }
 
-  ngOnInit() {
-    
-  }
-
-  emitSelectedEvening(evening:Evening) {
-    this.selectEvening.emit(evening.id);
+  emitSelectedEvening() {
+    this.selectEvening.emit();
   }
 }

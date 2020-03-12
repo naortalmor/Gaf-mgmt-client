@@ -3,14 +3,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GuestPageComponent } from './guest-page.component';
 
 describe('GuestPageComponent', () => {
-  let component: GuestPageComponent;
-  let fixture: ComponentFixture<GuestPageComponent>;
+  let component:GuestPageComponent;
+  let fixture:ComponentFixture<GuestPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GuestPageComponent ]
+      declarations: [GuestPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

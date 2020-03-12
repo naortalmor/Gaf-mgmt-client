@@ -1,9 +1,8 @@
 <div *ngFor="let restaurant of restaurants">
-  <app-restaurant [restaurant]="restaurant">
-  </app-restaurant>
+  <app-restaurant [restaurant]="restaurant"></app-restaurant>
 </div>
 <div>
-  <button *ngIf="!toAddRestaurant" mat-raised-button (click)="onAddRestaurant()">הוסף מסעדה</button>
+  <button *ngIf="!toAddRestaurant" class="row ctr" (click)="onAddRestaurant()">הוסף מסעדה</button>
 </div>
 <div *ngIf="toAddRestaurant">
   <app-add-restaurant (closeForm)="closeForm()" (addRestaurant)="newRestaurant($event)"></app-add-restaurant>

@@ -19,7 +19,7 @@ export class QuestionService {
         key: 'restaurant',
         label: 'באיזה מסעדה ברצונך לאכול',
         options: options,
-        required:true,
+        required: true,
         order: 1
       })
     ];

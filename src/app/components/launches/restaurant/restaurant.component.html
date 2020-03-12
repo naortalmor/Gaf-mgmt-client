@@ -1,5 +1,5 @@
 <div class="col restaurant">
-  <div class="row minimize-restaurant clickable" (click)="toggleRestaurantFullData()">
+  <div class="row clickable" (click)="toggleRestaurantFullData()">
     <div class="flx1 ctr minimized-item">{{restaurant.name}}</div>
     <div class="flx1 ctr minimized-item">{{restaurant.address}}</div>
     <div class="flx1 ctr minimized-item">{{restaurant.type}}</div>
@@ -7,7 +7,8 @@
   <div *ngIf="shouldDisplayFullData col" class="full-restaurant">
     <mat-checkbox class="checkbox-margin" [(ngModel)]="restaurant.isHvr" [disabled]="true">חבר</mat-checkbox>
     <mat-checkbox class="checkbox-margin" [(ngModel)]="restaurant.isKosher" [disabled]="true">כשר</mat-checkbox>
-    <star-rating [value]="restaurant.rank" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px" readonly="true"></star-rating>
-    <button mat-raised-button>הוסף לרשימה</button>
+    <star-rating [value]="restaurant.rank" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px"
+                 readonly="true"></star-rating>
+    <button class="row ctr">הוסף לרשימה</button>
   </div>
 </div>

@@ -1,5 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-availability-menu',
@@ -12,12 +11,12 @@ export class AvailabilityMenuComponent implements OnInit {
 
   constructor() {
     this.optionChosen = new EventEmitter<number>();
-   }
+  }
 
   ngOnInit() {
   }
 
-  choseOption (option:number): void {
+  choseOption(option:number):void {
     this.optionChosen.emit(option);
   }
 

@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { CREATE_EVENT, DELETE_EVENT, INIT_EVENTS } from './events.action';
 import { CalendarEvent } from 'angular-calendar';
-import { colors } from 'src/app/models/enums/color';
 
 const eventsInitialState:CalendarEvent[] = [];
 

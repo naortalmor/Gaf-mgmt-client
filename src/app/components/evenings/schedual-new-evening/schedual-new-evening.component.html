@@ -1,6 +1,5 @@
-
 <app-calander
-[events]="events"
-(eventAdded)="addEvent($event)"
-(eventDeleted)="deleteEvent($event)"
-> </app-calander>
+  (eventAdded)="addEvent($event)"
+  (eventDeleted)="deleteEvent($event)"
+  [events]="events"
+></app-calander>

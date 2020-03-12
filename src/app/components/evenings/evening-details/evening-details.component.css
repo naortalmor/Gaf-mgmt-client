@@ -1,16 +1,15 @@
-  
 .image-card {
-    height: 400px;
-    width: 640px;
+  height: 400px;
+  width: 640px;
 }
 
 #containerSelectedEvening {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #buttonCloseEvening {
-    height: 40px;
-    width: 40px;
-    margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
 }

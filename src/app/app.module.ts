@@ -1,7 +1,7 @@
 import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { RatingModule } from 'ng-starrating';
-import { MatFormFieldModule, MatInputModule, MatOptionModule, MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatOptionModule } from '@angular/material';
 import { reducers } from './store/reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -26,8 +26,8 @@ import { RestaurantListComponent } from './components/launches/restaurant-list/r
 import { SuggestionsContainerComponent } from './components/launches/suggestions-container/suggestions-container.component';
 import { TabComponent } from './components/tab/tab.component';
 import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
-import { ThisWeekComponent } from './components/mifgafs/this-week/this-week/this-week.component';
-import { PersonComponent } from './components/mifgafs/person/person/person.component';
+import { ThisWeekComponent } from './components/mifgafs/this-week/this-week.component';
+import { PersonComponent } from './components/mifgafs/person/person.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RoutingModule } from './routes/routing.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -39,7 +39,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from './routes/services/auth.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatSelectModule } from '@angular/material/select';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EveningListComponent } from './components/evenings/evening-list/evening-list.component';
 import { EveningDetailsComponent } from './components/evenings/evening-details/evening-details.component';
 import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
@@ -51,8 +51,8 @@ import { RestaurantChartComponent } from './components/launches/restaurant-chart
 import { SurveyComponent } from './components/survey/survey.component';
 import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
 import { GuestPageComponent } from './components/auth/guest-page/guest-page.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { AdminPageComponent } from './components/auth/admin-page/admin-page.component';
@@ -131,7 +131,7 @@ import { AdminPageComponent } from './components/auth/admin-page/admin-page.comp
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private library: FaIconLibrary) {
+  constructor(private library:FaIconLibrary) {
     library.addIcons(faGoogle, faGooglePlusG);
   }
 }

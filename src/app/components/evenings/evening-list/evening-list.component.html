@@ -1,5 +1,5 @@
 <div *ngFor="let evening of evenings">
-    <app-evening-card (selectEvening)="emitSelectedEvening($event)" [evening]="evening">
-    </app-evening-card>
+  <app-evening-card [evening]="evening"
+                    (selectEvening)="emitSelectedEvening(evening)">
+  </app-evening-card>
 </div>
-  

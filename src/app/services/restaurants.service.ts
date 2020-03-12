@@ -1,7 +1,7 @@
 import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
-import { config } from './../consts/config';
+import { config } from '../consts/config';
 import { HttpClient } from '@angular/common/http';
-import { INIT_RESTAURANTS } from './../store/restaurant/restaurant.actions';
+import { INIT_RESTAURANTS } from '../store/restaurant/restaurant.actions';
 import { Restaurant } from '../models/interfaces/restaurant';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
@@ -39,14 +39,14 @@ export class RestaurantsService {
 
   updateRestaurantSurvey(restaurantId:number, voterId:string):void {
     //Updating the db not work.... need to fix it
-  /*  this.http.post(`${config.serverUrl}/launches/updateRestaurantSurveyStatus`, {
-      id: restaurantId,
-      voterId: voterId
-    }).subscribe((restaurantSurvey:RestaurantSurvey) => {
-      this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey}));
-    });*/
+    /*  this.http.post(`${config.serverUrl}/launches/updateRestaurantSurveyStatus`, {
+        id: restaurantId,
+        voterId: voterId
+      }).subscribe((restaurantSurvey:RestaurantSurvey) => {
+        this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey}));
+      });*/
 
-    this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey:{restaurantId, votersIds:[voterId]}}));
+    this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey: {restaurantId, votersIds: [voterId]}}));
   }
 
   initRestaurantSurveyStatus():void {

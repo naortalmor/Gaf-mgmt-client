@@ -1,36 +1,35 @@
-<div class="login-container">
-  <div class="login-box">
+<div class="col ctr c-w">
+  <div class="login-box col ctr p-m m-l bc-sky-blue">
     <h1>נגיף</h1>
     <img class="logo-img" src="../../../assets/logo.jpg">
     <h4>מערכת לניהול גף</h4>
-<!--    <div class="login-item">-->
-<!--      <label>אימייל-->
-<!--        <input class="login-input" type="text" placeholder="gaf@gmail.com" [(ngModel)]="email" required>-->
-<!--      </label>-->
-<!--    </div>-->
+    <!--    <div class="p-m">-->
+    <!--      <label>אימייל-->
+    <!--        <input class="login-input p-s m-s bc-white" type="text" placeholder="gaf@gmail.com" [(ngModel)]="email" required>-->
+    <!--      </label>-->
+    <!--    </div>-->
 
-<!--    <div class="login-item">-->
-<!--      <label>סיסמה-->
-<!--        <input class="login-input" type="password" placeholder="סיסמה" [(ngModel)]="password" required>-->
-<!--      </label>-->
-<!--    </div>-->
+    <!--    <div class="p-m">-->
+    <!--      <label>סיסמה-->
+    <!--        <input class="login-input p-s m-s bc-white" type="password" placeholder="סיסמה" [(ngModel)]="password" required>-->
+    <!--      </label>-->
+    <!--    </div>-->
 
-<!--    <div class="login-item">-->
-<!--      <div *ngIf="!isLoading">-->
-<!--        <input type="submit" class="btn btnPrimary" value="Log in"-->
-<!--                (click)="login()">-->
-<!--      </div>-->
-<!--    </div>-->
+    <!--    <div class="p-m">-->
+    <!--      <div *ngIf="!isLoading">-->
+    <!--        <input type="submit" class="btn btnPrimary" value="Log in"-->
+    <!--                (click)="login()">-->
+    <!--      </div>-->
+    <!--    </div>-->
 
     <!-- Calling GoogleAuth Api from AuthService -->
-    <div class="login-item">
-      <button mat-raised-button (click)="loginGoogle()">
+    <div class="p-m">
+      <button class="row ctr" (click)="loginGoogle()">
         <fa-icon [icon]="['fab', 'google-plus-g']"></fa-icon>
         Log in with
       </button>
     </div>
-
-    <div *ngIf="isLoading" class="login-item">
+    <div *ngIf="isLoading" class="p-m">
       טוען...
     </div>
   </div>

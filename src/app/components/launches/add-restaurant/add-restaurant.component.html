@@ -1,30 +1,32 @@
 <mat-card class="card">
-    <mat-card-content>
-<div class="container">
-    <form [formGroup]="newRestuarantForm">
+  <mat-card-content>
+    <div class="col container">
+      <form [formGroup]="newRestuarantForm">
         <mat-form-field class="example-full-width">
-        <mat-label>שם</mat-label>
-            <input matInput type="text"  id='name' formControlName="name">
+          <mat-label>שם</mat-label>
+          <input class="row" matInput type="text" id='name' formControlName="name">
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>כתובת</mat-label>
-            <input matInput type="text" formControlName="address">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>סגנון</mat-label>
-            <mat-select [(value)]="selected" formControlName="cuisine">
-            <mat-option *ngFor="let restaurantType of RestaurantTypes| keyvalue" [value]="restaurantType.value">{{restaurantType.value}}</mat-option>
-            </mat-select>
+          <input class="row" matInput type="text" formControlName="address">
         </mat-form-field>
-            <label>חבר</label>
-            <mat-checkbox formControlName ="hever"></mat-checkbox>
-            <label>כשר</label>
-            <mat-checkbox formControlName ="kosher"></mat-checkbox>
-            </form>
-            <star-rating value="0" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px" readonly="false" (rate)="onRate($event)"></star-rating>
-            <button mat-raised-button (click)="onSubmit()" [disabled]="!newRestuarantForm.valid">הוסף מסעדה</button>
-            <br>
-            <button mat-raised-button (click)="onCloseForm()">בטל</button>
-</div>
-</mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>סגנון</mat-label>
+          <mat-select [(value)]="selected" formControlName="cuisine">
+            <mat-option *ngFor="let restaurantType of RestaurantTypes| keyvalue"
+                        [value]="restaurantType.value">{{restaurantType.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <label>חבר</label>
+        <mat-checkbox formControlName="hever"></mat-checkbox>
+        <label>כשר</label>
+        <mat-checkbox formControlName="kosher"></mat-checkbox>
+      </form>
+      <star-rating value="0" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px" readonly="false"
+                   (rate)="onRate($event)"></star-rating>
+      <button class="row ctr" (click)="onSubmit()" [disabled]="!newRestuarantForm.valid">הוסף מסעדה</button>
+      <br>
+      <button class="row ctr" (click)="onCloseForm()">בטל</button>
+    </div>
+  </mat-card-content>
 </mat-card>

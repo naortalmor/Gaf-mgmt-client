@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/interfaces/person';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/state';
 import { MifgafService } from 'src/app/services/mifgaf.service';
-import { UsersService } from 'src/app/services/users.service';
 import { AuthService } from 'src/app/routes/services/auth.service';
 
 @Component({
@@ -13,7 +12,7 @@ import { AuthService } from 'src/app/routes/services/auth.service';
   styleUrls: ['./mifgafs.component.css']
 })
 export class MifgafsComponent implements OnInit {
-  bubbles:Observable<{ title: string, data: string }[]>;
+  bubbles:Observable<{ title:string, data:string }[]>;
   winners:Observable<Person[][]>;
 
   constructor(private store:Store<AppState>,
@@ -23,9 +22,9 @@ export class MifgafsComponent implements OnInit {
     this.mifgafService.initInfoBubbles();
     this.bubbles = this.mifgafService.infoBubblesObs;
     this.winners = this.mifgafService.winnersObs;
-   }
+  }
 
   ngOnInit() {
-    
+
   }
 }

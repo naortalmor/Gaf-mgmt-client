@@ -1,6 +1,5 @@
-import { INIT_RESTAURANTS, ADD_RESTAURANT } from './restaurant.actions';
+import { ADD_RESTAURANT, INIT_RESTAURANTS } from './restaurant.actions';
 import { createReducer, on } from '@ngrx/store';
-import { state } from '@angular/animations';
 
 const restaurantInitState = [];
 
