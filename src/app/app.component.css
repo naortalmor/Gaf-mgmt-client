@@ -1,7 +1,9 @@
-.home {
+.menu {
   background-color: #99d8ea;
+  height: 45px;
 }
 
-.active-route {
-  background-color: rgb(3, 22, 46);
+.active-route-button {
+  background-color: rgb(13, 22, 46);
+  color:white;
 }

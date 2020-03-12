@@ -1,16 +1,18 @@
-<div class="home">
-  <ul>
-    <li><a [routerLinkActive]="['active-route']" routerLink="/mifgafs">ניהול מפגפים</a></li>
-    <li><a [routerLinkActive]="['active-route']" routerLink="/evenings">ניהול ערבי צוות</a></li>
-    <li><a [routerLinkActive]="['active-route']" routerLink="/lunches">ארוחות צהריים</a></li>
-    <li style="float:left"><a *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">התנתק</a></li>
-    <li style="float:left">
-      <a *ngIf="user && authService.isLoggedIn">שלום, {{user.displayName}}</a>
-    </li>
-    <li style="float:left">
-      <a *ngIf="authService.isAdmin()" routerLink="/admin">ADMIN</a>
-    </li>
-  </ul>
+<div class="col vh-l vw-l">
+  <div class="menu row">
+    <div class="row flx1">
+      <button mat-button
+              *ngFor="let rout of routOptions"
+              [routerLinkActive]="rout.activeButtonStyle"
+              routerLink="/{{rout.routerLink}}">
+        {{rout.buttonText}}
+      </button>
+    </div>
+    <div class="row flx1" *ngIf="authService.isLoggedIn">
+      <span *ngIf="connectedUser | async as user">שלום, {{user.displayName}}</span>
+      <button mat-button (click)="authService.SignOut()">התנתק</button>
+      <button mat-button *ngIf="!authService.isAdmin()" routerLink="/admin">מצב מנהל מערכת</button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

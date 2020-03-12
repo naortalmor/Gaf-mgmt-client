@@ -14,31 +14,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-ul {
-  list-style-type: none;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: right;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  padding: 14px 20px;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
 .f-s {
   font-size: 10px;
 }
@@ -173,4 +148,8 @@ li a:hover {
 
 .m-l {
   margin: 15px;
+}
+
+.float-l {
+  float:left;
 }
