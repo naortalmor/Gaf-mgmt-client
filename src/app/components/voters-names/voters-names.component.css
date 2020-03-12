@@ -3,10 +3,6 @@
   flex-direction: column;
 }
 
-.flx1 {
-  flex: 1;
-}
-
 .self-ctr {
   align-self: center;
 }

@@ -27,7 +27,7 @@ export class AuthService {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
-        this.store.dispatch(INIT_CURRENT_USER({currentUser: this.userData}));
+       // this.store.dispatch(INIT_CURRENT_USER({currentUser: this.userData}));
         JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);

@@ -1,19 +1,13 @@
-<div class="chart ctr">
-  <app-voters-names *ngIf="voters && voters.length"
-                    class="flx1"
-                    [header]="header"
-                    [voters]="voters"
-                    (closeEmitter)="closeVotersNames()">
-  </app-voters-names>
-  <ngx-charts-pie-chart
-    class="flx1"
-    [view]="chartSizes"
-    [results]="chartResult"
-    [scheme]="colorScheme"
-    [gradient]="false"
-    [legend]="false"
-    [labels]="true"
-    [doughnut]="false"
-    (select)="onSelect($event)">
+<div ngSwitch="{{chartType}}">
+  <ngx-charts-pie-chart *ngSwitchCase="chartTypes.pie"
+                        class="flx1"
+                        [results]="chartData"
+                        [view]="chartSizes"
+                        [scheme]="colorScheme"
+                        [gradient]="false"
+                        [legend]="false"
+                        [labels]="true"
+                        [doughnut]="false"
+                        (select)="onSelect($event)">
   </ngx-charts-pie-chart>
 </div>
