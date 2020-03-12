@@ -1,3 +1,4 @@
+import { config } from './../consts/config';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { AppState } from '../store/state';
@@ -13,21 +14,7 @@ export class MifgafService {
   }
 
   initThisWeekPersons() {
-    this.store.dispatch(INIT_THIS_WEEK_PERSONS({ thisWeekPersons: [
-      {
-        name: 'תמיר',
-        age: 16
-      },
-      {
-        name: 'תמיר',
-        age: 16
-      },
-      {
-        name: 'תמיר',
-        age: 16
-      }
-    ] as Person[] }));
-    this.http.get('http://localhost:1111/mifgafim/test')
-      .subscribe((thisWeekPersons: Person[]) => this.store.dispatch(INIT_THIS_WEEK_PERSONS({ thisWeekPersons })));
+    this.http.get(`${config.serverUrl}/mifgafim/test`)
+    .subscribe((thisWeekPersons:Person[]) => this.store.dispatch(INIT_THIS_WEEK_PERSONS({thisWeekPersons})));
   }
 }
