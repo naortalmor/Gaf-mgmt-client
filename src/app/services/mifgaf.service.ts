@@ -13,7 +13,7 @@ export class MifgafService {
   }
 
   initThisWeekPersons() {
-    this.http.get('http://localhost:1111/mifgafim/test')
+    this.http.get('http://localhost:1111/mifgafim/thisWeekPersons')
     .subscribe((thisWeekPersons:Person[]) => this.store.dispatch(INIT_THIS_WEEK_PERSONS({thisWeekPersons})));
   }
 }
