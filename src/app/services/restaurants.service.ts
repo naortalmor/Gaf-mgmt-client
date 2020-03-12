@@ -1,3 +1,4 @@
+import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
 import { config } from './../consts/config';
 import { HttpClient } from '@angular/common/http';
 import { INIT_RESTAURANTS } from './../store/restaurant/restaurant.actions';
@@ -20,6 +21,12 @@ export class RestaurantsService {
   initRestaurants():void {
     this.http.get(`${config.serverUrl}/launches/getRestaurants`)
     .subscribe((restaurants:Restaurant[]) => this.store.dispatch(INIT_RESTAURANTS({restaurants})));
+  }
+
+  saveNewRestaurant(newRestaurant: Restaurant): void {
+    this.http.post(`${config.serverUrl}/launches/addRestaurants`, newRestaurant).subscribe((restaurant: Restaurant) => {
+      this.store.dispatch(ADD_RESTAURANT({restaurant}));
+    })
   }
 
   initRestaurantSurvey():void {
