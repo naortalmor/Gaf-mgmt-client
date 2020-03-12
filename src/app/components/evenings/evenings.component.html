@@ -9,7 +9,7 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
-
+    <mat-divider [vertical]="true"></mat-divider>
     <div id="sectionEveningDetails" *ngIf="selectedEvening">
         <app-evening-details [selectedEvening]="selectedEvening" (closeEveningEmittter)="onCloseEventDetails()"></app-evening-details>
     </div>

@@ -52,6 +52,7 @@ import { SurveyComponent } from './components/survey/survey.component';
 import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
 import { GuestPageComponent } from './components/auth/guest-page/guest-page.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
@@ -105,6 +106,7 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
     BrowserAnimationsModule,
     MatSelectModule,
     MatOptionModule,
+    MatDividerModule,
     FormsModule,
     StoreModule.forRoot(reducers),
     CalendarModule.forRoot({
