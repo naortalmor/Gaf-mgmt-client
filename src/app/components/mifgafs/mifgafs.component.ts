@@ -13,11 +13,14 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class MifgafsComponent implements OnInit {
   thisWeekPersons:Observable<Person[]>;
+  bubbles:Observable<{ title: string, data: string }[]>;
 
   constructor(private store:Store<AppState>,
               private mifgafService:MifgafService) {
     this.thisWeekPersons = this.store.select('thisWeekPersons');
     this.mifgafService.initThisWeekPersons();
+    this.mifgafService.initInfoBubbles();
+    this.bubbles = this.mifgafService.infoBubblesObs;
    }
 
   ngOnInit() {
