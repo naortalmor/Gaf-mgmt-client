@@ -3,10 +3,12 @@
 
     <mat-card-content>
             <h2>{{selectedEvening.title}}</h2>
-        
-        <div id="containerSelectedEvening">
-            <h2>{{selectedEvening.content}}</h2>
-            <button id="buttonCloseEvening" (click)="closeEveningDetails()">Close</button>
+            <img class="image-card" mat-card-image src={{selectedEvening.imageSrc}} alt="Photo of a past evening event">
+        <div>
+            <h2 style="margin: 2px;">{{selectedEvening.content}}</h2>
+            <button mat-button color="warn" style="border: 1px red solid" id="buttonCloseEvening" (click)="closeEveningDetails()">
+                <mat-icon>close</mat-icon>
+            </button>
         </div>
     </mat-card-content>
     <div *ngFor="let image of selectedEvening.images">
