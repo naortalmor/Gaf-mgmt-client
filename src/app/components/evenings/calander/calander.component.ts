@@ -39,6 +39,7 @@ import { User } from 'src/app/models/user';
 export class CalanderComponent implements OnInit {
   @Input() events:CalendarEvent[];
   @Output() eventAdded:EventEmitter<CalendarEvent>;
+  @Output() eventDeleted:EventEmitter<CalendarEvent>;
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   user:User;
@@ -77,6 +78,7 @@ export class CalanderComponent implements OnInit {
 
   constructor(private userService:UsersService) {
     this.eventAdded = new EventEmitter<CalendarEvent>();
+    this.eventDeleted = new EventEmitter<CalendarEvent>();
     this.isPanelOpen = false;
     this.userService.getCurrentUser().subscribe((user) => this.user = user);
   }
@@ -140,7 +142,7 @@ export class CalanderComponent implements OnInit {
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
-    this.events = this.events.filter(event => event !== eventToDelete);
+    this.eventDeleted.emit(eventToDelete);
   }
 
   setView(view: CalendarView) {

@@ -17,13 +17,16 @@
 </div>
 
 <app-evnings-history> </app-evnings-history>
-<div> 
+
+<div  *ngIf="!displayedPart"> 
     <button mat-fab color="primary" (click)="toggleDisplayedPart()"> 
         <mat-icon>arrow_back</mat-icon>
     </button>
-</div>
-<app-schedual-new-evening *ngIf="!displayedPart"
+
+<app-schedual-new-evening
 [events]="events$ | async"
 (eventAdded)="addEvent($event)"
-> </app-schedual-new-evening>
-
+(eventDeleted)="deleteEvent($event)"
+>
+ </app-schedual-new-evening>
+</div>
