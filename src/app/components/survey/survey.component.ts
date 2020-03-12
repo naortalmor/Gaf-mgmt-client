@@ -13,6 +13,12 @@ export class SurveyComponent {
   @Input() question:QuestionBase<string>;
   @Input() form:FormGroup;
 
+  result:string;
+
+  constructor() {
+    this.result = '';
+  }
+
   get surveyTypes() {
     return SurveyType;
   }
