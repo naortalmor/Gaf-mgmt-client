@@ -3,5 +3,8 @@
   <div class="flx1 ctr-self" *ngFor="let voter of voters">
     <span>{{voter}}</span>
   </div>
-  <button class="flx1" (click)="close()">סגור</button>
+  <button mat-button
+          class="button-style flx1"
+          (click)="close()">סגור
+  </button>
 </div>

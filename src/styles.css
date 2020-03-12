@@ -14,31 +14,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-ul {
-  list-style-type: none;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: right;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  padding: 14px 20px;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
 .f-s {
   font-size: 10px;
 }
@@ -53,6 +28,32 @@ li a:hover {
 
 .f-xl {
   font-size: 22px;
+}
+
+.button-style {
+  background-color: #4267b2;
+  color: #ffffff;
+  border: 1px solid rgb(13, 22, 46) !important;
+  border-radius: 5px !important;
+  margin: 5px !important;
+}
+
+.button-style:checked {
+  background-color: #5f9b4c;
+}
+
+.button-style:hover {
+  background-color: #4b58da;
+  font-weight: bold;
+}
+
+.button-style:disabled {
+  background-color: rgba(0, 0, 0, .26);
+}
+
+.button-style:disabled:hover {
+  cursor: default;
+  font-weight: normal;
 }
 
 .c-w {
@@ -173,4 +174,24 @@ li a:hover {
 
 .m-l {
   margin: 15px;
+}
+
+.mr-s {
+  margin-right: 5px;
+}
+
+.mr-m {
+  margin-right: 10px;
+}
+
+.ml-s {
+  margin-left: 5px;
+}
+
+.ml-m {
+  margin-left: 10px;
+}
+
+.float-l {
+  float: left;
 }

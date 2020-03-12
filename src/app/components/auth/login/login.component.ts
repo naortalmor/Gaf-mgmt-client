@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { AppState } from '../../../store/state';
 import { Store } from '@ngrx/store';
 
+const CONNECT_BUTTON_TEXT:string = 'התחבר דרך ';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,11 +17,13 @@ export class LoginComponent implements OnDestroy {
   password:string = '';
   isLoading:boolean = false;
   authstateSubscription:Subscription;
+  connectButtonText:string;
 
   constructor(public authService:AuthService,
               public router:Router,
               private cdRef:ChangeDetectorRef,
               private store:Store<AppState>) {
+    this.connectButtonText = CONNECT_BUTTON_TEXT;
     if (this.authService.isLoggedIn) {
       this.router.navigate(['home']);
     }

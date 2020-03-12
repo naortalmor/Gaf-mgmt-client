@@ -1,16 +1,33 @@
-<div class="home">
-  <ul>
-    <li><a [routerLinkActive]="['active-route']" routerLink="/mifgafs">ניהול מפגפים</a></li>
-    <li><a [routerLinkActive]="['active-route']" routerLink="/evenings">ניהול ערבי צוות</a></li>
-    <li><a [routerLinkActive]="['active-route']" routerLink="/lunches">ארוחות צהריים</a></li>
-    <li style="float:left"><a *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">התנתק</a></li>
-    <li style="float:left">
-      <a *ngIf="user && authService.isLoggedIn">שלום, {{user.displayName}}</a>
-    </li>
-    <li style="float:left">
-      <a *ngIf="authService.isAdmin()" routerLink="/admin">ADMIN</a>
-    </li>
-  </ul>
+<div class="col vh-l vw-l">
+  <div class="menu">
+    <div class="menu-info">
+      <div class="menu-route-side">
+        <button mat-button
+                class="button-style"
+                *ngFor="let rout of routOptions"
+                [disabled]="!authService.isLoggedIn"
+                [routerLinkActive]="rout.activeButtonStyle"
+                routerLink="/{{rout.routerLink}}">
+          {{rout.buttonText}}
+        </button>
+      </div>
+      <div *ngIf="authService.isLoggedIn" class="menu-connected-user-side row">
+        <div *ngIf="connectedUser | async as user"
+             class="connected-user">
+          {{connectedUserText}} {{user.displayName}}
+        </div>
+        <button mat-button
+                class="button-style"
+                (click)="authService.SignOut()">
+          {{disconnectButtonText}}
+        </button>
+        <button mat-button
+                *ngIf="authService.isAdmin()"
+                class="disconnect-button-style"
+                routerLink="/admin">{{adminButtonText}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

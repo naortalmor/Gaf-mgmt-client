@@ -9,6 +9,8 @@
     <mat-checkbox class="checkbox-margin" [(ngModel)]="restaurant.isKosher" [disabled]="true">כשר</mat-checkbox>
     <star-rating [value]="restaurant.rank" totalstars="5" checkedcolor="gold" uncheckedcolor="grey" size="24px"
                  readonly="true"></star-rating>
-    <button class="row ctr">הוסף לרשימה</button>
+    <button mat-button
+            class="button-style">הוסף לרשימה
+    </button>
   </div>
 </div>

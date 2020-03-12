@@ -3,7 +3,14 @@
     <app-survey [question]="question" [form]="form"></app-survey>
   </div>
   <div class="form-row p-s spec">
-    <button type="submit" [disabled]="!form.valid">שמור</button>
-    <button type="button" (click)="onClose()">בטל סקר</button>
+    <button mat-button
+            class="button-style"
+            type="submit"
+            [disabled]="!form.valid">שמור
+    </button>
+    <button mat-button
+            class="button-style"
+            type="button" (click)="onClose()">בטל סקר
+    </button>
   </div>
 </form>
