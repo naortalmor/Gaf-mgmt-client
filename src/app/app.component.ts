@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, ChangeDetectorRef, OnInit} from '@angular/core';
-import {AuthService} from './routes/services/auth.service';
-import {UsersService} from './services/users.service';
-import {User} from './models/user';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AuthService } from './routes/services/auth.service';
+import { UsersService } from './services/users.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,11 @@ import {User} from './models/user';
 })
 export class AppComponent implements OnInit {
   title = 'GAF Management';
-  user: User;
+  user:User;
 
-  constructor(public authService: AuthService,
-              private usersService: UsersService,
-              private cdRef: ChangeDetectorRef) {
+  constructor(public authService:AuthService,
+              private usersService:UsersService,
+              private cdRef:ChangeDetectorRef) {
     //this.usersService.initUsers();
   }
 

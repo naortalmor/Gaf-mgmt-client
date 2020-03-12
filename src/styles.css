@@ -2,11 +2,40 @@
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
 body {
+  margin: 0;
   direction: rtl;
   background-color: #F0F8FF;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 20px;
+}
+
+li a:hover {
+  background-color: #111;
 }
 
 .row {
@@ -28,8 +57,24 @@ body {
   cursor: pointer;
 }
 
+.p-s {
+  padding: 5px;
+}
+
 .p-m {
   padding: 10px;
+}
+
+.p-l {
+  padding: 15px;
+}
+
+.m-m {
+  margin: 10px;
+}
+
+.m-m {
+  margin: 10px;
 }
 
 .m-m {
