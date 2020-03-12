@@ -48,6 +48,18 @@ li a:hover {
   flex-direction: column;
 }
 
+.flx1 {
+  flex: 1;
+}
+
+.flx2 {
+  flex: 2;
+}
+
+.flx3 {
+  flex: 3;
+}
+
 .ctr {
   justify-content: center;
   align-items: center;
@@ -69,18 +81,14 @@ li a:hover {
   padding: 15px;
 }
 
-.m-m {
-  margin: 10px;
+.m-s {
+  margin: 5px;
 }
 
 .m-m {
   margin: 10px;
 }
 
-.m-m {
-  margin: 10px;
-}
-
-.flx1 {
-  flex: 1;
+.m-l {
+  margin: 15px;
 }
