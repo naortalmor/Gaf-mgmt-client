@@ -2,11 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .winners {
-    background: #353535;
-    padding: 20px;
-    width: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.winners-title {
+    color: #050940;
+    font-size: 14pt;
 }
