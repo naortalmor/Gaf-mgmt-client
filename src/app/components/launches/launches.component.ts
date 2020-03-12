@@ -42,8 +42,7 @@ export class LaunchesComponent {
   }
 
   onAddRestaurant(restaurant:Restaurant) {
-    console.log(restaurant);
-    this.store.dispatch(ADD_RESTAURANT({restaurant}));
+    this.restaurantsService.saveNewRestaurant(restaurant);
   }
 
   selectRestaurant(selectedRestaurant:Restaurant) {
