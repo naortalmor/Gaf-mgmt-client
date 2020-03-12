@@ -4,9 +4,9 @@ import {auth} from 'firebase/app';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 import {Router} from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/state';
-import { INIT_CURRENT_USER } from 'src/app/store/users/user.actions';
+import {Store} from '@ngrx/store';
+import {AppState} from 'src/app/store/state';
+import {INIT_CURRENT_USER} from 'src/app/store/users/user.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -19,19 +19,25 @@ export class AuthService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
-    private store:Store<AppState>
+    private store: Store<AppState>
   ) {
+    const userLocalStorage = localStorage.getItem('user');
+    if (userLocalStorage !== 'undefined') {
+      this.userData = JSON.parse(userLocalStorage);
+    }
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-       // this.store.dispatch(INIT_CURRENT_USER({currentUser: this.userData}));
-        JSON.parse(localStorage.getItem('user'));
+    this.afAuth.authState.subscribe(authUser => {
+      if (authUser) {
+        localStorage.setItem('user', JSON.stringify(authUser));
+        this.userData = authUser;
+        this.afs.doc<User>(`users/${authUser.uid}`).valueChanges().subscribe((user:User) => {
+          this.userData = user;
+          this.store.dispatch(INIT_CURRENT_USER({currentUser: this.userData}));
+          localStorage.setItem('user', JSON.stringify(this.userData));
+        });
       } else {
         localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
       }
     });
   }
@@ -40,9 +46,9 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result: auth.UserCredential) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['home']);
-        });
+        // this.ngZone.run(() => {
+        //   this.router.navigate(['home']);
+        // });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message);
@@ -52,17 +58,17 @@ export class AuthService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null);
+    // const user = JSON.parse(localStorage.getItem('user'));
+    return (this.userData !== null);
   }
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((result: auth.UserCredential) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['home']);
-        });
+        // this.ngZone.run(() => {
+        //   this.router.navigate(['home']);
+        // });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error);
@@ -79,7 +85,10 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      roles: {
+        guest: true
+      }
     };
     return userRef.set(userData, {
       merge: true
@@ -90,6 +99,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
+      this.userData = null;
       this.router.navigate(['login']);
     });
   }
@@ -129,5 +139,29 @@ export class AuthService {
   //       window.alert(error);
   //     });
   // }
+
+  ///// Role-based Authorization //////
+
+  isAdmin(): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(allowed);
+  }
+
+  isUser(): boolean {
+    const allowed = ['admin', 'user'];
+    return this.checkAuthorization(allowed);
+  }
+
+
+  // determines if user has matching role
+  private checkAuthorization(allowedRoles: string[]): boolean {
+    if (!this.userData) return false;
+    for (const role of allowedRoles) {
+      if (this.userData.roles[role]) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
