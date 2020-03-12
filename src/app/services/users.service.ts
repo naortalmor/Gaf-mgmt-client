@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/state';
-import { User } from '../models/user';
-import { INIT_CURRENT_USER, INIT_USERS } from '../store/users/user.actions';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
