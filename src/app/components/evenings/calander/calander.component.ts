@@ -29,7 +29,7 @@ import {colors} from '../../../models/enums/color'
 import { NumberCardModule } from '@swimlane/ngx-charts';
 import { Position } from '../../../models/interfaces/position';
 import { UsersService } from 'src/app/services/users.service';
-import { User } from 'src/app/models/interfaces/user';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-calander',
@@ -39,6 +39,7 @@ import { User } from 'src/app/models/interfaces/user';
 export class CalanderComponent implements OnInit {
   @Input() events:CalendarEvent[];
   @Output() eventAdded:EventEmitter<CalendarEvent>;
+  @Output() eventDeleted:EventEmitter<CalendarEvent>;
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   user:User;
@@ -74,9 +75,10 @@ export class CalanderComponent implements OnInit {
   activeDayIsOpen: boolean = true;
 
   refresh: Subject<any> = new Subject();
-  
+
   constructor(private userService:UsersService) {
     this.eventAdded = new EventEmitter<CalendarEvent>();
+    this.eventDeleted = new EventEmitter<CalendarEvent>();
     this.isPanelOpen = false;
     this.userService.getCurrentUser().subscribe((user) => this.user = user);
   }
@@ -131,7 +133,7 @@ export class CalanderComponent implements OnInit {
       {
         start: this.viewDate,
         end: this.viewDate,
-        title: this.user.name,
+        title: this.user.displayName,
         color: colorToMark,
         allDay: true,
       }
@@ -140,7 +142,7 @@ export class CalanderComponent implements OnInit {
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
-    this.events = this.events.filter(event => event !== eventToDelete);
+    this.eventDeleted.emit(eventToDelete);
   }
 
   setView(view: CalendarView) {

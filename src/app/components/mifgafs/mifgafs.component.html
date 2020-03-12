@@ -1,5 +1,16 @@
 <div class="main">
     <div class="title">מפגפים!</div>
+    <div *ngIf="auth.isAdmin()" class="admin">
+        <span class="admin-title">הלו אדמין!</span>
+        <div>
+            <span>המפגפים הבאים:</span>
+            <div>
+
+            </div>
+            <span>צור תוכניות חדשות!</span>
+        </div>
+        <span class="admin-button">סמן שהמפגף ברשות {{1}} התקיים</span>
+    </div>
     <app-this-week [currentWeekPersons]="thisWeekPersons | async"></app-this-week>
     <div class="mifgaf-info-container">
         <div *ngFor="let bubble of (bubbles | async)" class="mifgaf-info">

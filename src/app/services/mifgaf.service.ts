@@ -18,7 +18,7 @@ export class MifgafService {
   }
 
   initThisWeekPersons() {
-    this.http.get(`${config.serverUrl}/mifgafim/test`)
+    this.http.get(`${config.serverUrl}/mifgafim/winners`)
       .subscribe((thisWeekPersons: Person[]) => this.store.dispatch(INIT_THIS_WEEK_PERSONS({ thisWeekPersons })));
   }
 

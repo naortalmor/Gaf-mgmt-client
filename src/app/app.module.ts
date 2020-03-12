@@ -39,7 +39,6 @@ import { environment } from '../environments/environment';
 import { AuthService } from './routes/services/auth.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatSelectModule } from '@angular/material/select';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { EveningListComponent } from './components/evenings/evening-list/evening-list.component';
 import { EveningDetailsComponent } from './components/evenings/evening-details/evening-details.component';
@@ -52,6 +51,7 @@ import { RestaurantChartComponent } from './components/launches/restaurant-chart
 import { SurveyComponent } from './components/survey/survey.component';
 import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
 import { GuestPageComponent } from './components/auth/guest-page/guest-page.component';
+import {MatIconModule} from '@angular/material/icon';
 
 import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
@@ -97,6 +97,7 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
@@ -117,7 +118,6 @@ import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
     ReactiveFormsModule,
     FormsModule,
     MatCheckboxModule,
-    NgxStarRatingModule,
     FontAwesomeModule,
     MatInputModule,
     HttpClientModule,

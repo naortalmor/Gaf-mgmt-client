@@ -5,6 +5,8 @@ export interface User {
   photoURL: string;
   emailVerified: boolean;
   roles: Roles;
+  teamId?:number;
+  typeId?:number;
 }
 
 export interface Roles {

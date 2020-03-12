@@ -1,4 +1,6 @@
-<button mat-button color="primary" [matMenuTriggerFor]="menu">Vote</button>
+<button mat-button color="primary" [matMenuTriggerFor]="menu">
+  <mat-icon>add</mat-icon>
+</button>
 <mat-menu #menu="matMenu">
   <button  mat-menu-item class="'mat-success'" (click)="choseOption(1)">Available!</button>
   <button  mat-menu-item class="'mat-warn'" (click)="choseOption(2)">Not Sure..</button>

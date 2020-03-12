@@ -7,7 +7,7 @@ import { EveningService } from 'src/app/services/evening.service';
 import { Evening } from '../../models/evening';
 import { async } from '@angular/core/testing';
 import { CalendarEvent } from 'angular-calendar';
-import { CREATE_EVENT } from 'src/app/store/events/events.action';
+import { CREATE_EVENT, DELETE_EVENT } from 'src/app/store/events/events.action';
 
 @Component({
   selector: 'app-evenings',
@@ -42,6 +42,10 @@ export class EveningsComponent implements OnInit {
 
   addEvent(event:CalendarEvent): void {
     this.store.dispatch(CREATE_EVENT({newEvent:event}));
+  }
+
+  deleteEvent(event:CalendarEvent): void {
+    this.store.dispatch(DELETE_EVENT({deleteEvent:event}));
   }
 
   toggleDisplayedPart(): void {

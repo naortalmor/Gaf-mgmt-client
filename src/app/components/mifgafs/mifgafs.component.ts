@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/state';
 import { MifgafService } from 'src/app/services/mifgaf.service';
 import { UsersService } from 'src/app/services/users.service';
+import { AuthService } from 'src/app/routes/services/auth.service';
 
 @Component({
   selector: 'app-mifgafs',
@@ -16,7 +17,8 @@ export class MifgafsComponent implements OnInit {
   bubbles:Observable<{ title: string, data: string }[]>;
 
   constructor(private store:Store<AppState>,
-              private mifgafService:MifgafService) {
+              private mifgafService:MifgafService,
+              public auth:AuthService) {
     this.thisWeekPersons = this.store.select('thisWeekPersons');
     this.mifgafService.initThisWeekPersons();
     this.mifgafService.initInfoBubbles();

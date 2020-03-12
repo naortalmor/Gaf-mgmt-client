@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
-import { User } from '../../models/interfaces/user';
+import { User } from '../../models/user';
 import { QuestionService } from '../../services/question.service';
 
 @Component({

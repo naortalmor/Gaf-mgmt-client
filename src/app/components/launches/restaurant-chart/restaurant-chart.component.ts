@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { RestaurantSurvey } from '../../../models/interfaces/restaurant-survey';
 import { Restaurant } from '../../../models/interfaces/restaurant';
-import { User } from '../../../models/interfaces/user';
+import { User } from '../../../models/user';
 import { ChartType } from '../../../models/enums/enums';
 import { ChartData } from '../../../models/interfaces/chart-data';
 
@@ -55,9 +55,9 @@ export class RestaurantChartComponent implements OnChanges {
     this.voters = [];
   }
 
-  private openVoters(votersIds:number[]):void {
-    let voters:User[] = this.users.filter(user => votersIds.includes(user.id));
-    this.voters = voters.map(voter => voter.name);
+  private openVoters(votersIds:string[]):void {
+    let voters:User[] = this.users.filter(user => votersIds.includes(user.uid));
+    this.voters = voters.map(voter => voter.displayName);
   }
 
   private updateChartData():void {

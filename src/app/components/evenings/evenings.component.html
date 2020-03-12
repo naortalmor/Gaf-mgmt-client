@@ -1,10 +1,15 @@
-<button (click)="toggleDisplayedPart()"> Schedual </button>
-
 <div *ngIf="displayedPart" id="cotainerListAndDetails">
+
     <div id="sectionEveningList"> 
         <app-evening-list (selectEveningBubbled)="onSelectEveningBubbled($event)" id="containerEveningList" [evenings]="evenings"></app-evening-list>
     </div>
     
+    <div> 
+        <button mat-fab color="primary" (click)="toggleDisplayedPart()"> 
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
     <div id="sectionEveningDetails" *ngIf="selectedEvening">
         <app-evening-details [selectedEvening]="selectedEvening" (closeEveningEmittter)="onCloseEventDetails()"></app-evening-details>
     </div>
@@ -13,8 +18,15 @@
 
 <app-evnings-history> </app-evnings-history>
 
-<app-schedual-new-evening *ngIf="!displayedPart"
+<div  *ngIf="!displayedPart"> 
+    <button mat-fab color="primary" (click)="toggleDisplayedPart()"> 
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+
+<app-schedual-new-evening
 [events]="events$ | async"
 (eventAdded)="addEvent($event)"
-> </app-schedual-new-evening>
-
+(eventDeleted)="deleteEvent($event)"
+>
+ </app-schedual-new-evening>
+</div>
