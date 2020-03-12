@@ -1,3 +1,5 @@
+import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
+import {MatCardModule} from '@angular/material/card';
 import { RatingModule } from 'ng-starrating';
 import { MatFormFieldModule, MatInputModule, MatOptionModule, MatCard, MatCardTitle, MatCardHeader, MatCardSubtitle, MatCardContent, MatCardActions } from '@angular/material';
 import { reducers } from './store/reducers';
@@ -26,7 +28,7 @@ import { TabComponent } from './components/tab/tab.component';
 import { LunchSurveyComponent } from './components/launches/lunch-survey/lunch-survey.component';
 import { ThisWeekComponent } from './components/mifgafs/this-week/this-week/this-week.component';
 import { PersonComponent } from './components/mifgafs/person/person/person.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { RoutingModule } from './routes/routing.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HomeComponent } from './components/home/home.component';
@@ -38,7 +40,7 @@ import { AuthService } from './routes/services/auth.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxStarRatingModule } from 'ngx-star-rating';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { EveningListComponent } from './components/evenings/evening-list/evening-list.component';
 import { EveningDetailsComponent } from './components/evenings/evening-details/evening-details.component';
 import { AvailabilityMenuComponent } from './components/availability-menu/availability-menu.component';
@@ -49,7 +51,9 @@ import { VotersNamesComponent } from './components/voters-names/voters-names.com
 import { RestaurantChartComponent } from './components/launches/restaurant-chart/restaurant-chart.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { EveningCardComponent } from './components/evenings/evening-card/evening-card.component';
-import { AddRestaurant } from './components/launches/add-restaurant/add-restaurant.component';
+import { GuestPageComponent } from './components/auth/guest-page/guest-page.component';
+
+import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -63,12 +67,6 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
     EvningsHistoryComponent,
     SchedualNewEveningComponent,
     CalanderComponent,
-    MatCard,
-    MatCardTitle,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatCardContent,
-    MatCardActions,
     EveningListComponent,
     EveningDetailsComponent,
     EveningCardComponent,
@@ -80,6 +78,7 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
     LunchSurveyComponent,
     ThisWeekComponent,
     PersonComponent,
+    GuestPageComponent,
     AvailabilityMenuComponent,
     FilterSuggestionsComponent,
     FilterSuggestionsPipe,
@@ -89,6 +88,7 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
     StoreModule.forRoot(reducers),
     FormsModule,
     ReactiveFormsModule,
@@ -109,8 +109,7 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
-    ,
+    }),
     RoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -121,10 +120,14 @@ import { AddRestaurant } from './components/launches/add-restaurant/add-restaura
     NgxStarRatingModule,
     FontAwesomeModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faGoogle, faGooglePlusG);
+  }
 }

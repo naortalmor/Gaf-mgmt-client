@@ -1,13 +1,14 @@
 .login-container {
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 .login-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e3e3e3;
+  background-color: #007c91;
   border-radius: 2em;
   padding: 10px;
   margin: 15px;
@@ -32,4 +33,9 @@
 .logo-img {
   width: 30%;
   border-radius: 30em;
+}
+
+.login-button {
+  padding: 10px;
+  background-color: grey;
 }

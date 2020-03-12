@@ -48,9 +48,8 @@ export class LaunchesComponent {
     this.selectedTab = newTab;
   }
 
-  onAddRestaurant(restaurant:Restaurant):void {
-    console.log(restaurant);
-    this.store.dispatch(ADD_RESTAURANT({restaurant}));
+  onAddRestaurant(restaurant:Restaurant) {
+    this.restaurantsService.saveNewRestaurant(restaurant);
   }
 
   selectRestaurant(selectedRestaurant:Restaurant):void {
