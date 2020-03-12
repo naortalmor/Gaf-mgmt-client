@@ -4,7 +4,7 @@
     <li> <a routerLink="/mifgafs">ניהול מפגפים</a></li>
     <li> <a routerLink="/evenings">ניהול ערבי צוות</a></li>
     <li> <a routerLink="/lunches">ארוחות צהריים</a></li>
-    <li style="float:right" ><a *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">התנתק</a></li>
+    <li style="float:left" ><a *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">התנתק</a></li>
  </ul>
  </div>
  
