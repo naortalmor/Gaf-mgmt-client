@@ -18,4 +18,5 @@ export interface AppState {
   suggestionsFilter:FilterSuggestions;
   currentUser:User;
   allUsers:User[];
+  diningRoomOfToday:string;
 }

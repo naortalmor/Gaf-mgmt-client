@@ -1,3 +1,4 @@
+import { INIT_DINING_OF_TODAY } from './../store/dining-room-of-today/dining-room-of-today.actions';
 import { ADD_RESTAURANT } from 'src/app/store/restaurant/restaurant.actions';
 import { config } from '../consts/config';
 import { HttpClient } from '@angular/common/http';
@@ -34,6 +35,14 @@ export class RestaurantsService {
   initRestaurantSurvey():void {
     this.http.get(`${config.serverUrl}/launches/getRestaurantSurvey`).subscribe((restaurantSurvey:RestaurantSurvey[]) => {
       this.store.dispatch(INIT_RESTAURANTS_SURVEY({restaurantSurvey}));
+    });
+  }
+
+  getDiningRoomOfToday():void {
+    this.http.get(`${config.serverUrl}/launches/getDiningRoomOfToday`).subscribe((diningRoomOfToday:string) => {
+      if (diningRoomOfToday) {
+        this.store.dispatch(INIT_DINING_OF_TODAY({diningRoomOfToday}));
+      }
     });
   }
 
