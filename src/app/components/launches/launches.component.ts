@@ -23,9 +23,9 @@ export class LaunchesComponent {
   restaurantSurvey$:Observable<RestaurantSurvey[]>;
   suggestionsFilter$:Observable<FilterSuggestions>;
   surveyOpened$:Observable<boolean>;
+  diningRoomOfToday$:Observable<string>;
   selectedTab:string;
   tabs = Tabs;
-  userRestaurantSelection:Restaurant;
   connectedUser:User;
 
   constructor(private store:Store<AppState>,
@@ -42,6 +42,7 @@ export class LaunchesComponent {
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
     this.surveyOpened$ = this.store.select('restaurantSurveyStatus');
+    this.diningRoomOfToday$ = this.store.select('diningRoomOfToday');
   }
 
   changeTab(newTab:string):void {
@@ -50,10 +51,6 @@ export class LaunchesComponent {
 
   onAddRestaurant(restaurant:Restaurant) {
     this.restaurantsService.saveNewRestaurant(restaurant);
-  }
-
-  selectRestaurant(selectedRestaurant:Restaurant):void {
-    this.userRestaurantSelection = selectedRestaurant;
   }
 
   onOpenSurvey():void {
