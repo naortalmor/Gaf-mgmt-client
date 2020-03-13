@@ -1,17 +1,30 @@
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  align-items: center;
+  justify-content: center;
+}
+
 .home-button {
   width: 40%;
-  align-self: center;
-  margin: 0.4em;
-  background-image: linear-gradient(to right, #b5d4da, #7fd9ec);
-  border-radius: 25px;
-  border: none;
-  height: 2.5em;
-  cursor: pointer;
-  color: white;
+  padding: 20px;
+  margin: 20px;
   font-weight: bold;
-  font-size: 20px;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #dac5d3, #7fd9ec);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
 }
 
 .home-button:hover {
-  background-color: white;
+  background-image: linear-gradient(to right, #30da0c, #2a1cec);
+  text-decoration: underline;
 }

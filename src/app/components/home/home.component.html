@@ -1,5 +1,10 @@
-<div class="col m-s p-s">
-  <button class="home-button" routerLink="/mifgafs">ניהול מפגפים</button>
-  <button class="home-button" routerLink="/evenings">ניהול ערבי צוות</button>
-  <button class="home-button" routerLink="/lunches">ארוחות צהריים</button>
+<div class="col options">
+  <button mat-button
+          class="home-button"
+          *ngFor="let rout of routOptions"
+          [disabled]="!authService.isLoggedIn"
+          [routerLinkActive]="rout.activeButtonStyle"
+          routerLink="/{{rout.routerLink}}">
+    {{rout.buttonText}}
+  </button>
 </div>
