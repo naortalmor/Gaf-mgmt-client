@@ -1,38 +1,16 @@
-<div class="col ctr c-w">
-  <div class="login-box col ctr p-m m-l bc-sky-blue">
-    <h1>נגיף</h1>
-    <img class="logo-img" src="../../../assets/logo.jpg">
-    <h4>מערכת לניהול גף</h4>
-    <!--    <div class="p-m">-->
-    <!--      <label>אימייל-->
-    <!--        <input class="login-input p-s m-s bc-white" type="text" placeholder="gaf@gmail.com" [(ngModel)]="email" required>-->
-    <!--      </label>-->
-    <!--    </div>-->
-
-    <!--    <div class="p-m">-->
-    <!--      <label>סיסמה-->
-    <!--        <input class="login-input p-s m-s bc-white" type="password" placeholder="סיסמה" [(ngModel)]="password" required>-->
-    <!--      </label>-->
-    <!--    </div>-->
-
-    <!--    <div class="p-m">-->
-    <!--      <div *ngIf="!isLoading">-->
-    <!--        <input type="submit" class="btn btnPrimary" value="Log in"-->
-    <!--                (click)="login()">-->
-    <!--      </div>-->
-    <!--    </div>-->
-
-    <!-- Calling GoogleAuth Api from AuthService -->
-    <div class="p-m">
-      <button mat-button
-              class="button-style"
-              (click)="loginGoogle()">
-        {{connectButtonText}}
-        <fa-icon [title]="'Gmail'" [icon]="['fab', 'google-plus-g']"></fa-icon>
-      </button>
-    </div>
-    <div *ngIf="isLoading" class="p-m">
-      טוען...
-    </div>
+<div class="login-box col">
+  <h1 class="app-name">{{appName}}</h1>
+  <img class="logo-img p-s" src="../../../assets/logo.jpg" alt="'saeed'">
+  <h4>{{appPurpose}}</h4>
+  <div class="p-s">
+    <button mat-button
+            class="button-style"
+            (click)="loginGoogle()">
+      {{connectButtonText}}
+      <fa-icon [title]="'Gmail'" [icon]="['fab', 'google-plus-g']"></fa-icon>
+    </button>
+  </div>
+  <div *ngIf="isLoading" class="p-m">
+    {{loadingText}}
   </div>
 </div>
