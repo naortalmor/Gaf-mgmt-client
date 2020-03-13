@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../../routes/services/auth.service';
 import { Router } from '@angular/router';
 import { AppState } from '../../../store/state';
@@ -23,7 +23,6 @@ export class LoginComponent {
 
   constructor(public authService:AuthService,
               public router:Router,
-              private cdRef:ChangeDetectorRef,
               private store:Store<AppState>) {
     this.isLoading = false;
     this.appName = APP_NAME;
@@ -41,7 +40,6 @@ export class LoginComponent {
     this.isLoading = true;
     this.authService.GoogleAuth().catch(reason => {
       this.isLoading = false;
-      this.cdRef.detectChanges();
     });
   }
 }
