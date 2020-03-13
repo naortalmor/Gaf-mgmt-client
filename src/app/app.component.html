@@ -1,17 +1,16 @@
 <div class="col vh-l vw-l">
-  <div class="menu">
+  <div *ngIf="authService.isLoggedIn" class="menu">
     <div class="menu-info">
       <div class="menu-route-side">
         <button mat-button
                 class="button-style"
                 *ngFor="let rout of routOptions"
-                [disabled]="!authService.isLoggedIn"
                 [routerLinkActive]="rout.activeButtonStyle"
                 routerLink="/{{rout.routerLink}}">
           {{rout.buttonText}}
         </button>
       </div>
-      <div *ngIf="authService.isLoggedIn" class="menu-connected-user-side row">
+      <div class="menu-connected-user-side row">
         <div *ngIf="connectedUser | async as user"
              class="connected-user">
           {{connectedUserText}} {{user.displayName}}
