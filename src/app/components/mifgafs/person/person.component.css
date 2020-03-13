@@ -1,15 +1,4 @@
-.main {
+.person-text {
   text-align: center;
-  padding: 20px 30px;
-  font-size: 40pt;
-  line-height: 40pt;
-  font-weight: bold;
-  background: #050940;
-  border: 5px outset #ffd644;
-}
-
-.text {
-  background: linear-gradient(#fff1be, #deae00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  border: 1px solid black;
 }

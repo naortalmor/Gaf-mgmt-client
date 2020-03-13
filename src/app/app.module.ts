@@ -56,6 +56,7 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { faGoogle, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { AdminPageComponent } from './components/auth/admin-page/admin-page.component';
+import { MifgafInfoComponent } from './components/mifgafs/mifgaf-info/mifgaf-info.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { AdminPageComponent } from './components/auth/admin-page/admin-page.comp
     VotersNamesComponent,
     RestaurantChartComponent,
     SurveyComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    MifgafInfoComponent
   ],
   imports: [
     BrowserModule,
