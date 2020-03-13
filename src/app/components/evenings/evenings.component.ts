@@ -1,3 +1,4 @@
+import { EveningService } from 'src/app/services/evening.service';
 import { INIT_EVENTS } from '../../store/events/events.action';
 import { config } from '../../consts/config';
 import { HttpClient } from '@angular/common/http';
@@ -21,7 +22,8 @@ export class EveningsComponent implements OnInit {
   selectedEvening:Evening;
 
   constructor(private store:Store<AppState>,
-              private http:HttpClient) {
+              private http:HttpClient,
+              private eveningService:EveningService) {
     this.evenings = this.store.select('evenings');
     this.events$ = this.store.select('events');
     this.displayedPart = true;
