@@ -9,8 +9,7 @@ import { AppState } from '../../../store/state';
   templateUrl: './guest-page.component.html',
   styleUrls: ['./guest-page.component.css']
 })
-export class GuestPageComponent implements OnInit {
-
+export class GuestPageComponent {
   constructor(public authService:AuthService,
               public router:Router,
               private store:Store<AppState>) {
@@ -20,8 +19,4 @@ export class GuestPageComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit() {
-  }
-
 }

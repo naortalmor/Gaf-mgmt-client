@@ -1,19 +1,15 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-availability-menu',
   templateUrl: './availability-menu.component.html',
   styleUrls: ['./availability-menu.component.css']
 })
-export class AvailabilityMenuComponent implements OnInit {
-
+export class AvailabilityMenuComponent {
   @Output() optionChosen:EventEmitter<number>;
 
   constructor() {
     this.optionChosen = new EventEmitter<number>();
-  }
-
-  ngOnInit() {
   }
 
   choseOption(option:number):void {
