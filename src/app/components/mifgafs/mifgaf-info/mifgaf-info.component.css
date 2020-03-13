@@ -1,0 +1,23 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.mifgaf-info {
+  background: #99d8ea;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin: 10px;
+}
+
+.mifgaf-info-title {
+  margin: 10px 30px;
+  line-height: 18pt;
+}
+
+span.mifgaf-info-data {
+  margin: 0 20px 10px;
+  line-height: 20pt;
+}

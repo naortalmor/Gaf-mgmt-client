@@ -111,6 +111,14 @@ body {
   align-items: center;
 }
 
+.ctr-al {
+  align-items: center;
+}
+
+.ctr-jus {
+  justify-content: center;
+}
+
 .ctr-self {
   align-self: center;
   justify-self: center;
@@ -144,6 +152,14 @@ body {
   width: 100vw;
 }
 
+.text-und{
+  text-decoration: underline;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
 .spec {
   justify-content: space-around;
 }
@@ -171,6 +187,15 @@ body {
 .m-l {
   margin: 15px;
 }
+
+.m-xl {
+  margin: 20px;
+}
+
+.m-xxl {
+  margin: 30px;
+}
+
 
 .mr-s {
   margin-right: 5px;

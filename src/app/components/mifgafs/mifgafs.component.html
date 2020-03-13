@@ -1,33 +1,20 @@
-<div class="col ctr">
-    <div class="title">מפגפים!</div>
-    <div *ngIf="auth.isAdmin()" class="admin">
-        <span class="admin-title">הלו אדמין!</span>
-        <div>
-            <span>המפגפים הבאים:</span>
-            <div>
-
-            </div>
-            <span>צור תוכניות חדשות!</span>
-        </div>
-        <span class="admin-button">סמן שהמפגף ברשות מי שרשום למטה התקיים</span>
+<div class="col ctr-al m-xxl">
+  <h1 class="title flx1">{{pageHeader}}</h1>
+  <div *ngIf="auth.isAdmin()" class="col flx2 ctr">
+    <span>הלו אדמין!</span>
+    <span>המפגפים הבאים:</span>
+    <span>צור תוכניות חדשות!</span>
+    <span>סמן שהמפגף ברשות מי שרשום למטה התקיים</span>
+  </div>
+  <div *ngIf="winners | async as managers">
+    <app-this-week class="flx2" [currentWeekPersons]="managers[0]"></app-this-week>
+  </div>
+  <div class="row flx3 flx-wrap">
+    <div class="flx1" *ngFor="let bubble of (bubbles | async)">
+      <app-mifgaf-info [bubble]="bubble"></app-mifgaf-info>
     </div>
-    <app-this-week [currentWeekPersons]="(winners | async)[0]"></app-this-week>
-    <div class="row ctr flx-wrap">
-        <div *ngFor="let bubble of (bubbles | async)" class="mifgaf-info col ctr">
-            <span class="mifgaf-info-title f-l ctr c-d-blue">{{bubble.title}}</span>
-            <span class="mifgaf-info-data f-xl f-b f-w-b t-al-c">{{bubble.data}}</span>
-        </div>
-        <div class="mifgaf-info">
-            <span class="mifgaf-info-title f-l ctr c-d-blue">חיימון לימון</span>
-            <span class="mifgaf-info-data f-xl f-b f-w-b t-al-c">מוסיף המון</span>
-        </div>
-        <div class="mifgaf-info">
-            <span class="mifgaf-info-title f-l ctr c-d-blue">מה קרה לה?</span>
-            <span class="mifgaf-info-data f-xl f-b f-w-b t-al-c">מי יודע</span>
-        </div>
-        <div class="mifgaf-info">
-            <span class="mifgaf-info-title f-l ctr c-d-blue">ואתה יודע מי זה היה?</span>
-            <span class="mifgaf-info-data f-xl f-b f-w-b t-al-c">נכון.... מאוד...</span>
-        </div>
+    <div class="flx1" *ngFor="let demoBubble of demoBubbles">
+      <app-mifgaf-info [bubble]="demoBubble"></app-mifgaf-info>
     </div>
+  </div>
 </div>

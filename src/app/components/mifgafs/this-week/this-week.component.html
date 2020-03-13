@@ -1,8 +1,7 @@
-<div class="main">
-  <span class="f-m c-d-blue">מביאים במפגף הקרוב:</span>
-  <div class="row ctr flx-wrap">
-    <div *ngFor="let person of currentWeekPersons">
-      <app-person [person]="person"></app-person>
-    </div>
+<h2 class="text-und font-bold p-m">{{manageNextMifgafText}}</h2>
+<div class="row flx-wrap">
+  <div class="flx1" *ngFor="let person of currentWeekPersons">
+    <app-person [person]="person"></app-person>
   </div>
 </div>
+
