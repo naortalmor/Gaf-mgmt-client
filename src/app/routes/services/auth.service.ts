@@ -83,8 +83,10 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      currentRound: user.current || 0,
       roles: {
-        guest: true
+        guest: true,
+        status: 'keva'
       }
     };
     return userRef.set(userData, {

@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { Person } from 'src/app/models/interfaces/person';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { AppState } from 'src/app/store/state';
-import { MifgafService } from 'src/app/services/mifgaf.service';
-import { AuthService } from 'src/app/routes/services/auth.service';
-import { Bubble } from '../../models/interfaces/bubble';
+import {Component} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable, Subject} from 'rxjs';
+import {AppState} from 'src/app/store/state';
+import {MifgafService} from 'src/app/services/mifgaf.service';
+import {AuthService} from 'src/app/routes/services/auth.service';
+import {Bubble} from '../../models/interfaces/bubble';
+import {User} from '../../models/user';
 
-const PAGE_HEADER:string = 'מפגפים!';
+const PAGE_HEADER: string = 'מפגפים!';
 
 @Component({
   selector: 'app-mifgafs',
@@ -15,17 +15,15 @@ const PAGE_HEADER:string = 'מפגפים!';
   styleUrls: ['./mifgafs.component.css']
 })
 export class MifgafsComponent {
-  pageHeader:string;
-  bubbles:Observable<Bubble[]>;
-  winners:Observable<Person[][]>;
+  pageHeader: string;
+  bubbles: Observable<Bubble[]>;
+  winners: Subject<User[]>;
+  demoBubbles: Bubble[];
 
-  demoBubbles:Bubble[];
-
-  constructor(private store:Store<AppState>,
-              private mifgafService:MifgafService,
-              public auth:AuthService) {
+  constructor(private store: Store<AppState>,
+              private mifgafService: MifgafService,
+              public auth: AuthService) {
     this.pageHeader = PAGE_HEADER;
-    this.mifgafService.initThisWeekPersons();
     this.mifgafService.initInfoBubbles();
     this.bubbles = this.mifgafService.infoBubblesObs;
     this.winners = this.mifgafService.winnersObs;
@@ -33,7 +31,11 @@ export class MifgafsComponent {
     this.demoBubbles = this.getDemoBubbles();
   }
 
-  private getDemoBubbles():Bubble[] {
+  add(winners: User[]) {
+    this.mifgafService.add(winners);
+  }
+
+  private getDemoBubbles(): Bubble[] {
     return [
       {
         title: 'חיימון לימון',

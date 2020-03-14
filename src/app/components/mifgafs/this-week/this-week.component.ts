@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Person } from 'src/app/models/interfaces/person';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {Person} from 'src/app/models/interfaces/person';
+import {User} from '../../../models/user';
 
-const MANAGE_NEXT_MIFGAF_TEXT:string ='אחראיים על המפגף הקרוב';
+const MANAGE_NEXT_MIFGAF_TEXT: string = 'אחראיים על המפגף הקרוב';
 
 @Component({
   selector: 'app-this-week',
@@ -10,10 +11,16 @@ const MANAGE_NEXT_MIFGAF_TEXT:string ='אחראיים על המפגף הקרוב
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThisWeekComponent {
-  @Input() currentWeekPersons:Person[];
-  manageNextMifgafText:string;
+  @Input() currentWeekPersons: User[];
+  @Output() winners: EventEmitter<User[]>;
+  manageNextMifgafText: string;
 
   constructor() {
     this.manageNextMifgafText = MANAGE_NEXT_MIFGAF_TEXT;
+    this.winners = new EventEmitter<User[]>();
+  }
+
+  add() {
+    this.winners.emit(this.currentWeekPersons);
   }
 }

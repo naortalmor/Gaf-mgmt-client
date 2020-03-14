@@ -17,7 +17,7 @@
   margin: 20px;
   font-weight: bold;
   color: #ffffff;
-  background-image: linear-gradient(to right, #dac5d3, #7fd9ec);
+  background-color: #090542;
   border-radius: 20px;
   border: none;
   cursor: pointer;
@@ -28,3 +28,4 @@
   background-image: linear-gradient(to right, #30da0c, #2a1cec);
   text-decoration: underline;
 }
+

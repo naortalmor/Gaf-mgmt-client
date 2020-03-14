@@ -7,10 +7,12 @@ export interface User {
   roles:Roles;
   teamId?:number;
   typeId?:number;
+  currentRound:number;
 }
 
 export interface Roles {
   guest?:boolean;
   user?:boolean;
   admin?:boolean;
+  status?:string;
 }

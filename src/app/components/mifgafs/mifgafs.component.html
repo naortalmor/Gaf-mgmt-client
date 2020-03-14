@@ -6,8 +6,8 @@
     <span>צור תוכניות חדשות!</span>
     <span>סמן שהמפגף ברשות מי שרשום למטה התקיים</span>
   </div>
-  <div *ngIf="winners | async as managers">
-    <app-this-week class="flx2" [currentWeekPersons]="managers[0]"></app-this-week>
+  <div>
+    <app-this-week class="flx2" [currentWeekPersons]="winners | async" (winners)="add($event)"></app-this-week>
   </div>
   <div class="row flx3 flx-wrap">
     <div class="flx1" *ngFor="let bubble of (bubbles | async)">
