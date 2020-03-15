@@ -23,7 +23,7 @@ export class MifgafService {
               private http:HttpClient,
               private db:AngularFirestore,
               private usersService:UsersService) {
-    this.winnersObs = new Subject<User[]>();
+    this.winnersObs = new BehaviorSubject<User[]>([]);
     this.bubblesObs = new Subject<Bubble[]>();
     this.infoBubblesObs = new Subject<Bubble[]>();
     this.getDemoBubbles();
