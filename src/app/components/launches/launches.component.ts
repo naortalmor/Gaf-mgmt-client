@@ -12,7 +12,7 @@ import { UsersService } from '../../services/users.service';
 
 const RESTAURANT_LOCATION_BUTTON:string = 'מסעדות';
 const DINING_ROOM_LOCATION_BUTTON:string = 'חדר אוכל';
-const CHANGE_SELECTION_BUTTON:string = 'שנה בחירה';
+const CHANGE_SELECTION_BUTTON:string = 'חזור אחורה לשינוי הבחירה';
 
 @Component({
   selector: 'app-launches',

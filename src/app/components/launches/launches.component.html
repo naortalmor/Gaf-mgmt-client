@@ -1,23 +1,22 @@
-<div *ngIf="launchLocation === launchLocations.notSelected" class="row flx1">
+<div *ngIf="launchLocation === launchLocations.notSelected" class="main-buttons row">
   <button mat-button
-          class="button-style"
-          (click)="chooseLocation(launchLocations.restaurant)">
-    {{restaurantLocationButton}}
-  </button>
-  <button mat-button
-          class="button-style"
+          class="button-style flx1 f-l"
           (click)="chooseLocation(launchLocations.diningRoom)">
     {{diningRoomLocationButton}}
   </button>
+  <button mat-button
+          class="button-style flx1 f-l"
+          (click)="chooseLocation(launchLocations.restaurant)">
+    {{restaurantLocationButton}}
+  </button>
 </div>
-<button mat-button
-        class="button-style"
-        (click)="chooseLocation(launchLocations.notSelected)">
-  {{changeSelectionButton}}
-</button>
-<app-dining-room *ngIf="launchLocation === launchLocations.diningRoom"></app-dining-room>
-<app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"></app-restaurant-launch>
-
-
-
+<div *ngIf="launchLocation !== launchLocations.notSelected" class="col ctr">
+  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="flx1"></app-dining-room>
+  <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"class="flx1"></app-restaurant-launch>
+  <button mat-button
+          class="button-style change-selection-button"
+          (click)="chooseLocation(launchLocations.notSelected)">
+    {{changeSelectionButton}}
+  </button>
+</div>
 

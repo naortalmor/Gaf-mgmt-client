@@ -7,5 +7,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class diningRoomComponent {
+  addingFood:boolean;
 
+  constructor() {
+    this.addingFood = false;
+  }
+
+  ToggleFoodButton():void {
+    this.addingFood = !this.addingFood
+  }
 }
