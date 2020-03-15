@@ -5,9 +5,10 @@
     <span>המפגפים הבאים:</span>
     <span>צור תוכניות חדשות!</span>
     <span>סמן שהמפגף ברשות מי שרשום למטה התקיים</span>
+    <button (click)="mifgafExist()">המפגף התקיים</button>
   </div>
   <div>
-    <app-this-week class="flx2" [currentWeekPersons]="winners | async" (winners)="mifgafExist($event)"></app-this-week>
+    <app-this-week class="flx2" [currentWeekPersons]="winners | async"></app-this-week>
   </div>
   <div class="row flx3 flx-wrap">
     <div class="flx1" *ngFor="let demoBubble of bubbles | async">

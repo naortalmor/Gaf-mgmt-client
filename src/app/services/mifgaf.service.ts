@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import {Injectable} from '@angular/core';
 import {AppState} from '../store/state';
 import {HttpClient} from '@angular/common/http';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {User} from '../models/user';
 import {firestore} from 'firebase/app';
@@ -12,7 +12,7 @@ import {formatDate} from '@angular/common';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
-  winnersObs: Subject<User[]>;
+  winnersObs: BehaviorSubject<User[]>;
   bubblesObs: Subject<>;
 
   infoBubblesObs: Subject<{ title: string, data: string }[]>;
@@ -22,7 +22,7 @@ export class MifgafService {
               private http: HttpClient,
               private db: AngularFirestore,
               private usersService:UsersService) {
-    this.winnersObs = new Subject();
+    this.winnersObs = new BehaviorSubject<User[]>([]);
     this.bubblesObs = new Subject();
     this.infoBubblesObs = new Subject();
     this.getDemoBubbles();

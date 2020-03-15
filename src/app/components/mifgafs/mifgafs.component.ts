@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {AppState} from 'src/app/store/state';
 import {MifgafService} from 'src/app/services/mifgaf.service';
 import {AuthService} from 'src/app/routes/services/auth.service';
@@ -16,7 +16,7 @@ const PAGE_HEADER: string = 'מפגפים!';
 })
 export class MifgafsComponent {
   pageHeader: string;
-  winners: Subject<User[]>;
+  winners: BehaviorSubject<User[]>;
   currentUser:Observable<User>;
   bubbles:Observable<>;
 
@@ -31,7 +31,7 @@ export class MifgafsComponent {
     this.bubbles = this.mifgafService.bubblesObs;
   }
 
-  mifgafExist(winners: User[]) {
-    this.mifgafService.mifgafExist(winners);
+  mifgafExist() {
+    this.mifgafService.mifgafExist(this.winners.getValue());
   }
 }
