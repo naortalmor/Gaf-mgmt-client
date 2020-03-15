@@ -1,4 +1,4 @@
-import { config } from './../consts/config';
+
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { AppState } from '../store/state';
@@ -13,8 +13,8 @@ import { Bubble } from '../models/interfaces/bubble';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
-  winnersObs:BehaviorSubject<User[]>;
-  bubblesObs:Subject<Bubble[]>;
+  winnersObs: BehaviorSubject<User[]>;
+  bubblesObs: BehaviorSubject<Bubble[]>;
 
   infoBubblesObs:Subject<Bubble[]>;
   private infoBubbles:Bubble[];
@@ -24,7 +24,7 @@ export class MifgafService {
               private db:AngularFirestore,
               private usersService:UsersService) {
     this.winnersObs = new BehaviorSubject<User[]>([]);
-    this.bubblesObs = new Subject<Bubble[]>();
+    this.bubblesObs = new BehaviorSubject<Bubble[]>([]);
     this.infoBubblesObs = new Subject<Bubble[]>();
     this.getDemoBubbles();
     this.getWinners();

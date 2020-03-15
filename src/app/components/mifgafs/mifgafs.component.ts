@@ -16,19 +16,16 @@ const PAGE_HEADER:string = 'מפגפים!';
   styleUrls: ['./mifgafs.component.css']
 })
 export class MifgafsComponent {
-  pageHeader:string;
-  winners:BehaviorSubject<User[]>;
+  pageHeader: string;
+  winners: BehaviorSubject<User[]>;
   currentUser:Observable<User>;
-  bubbles:Observable<Bubble[]>;
+  bubbles:BehaviorSubject<Bubble[]>;
 
   constructor(private store:Store<AppState>,
               private mifgafService:MifgafService,
-              public auth:AuthService,
-              private usersService:UsersService) {
+              public auth:AuthService) {
     this.pageHeader = PAGE_HEADER;
-    this.mifgafService.initInfoBubbles();
     this.winners = this.mifgafService.winnersObs;
-    this.currentUser = this.usersService.getCurrentUser();
     this.bubbles = this.mifgafService.bubblesObs;
   }
 
