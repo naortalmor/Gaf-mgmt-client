@@ -1,4 +1,3 @@
-import {config} from './../consts/config';
 import {Store} from '@ngrx/store';
 import {Injectable} from '@angular/core';
 import {AppState} from '../store/state';
@@ -9,38 +8,21 @@ import {User} from '../models/user';
 import {firestore} from 'firebase/app';
 import {UsersService} from './users.service';
 import {formatDate} from '@angular/common';
+import {Bubble} from '../models/interfaces/bubble';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
   winnersObs: BehaviorSubject<User[]>;
-  bubblesObs: Subject<>;
-
-  infoBubblesObs: Subject<{ title: string, data: string }[]>;
-  private infoBubbles: { title: string, data: string }[];
+  bubblesObs: BehaviorSubject<Bubble[]>;
 
   constructor(private store: Store<AppState>,
               private http: HttpClient,
               private db: AngularFirestore,
               private usersService:UsersService) {
     this.winnersObs = new BehaviorSubject<User[]>([]);
-    this.bubblesObs = new Subject();
-    this.infoBubblesObs = new Subject();
+    this.bubblesObs = new BehaviorSubject<Bubble[]>([]);
     this.getDemoBubbles();
     this.getWinners();
-  }
-
-  initInfoBubbles() {
-    this.infoBubbles = [];
-    this.http.get(`${config.serverUrl}/mifgafim/howLongShouldIWaitToWin`)
-      .subscribe((howlong: string) => this.insertBubble({
-        title: 'מתי אני מביא?',
-        data: howlong
-      }));
-    this.http.get(`${config.serverUrl}/mifgafim/whenIWonLastly`)
-      .subscribe((when: string) => this.insertBubble({
-        title: 'מתי הבאתי לאחרונה?',
-        data: when
-      }));
   }
 
   getWinners() {
@@ -110,12 +92,5 @@ export class MifgafService {
         ]);
       }
     });
-  }
-
-  private insertBubble(bubble): void {
-    let bubbles = [...this.infoBubbles];
-    bubbles.push(bubble);
-    this.infoBubblesObs.next(bubbles);
-    this.infoBubbles = bubbles;
   }
 }

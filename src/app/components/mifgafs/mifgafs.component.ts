@@ -6,6 +6,7 @@ import {MifgafService} from 'src/app/services/mifgaf.service';
 import {AuthService} from 'src/app/routes/services/auth.service';
 import {User} from '../../models/user';
 import {UsersService} from '../../services/users.service';
+import {Bubble} from '../../models/interfaces/bubble';
 
 const PAGE_HEADER: string = 'מפגפים!';
 
@@ -17,17 +18,13 @@ const PAGE_HEADER: string = 'מפגפים!';
 export class MifgafsComponent {
   pageHeader: string;
   winners: BehaviorSubject<User[]>;
-  currentUser:Observable<User>;
-  bubbles:Observable<>;
+  bubbles:BehaviorSubject<Bubble[]>;
 
   constructor(private store: Store<AppState>,
               private mifgafService: MifgafService,
-              public auth: AuthService,
-              private usersService:UsersService) {
+              public auth: AuthService) {
     this.pageHeader = PAGE_HEADER;
-    this.mifgafService.initInfoBubbles();
     this.winners = this.mifgafService.winnersObs;
-    this.currentUser = this.usersService.getCurrentUser();
     this.bubbles = this.mifgafService.bubblesObs;
   }
 
