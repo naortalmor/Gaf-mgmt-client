@@ -1,30 +1,31 @@
-import {config} from './../consts/config';
-import {Store} from '@ngrx/store';
-import {Injectable} from '@angular/core';
-import {AppState} from '../store/state';
-import {HttpClient} from '@angular/common/http';
-import {Subject} from 'rxjs';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {User} from '../models/user';
-import {firestore} from 'firebase/app';
-import {UsersService} from './users.service';
-import {formatDate} from '@angular/common';
+import { config } from './../consts/config';
+import { Store } from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { AppState } from '../store/state';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from '../models/user';
+import { firestore } from 'firebase/app';
+import { UsersService } from './users.service';
+import { formatDate } from '@angular/common';
+import { Bubble } from '../models/interfaces/bubble';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
-  winnersObs: Subject<User[]>;
-  bubblesObs: Subject<>;
+  winnersObs:Subject<User[]>;
+  bubblesObs:Subject<Bubble[]>;
 
-  infoBubblesObs: Subject<{ title: string, data: string }[]>;
-  private infoBubbles: { title: string, data: string }[];
+  infoBubblesObs:Subject<Bubble[]>;
+  private infoBubbles:Bubble[];
 
-  constructor(private store: Store<AppState>,
-              private http: HttpClient,
-              private db: AngularFirestore,
+  constructor(private store:Store<AppState>,
+              private http:HttpClient,
+              private db:AngularFirestore,
               private usersService:UsersService) {
-    this.winnersObs = new Subject();
-    this.bubblesObs = new Subject();
-    this.infoBubblesObs = new Subject();
+    this.winnersObs = new Subject<User[]>();
+    this.bubblesObs = new Subject<Bubble[]>();
+    this.infoBubblesObs = new Subject<Bubble[]>();
     this.getDemoBubbles();
     this.getWinners();
   }
@@ -32,23 +33,30 @@ export class MifgafService {
   initInfoBubbles() {
     this.infoBubbles = [];
     this.http.get(`${config.serverUrl}/mifgafim/howLongShouldIWaitToWin`)
-      .subscribe((howlong: string) => this.insertBubble({
+      .subscribe((howlong:string) => this.insertBubble({
         title: 'מתי אני מביא?',
         data: howlong
       }));
     this.http.get(`${config.serverUrl}/mifgafim/whenIWonLastly`)
-      .subscribe((when: string) => this.insertBubble({
+      .subscribe((when:string) => this.insertBubble({
         title: 'מתי הבאתי לאחרונה?',
         data: when
       }));
   }
 
   getWinners() {
-    this.db.collection('/users').valueChanges().subscribe((users: User[]) => {
+    this.db.collection('/users').valueChanges().subscribe((users:User[]) => {
       if (users.length > 3) {
-        const kevaWinners = [];
-        const kevaUsers = users.filter(user => user.roles.status === 'keva');
-        let kevaMinRound = kevaUsers.reduce((prev, curr) => prev.currentRound < curr.currentRound ? prev.currentRound : curr.currentRound);
+        const kevaWinners:User[] = [];
+        const kevaUsers:User[] = users.filter(user => user.roles.status === 'keva');
+        let kevaMinRound:number;
+        kevaUsers.forEach(keva => {
+          if (kevaMinRound && keva.currentRound < kevaMinRound) {
+            kevaMinRound = keva.currentRound;
+          } else if (!kevaMinRound) {
+            kevaMinRound = keva.currentRound;
+          }
+        });
         while (kevaWinners.length < 2) {
           kevaUsers.forEach(user => {
             if (kevaWinners.length < 2) {
@@ -62,7 +70,14 @@ export class MifgafService {
 
         const hovaWinners = [];
         const hovaUsers = users.filter(user => user.roles.status === 'hova');
-        let hovaMinRound = hovaUsers.reduce((prev, curr) => prev.currentRound < curr.currentRound ? prev.currentRound : curr.currentRound);
+        let hovaMinRound:number;
+        hovaUsers.forEach(hova => {
+          if (hovaMinRound && hova.currentRound < hovaMinRound) {
+            hovaMinRound = hova.currentRound;
+          } else if (!hovaMinRound) {
+            hovaMinRound = hova.currentRound;
+          }
+        });
         while (hovaWinners.length < 1) {
           hovaUsers.forEach(user => {
             if (hovaWinners.length < 1) {
@@ -79,9 +94,12 @@ export class MifgafService {
     });
   }
 
-  mifgafExist(winners: User[]) {
+  mifgafExist(winners:User[]) {
     winners.forEach(user => {
-      this.db.collection('users').doc(`${user.uid}`).set({currentRound: user.currentRound + 1, lastMifgafTime: firestore.Timestamp.fromDate(new Date())}, {merge: true});
+      this.db.collection('users').doc(`${user.uid}`).set({
+        currentRound: user.currentRound + 1,
+        lastMifgafTime: firestore.Timestamp.fromDate(new Date())
+      }, {merge: true});
       user.lastMifgafTime = firestore.Timestamp.fromDate(new Date());
       this.db.collection('history_mifgafs_users').add(user);
     });
@@ -112,7 +130,7 @@ export class MifgafService {
     });
   }
 
-  private insertBubble(bubble): void {
+  private insertBubble(bubble):void {
     let bubbles = [...this.infoBubbles];
     bubbles.push(bubble);
     this.infoBubblesObs.next(bubbles);
