@@ -8,6 +8,7 @@ export interface User {
   teamId?:number;
   typeId?:number;
   currentRound:number;
+  lastMifgafTime?;
 }
 
 export interface Roles {

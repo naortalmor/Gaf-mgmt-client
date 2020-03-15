@@ -25,6 +25,7 @@
       true,
       "rxjs/Rx"
     ],
+    "whitespace": [false, "check-branch", "check-operator", "check-typecast"],
     "interface-name": false,
     "max-classes-per-file": false,
     "max-line-length": [

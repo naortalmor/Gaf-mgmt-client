@@ -20,7 +20,7 @@ export class ThisWeekComponent {
     this.winners = new EventEmitter<User[]>();
   }
 
-  add() {
+  mifgafExist() {
     this.winners.emit(this.currentWeekPersons);
   }
 }

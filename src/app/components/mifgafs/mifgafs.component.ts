@@ -4,8 +4,8 @@ import {Observable, Subject} from 'rxjs';
 import {AppState} from 'src/app/store/state';
 import {MifgafService} from 'src/app/services/mifgaf.service';
 import {AuthService} from 'src/app/routes/services/auth.service';
-import {Bubble} from '../../models/interfaces/bubble';
 import {User} from '../../models/user';
+import {UsersService} from '../../services/users.service';
 
 const PAGE_HEADER: string = 'מפגפים!';
 
@@ -16,39 +16,22 @@ const PAGE_HEADER: string = 'מפגפים!';
 })
 export class MifgafsComponent {
   pageHeader: string;
-  bubbles: Observable<Bubble[]>;
   winners: Subject<User[]>;
-  demoBubbles: Bubble[];
+  currentUser:Observable<User>;
+  bubbles:Observable<>;
 
   constructor(private store: Store<AppState>,
               private mifgafService: MifgafService,
-              public auth: AuthService) {
+              public auth: AuthService,
+              private usersService:UsersService) {
     this.pageHeader = PAGE_HEADER;
     this.mifgafService.initInfoBubbles();
-    this.bubbles = this.mifgafService.infoBubblesObs;
     this.winners = this.mifgafService.winnersObs;
-
-    this.demoBubbles = this.getDemoBubbles();
+    this.currentUser = this.usersService.getCurrentUser();
+    this.bubbles = this.mifgafService.bubblesObs;
   }
 
-  add(winners: User[]) {
-    this.mifgafService.add(winners);
-  }
-
-  private getDemoBubbles(): Bubble[] {
-    return [
-      {
-        title: 'חיימון לימון',
-        data: 'מוסיף המון'
-      },
-      {
-        title: 'מה קרה לה?',
-        data: 'מי יודע'
-      },
-      {
-        title: 'ואתה יודע מי זה היה?',
-        data: 'נכון.... מאוד...'
-      }
-    ];
+  mifgafExist(winners: User[]) {
+    this.mifgafService.mifgafExist(winners);
   }
 }
