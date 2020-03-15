@@ -1,5 +1,5 @@
 import { FilterSuggestions } from '../../models/interfaces/suggestion-filter';
-import { LaunchLocation, Tabs } from '../../models/enums/enums';
+import { LaunchLocation, RestaurantLaunchTabs } from '../../models/enums/enums';
 import { Restaurant } from '../../models/interfaces/restaurant';
 import { RestaurantsService } from '../../services/restaurants.service';
 import { AppState } from '../../store/state';
@@ -26,6 +26,7 @@ export class LaunchesComponent {
   restaurantLocationButton:string;
   diningRoomLocationButton:string;
   changeSelectionButton:string;
+  connectedUser$: Observable<User>;
 
 
   /*  users$:Observable<User[]>;
@@ -34,9 +35,7 @@ export class LaunchesComponent {
     suggestionsFilter$:Observable<FilterSuggestions>;
     surveyOpened$:Observable<boolean>;
     diningRoomOfToday$:Observable<string>;
-    selectedTab:string;
-    tabs = Tabs;
-    connectedUser:User;*/
+*/
 
   constructor(private store:Store<AppState>,
               private usersService:UsersService,
@@ -46,14 +45,12 @@ export class LaunchesComponent {
     this.restaurantLocationButton = RESTAURANT_LOCATION_BUTTON;
     this.diningRoomLocationButton = DINING_ROOM_LOCATION_BUTTON;
     this.changeSelectionButton = CHANGE_SELECTION_BUTTON;
+    this.connectedUser$ = this.usersService.getCurrentUser();
 
     /* this.restaurantsService.initRestaurants();
      this.restaurantsService.initRestaurantSurvey();
      this.restaurantsService.initRestaurantSurveyStatus();
-     this.selectedTab = Tabs.OTHER;
      this.users$ = this.store.select('users');
-     this.connectedUser = undefined;
-     this.usersService.getCurrentUser().subscribe(user => this.connectedUser = user);
      this.restaurants$ = this.store.select('restaurants');
      this.restaurantSurvey$ = this.store.select('restaurantSurvey');
      this.suggestionsFilter$ = this.store.select('suggestionsFilter');

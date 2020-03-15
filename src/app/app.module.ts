@@ -59,6 +59,7 @@ import { AdminPageComponent } from './components/auth/admin-page/admin-page.comp
 import { MifgafInfoComponent } from './components/mifgafs/mifgaf-info/mifgaf-info.component';
 import { diningRoomComponent } from './components/launches/dining-room/dining-room.component';
 import { RestaurantLaunchComponent } from './components/launches/restaurant-launch/restaurant-launch.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -131,7 +132,8 @@ import { RestaurantLaunchComponent } from './components/launches/restaurant-laun
     FontAwesomeModule,
     MatInputModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatTabsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

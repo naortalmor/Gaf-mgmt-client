@@ -11,9 +11,9 @@ export enum RestaurantTypes {
   BURGER = 'המבורגר'
 }
 
-export enum Tabs {
+export enum RestaurantLaunchTabs {
   OTHER = 'אחרים רוצים',
-  SUGGESTIONS = 'הצעות'
+  SUGGESTIONS = 'אני רוצה להציע'
 }
 
 export enum Availability {

@@ -1,7 +1,9 @@
 import { Restaurant } from '../../../models/interfaces/restaurant';
 import { FilterSuggestions } from '../../../models/interfaces/suggestion-filter';
 import { CHANGE_FILTER } from '../../../store/suggestions-filter/suggestions-filter.actions';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { RestaurantLaunchTabs } from '../../../models/enums/enums';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-restaurant-launch',
@@ -10,28 +12,40 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RestaurantLaunchComponent {
- /* changeTab(newTab:string):void {
-    this.selectedTab = newTab;
+  @Input() connectedUser:User;
+
+  selectedTab:string;
+  tabs = RestaurantLaunchTabs;
+
+  constructor() {
+    this.tabs = RestaurantLaunchTabs;
+    this.selectedTab = RestaurantLaunchTabs.OTHER;
+
   }
 
-  onAddRestaurant(restaurant:Restaurant) {
-    this.restaurantsService.saveNewRestaurant(restaurant);
-  }
 
-  onOpenSurvey():void {
-    this.restaurantsService.updateRestaurantSurveyStatus(true);
-  }
+  changeTab(newTab:string):void {
+     this.selectedTab = newTab;
+   }
+  /*
+    onAddRestaurant(restaurant:Restaurant) {
+      this.restaurantsService.saveNewRestaurant(restaurant);
+    }
 
-  onSurveySubmitted(restaurant:Restaurant) {
-    this.restaurantsService.updateRestaurantSurvey(restaurant.id, this.connectedUser.uid);
-    this.onSurveyClosed();
-  }
+    onOpenSurvey():void {
+      this.restaurantsService.updateRestaurantSurveyStatus(true);
+    }
 
-  onSurveyClosed():void {
-    this.restaurantsService.updateRestaurantSurveyStatus(false);
-  }
+    onSurveySubmitted(restaurant:Restaurant) {
+      this.restaurantsService.updateRestaurantSurvey(restaurant.id, this.connectedUser.uid);
+      this.onSurveyClosed();
+    }
 
-  onFilterChanged(filter:FilterSuggestions):void {
-    this.store.dispatch(CHANGE_FILTER({filter}));
-  }*/
+    onSurveyClosed():void {
+      this.restaurantsService.updateRestaurantSurveyStatus(false);
+    }
+
+    onFilterChanged(filter:FilterSuggestions):void {
+      this.store.dispatch(CHANGE_FILTER({filter}));
+    }*/
 }

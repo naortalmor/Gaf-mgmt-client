@@ -12,7 +12,10 @@
 </div>
 <div *ngIf="launchLocation !== launchLocations.notSelected" class="col ctr">
   <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="flx1"></app-dining-room>
-  <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"class="flx1"></app-restaurant-launch>
+  <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"
+                         class="flx1"
+                         [connectedUser]="connectedUser$ | async">
+  </app-restaurant-launch>
   <button mat-button
           class="button-style change-selection-button"
           (click)="chooseLocation(launchLocations.notSelected)">
