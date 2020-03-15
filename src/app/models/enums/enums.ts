@@ -30,3 +30,9 @@ export enum SurveyType {
   textBox,
   dropdown
 }
+
+export enum LaunchLocation {
+  notSelected,
+  diningRoom,
+  restaurant
+}
