@@ -60,6 +60,7 @@ import { MifgafInfoComponent } from './components/mifgafs/mifgaf-info/mifgaf-inf
 import { diningRoomComponent } from './components/launches/dining-room/dining-room.component';
 import { RestaurantLaunchComponent } from './components/launches/restaurant-launch/restaurant-launch.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { OthersSuggestionsComponent } from './components/launches/others-suggestions/others-suggestions.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     AdminPageComponent,
     MifgafInfoComponent,
     diningRoomComponent,
-    RestaurantLaunchComponent
+    RestaurantLaunchComponent,
+    OthersSuggestionsComponent
   ],
   imports: [
     BrowserModule,

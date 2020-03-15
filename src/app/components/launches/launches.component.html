@@ -10,11 +10,21 @@
     {{restaurantLocationButton}}
   </button>
 </div>
-<div *ngIf="launchLocation !== launchLocations.notSelected" class="col ctr">
+<div *ngIf="launchLocation !== launchLocations.notSelected" class="col xx ctr ">
   <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="flx1"></app-dining-room>
   <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"
                          class="flx1"
-                         [connectedUser]="connectedUser$ | async">
+                         [connectedUser]="connectedUser$ | async"
+                         [restaurants]="restaurants$ | async"
+                         [suggestionsFilter]="suggestionsFilter$ | async"
+                         [surveyOpened]="surveyOpened$ | async"
+                         [restaurantSurvey]="restaurantSurvey$ | async"
+                         [users]="users$ | async"
+                         (addRestaurantEmitter)="addRestaurant($event)"
+                         (filterChangedEmitter)="onFilterChanged($event)"
+                         (surveyOpenedEmitter)="onOpenSurvey()"
+                         (surveySubmittedEmitter)="onSurveySubmitted($event)"
+                         (surveyClosedEmitter)="onSurveyClosed()">
   </app-restaurant-launch>
   <button mat-button
           class="button-style change-selection-button"
@@ -22,4 +32,3 @@
     {{changeSelectionButton}}
   </button>
 </div>
-

@@ -1,9 +1,9 @@
 import { Restaurant } from '../../../models/interfaces/restaurant';
 import { FilterSuggestions } from '../../../models/interfaces/suggestion-filter';
-import { CHANGE_FILTER } from '../../../store/suggestions-filter/suggestions-filter.actions';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { RestaurantLaunchTabs } from '../../../models/enums/enums';
 import { User } from '../../../models/user';
+import { RestaurantSurvey } from '../../../models/interfaces/restaurant-survey';
 
 @Component({
   selector: 'app-restaurant-launch',
@@ -13,39 +13,45 @@ import { User } from '../../../models/user';
 })
 export class RestaurantLaunchComponent {
   @Input() connectedUser:User;
+  @Input() restaurants:Restaurant[];
+  @Input() suggestionsFilter:FilterSuggestions;
+  @Input() surveyOpened:boolean;
+  @Input() restaurantSurvey:RestaurantSurvey[];
+  @Input() users:User[];
+  @Output() addRestaurantEmitter:EventEmitter<Restaurant>;
+  @Output() filterChangedEmitter:EventEmitter<FilterSuggestions>;
+  @Output() surveyOpenedEmitter:EventEmitter<void>;
+  @Output() surveySubmittedEmitter:EventEmitter<{ restaurant:Restaurant, connectedUser:User }>;
+  @Output() surveyClosedEmitter:EventEmitter<void>;
 
-  selectedTab:string;
   tabs = RestaurantLaunchTabs;
 
   constructor() {
+    this.addRestaurantEmitter = new EventEmitter<Restaurant>();
+    this.filterChangedEmitter = new EventEmitter<FilterSuggestions>();
+    this.surveyOpenedEmitter = new EventEmitter<void>();
+    this.surveySubmittedEmitter = new EventEmitter<{ restaurant:Restaurant, connectedUser:User }>();
+    this.surveyClosedEmitter = new EventEmitter<void>();
     this.tabs = RestaurantLaunchTabs;
-    this.selectedTab = RestaurantLaunchTabs.OTHER;
-
   }
 
+  onAddRestaurant(restaurant:Restaurant) {
+    this.addRestaurantEmitter.emit(restaurant);
+  }
 
-  changeTab(newTab:string):void {
-     this.selectedTab = newTab;
-   }
-  /*
-    onAddRestaurant(restaurant:Restaurant) {
-      this.restaurantsService.saveNewRestaurant(restaurant);
-    }
+  onFilterChanged(filter:FilterSuggestions):void {
+    this.filterChangedEmitter.emit(filter);
+  }
 
-    onOpenSurvey():void {
-      this.restaurantsService.updateRestaurantSurveyStatus(true);
-    }
+  onOpenSurvey():void {
+    this.surveyOpenedEmitter.emit();
+  }
 
-    onSurveySubmitted(restaurant:Restaurant) {
-      this.restaurantsService.updateRestaurantSurvey(restaurant.id, this.connectedUser.uid);
-      this.onSurveyClosed();
-    }
+  onSurveySubmitted(restaurant:Restaurant) {
+    this.surveySubmittedEmitter.emit({restaurant, connectedUser: this.connectedUser});
+  }
 
-    onSurveyClosed():void {
-      this.restaurantsService.updateRestaurantSurveyStatus(false);
-    }
-
-    onFilterChanged(filter:FilterSuggestions):void {
-      this.store.dispatch(CHANGE_FILTER({filter}));
-    }*/
+  onSurveyClosed():void {
+    this.surveyClosedEmitter.emit();
+  }
 }
