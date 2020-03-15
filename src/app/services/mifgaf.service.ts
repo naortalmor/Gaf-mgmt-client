@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { AppState } from '../store/state';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { BehaviorSubject,Subject } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '../models/user';
 import { firestore } from 'firebase/app';
@@ -13,7 +13,7 @@ import { Bubble } from '../models/interfaces/bubble';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
-  winnersObs:Subject<User[]>;
+  winnersObs:BehaviorSubject<User[]>;
   bubblesObs:Subject<Bubble[]>;
 
   infoBubblesObs:Subject<Bubble[]>;

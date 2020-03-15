@@ -12,15 +12,9 @@ const MANAGE_NEXT_MIFGAF_TEXT: string = 'אחראיים על המפגף הקרו
 })
 export class ThisWeekComponent {
   @Input() currentWeekPersons: User[];
-  @Output() winners: EventEmitter<User[]>;
   manageNextMifgafText: string;
 
   constructor() {
     this.manageNextMifgafText = MANAGE_NEXT_MIFGAF_TEXT;
-    this.winners = new EventEmitter<User[]>();
-  }
-
-  mifgafExist() {
-    this.winners.emit(this.currentWeekPersons);
   }
 }
