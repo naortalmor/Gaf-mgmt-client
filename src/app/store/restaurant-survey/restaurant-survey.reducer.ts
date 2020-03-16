@@ -1,5 +1,5 @@
-import { createReducer, on } from '@ngrx/store';
-import { INIT_RESTAURANTS_SURVEY, UPDATE_RESTAURANTS_SURVEY } from './restaurant-survey.actions';
+import {Action, createReducer, on} from '@ngrx/store';
+import {INIT_RESTAURANTS_SURVEY, UPDATE_RESTAURANTS_SURVEY} from './restaurant-survey.actions';
 
 const restaurantSurveyInitState = [];
 
@@ -13,3 +13,7 @@ export const restaurantSurveyReducer = createReducer(restaurantSurveyInitState,
     });
   })
 );
+
+export function reducer(state: any, action: Action) {
+  return restaurantSurveyReducer(state, action);
+}

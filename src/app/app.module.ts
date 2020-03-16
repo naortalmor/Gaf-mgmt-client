@@ -112,7 +112,6 @@ import {MifgafInfoComponent} from './components/mifgafs/mifgaf-info/mifgaf-info.
     MatOptionModule,
     MatDividerModule,
     FormsModule,
-    StoreModule.forRoot(reducers),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

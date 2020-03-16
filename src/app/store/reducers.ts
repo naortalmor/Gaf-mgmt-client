@@ -1,25 +1,25 @@
-import { suggestionFilterReducer } from './suggestions-filter/suggestions-filter.reducer';
-import { modesReducer } from './modes/modes.reducer';
-import { eventsReducer } from './events/events.reducer';
-import { restaurantsReducer } from './restaurant/restaurant.reducer';
-import { eveningsReducer } from './evening/evening.reducer';
-import { restaurantSurveyReducer } from './restaurant-survey/restaurant-survey.reducer';
-import { allUsersReducer, currentUserReducer, usersReducer } from './users/users.reducer';
-import { thisWeekPersonsReducer } from './this-week-persons/this-week-persons.reducer';
-import { restaurantSurveyStatusReducer } from './restaurant-survey-opened/restaurant-survey-opened.reducer';
-import { diningRoomOfTodayReducer } from './dining-room-of-today/dining-room-of-today.reducer';
+import * as suggestionsFilter from './suggestions-filter/suggestions-filter.reducer';
+import * as eventsReducer from './events/events.reducer';
+import * as restaurantsReducer from './restaurant/restaurant.reducer';
+import * as eveningsReducer from './evening/evening.reducer';
+import * as restaurantSurveyReducer from './restaurant-survey/restaurant-survey.reducer';
+import * as users from './users/users.reducer';
+import * as thisWeekPersonsReducer from './this-week-persons/this-week-persons.reducer';
+import * as restaurantSurveyStatusReducer from './restaurant-survey-opened/restaurant-survey-opened.reducer';
+import * as diningRoomOfTodayReducer from './dining-room-of-today/dining-room-of-today.reducer';
+import * as modes from '../store/modes/modes.reducer'
 
 export const reducers = {
-  mode: modesReducer,
-  events: eventsReducer,
-  restaurants: restaurantsReducer,
-  restaurantSurvey: restaurantSurveyReducer,
-  restaurantSurveyStatus: restaurantSurveyStatusReducer,
-  users: usersReducer,
-  thisWeekPersons: thisWeekPersonsReducer,
-  evenings: eveningsReducer,
-  suggestionsFilter: suggestionFilterReducer,
-  currentUser: currentUserReducer,
-  allUsers: allUsersReducer,
-  diningRoomOfToday: diningRoomOfTodayReducer
+  mode: modes.reducer,
+  events: eventsReducer.reducer,
+  restaurants: restaurantsReducer.reducer,
+  restaurantSurvey: restaurantSurveyReducer.reducer,
+  restaurantSurveyStatus: restaurantSurveyStatusReducer.reducer,
+  users: users.usersReducer,
+  thisWeekPersons: thisWeekPersonsReducer.reducer,
+  evenings: eveningsReducer.reducer,
+  suggestionsFilter: suggestionsFilter.reducer,
+  currentUser: users.currentUserReducer,
+  allUsers: users.allUsersReducer,
+  diningRoomOfToday: diningRoomOfTodayReducer.reducer
 };
