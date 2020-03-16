@@ -8,11 +8,17 @@
     <button (click)="mifgafExist()">המפגף התקיים</button>
   </div>
   <div>
+    <h2 class="text-und font-bold p-m">{{manageNextMifgafText}}: {{currWeek | async | date:'dd.MM.y'}}</h2>
     <app-this-week class="flx2" [currentWeekPersons]="winners | async"></app-this-week>
+  </div>
+  <div>
+    <h2 class="text-und font-bold p-m">{{manageNextMifgafTextt}}: {{nextWeek | async | date:'dd.MM.y'}}</h2>
+    <app-this-week class="flx2" [currentWeekPersons]="futureWinners | async"></app-this-week>
   </div>
   <div class="row flx3 flx-wrap">
     <div class="flx1" *ngFor="let demoBubble of bubbles | async">
       <app-mifgaf-info [bubble]="demoBubble"></app-mifgaf-info>
     </div>
   </div>
+  <button (click)="cc()">aa</button>
 </div>

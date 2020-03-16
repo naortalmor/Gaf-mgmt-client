@@ -2,8 +2,6 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
 import {Person} from 'src/app/models/interfaces/person';
 import {User} from '../../../models/user';
 
-const MANAGE_NEXT_MIFGAF_TEXT: string = 'אחראיים על המפגף הקרוב';
-
 @Component({
   selector: 'app-this-week',
   templateUrl: './this-week.component.html',
@@ -12,9 +10,7 @@ const MANAGE_NEXT_MIFGAF_TEXT: string = 'אחראיים על המפגף הקרו
 })
 export class ThisWeekComponent {
   @Input() currentWeekPersons: User[];
-  manageNextMifgafText: string;
 
   constructor() {
-    this.manageNextMifgafText = MANAGE_NEXT_MIFGAF_TEXT;
   }
 }

@@ -14,6 +14,8 @@ import {Bubble} from '../models/interfaces/bubble';
 export class MifgafService {
   winnersObs: BehaviorSubject<User[]>;
   futureWinnersObs: BehaviorSubject<User[]>;
+  currWeek: BehaviorSubject<>;
+  nextWeek: BehaviorSubject<>;
   bubblesObs: BehaviorSubject<Bubble[]>;
 
   constructor(private store: Store<AppState>,
@@ -22,10 +24,11 @@ export class MifgafService {
               private usersService: UsersService) {
     this.winnersObs = new BehaviorSubject<User[]>([]);
     this.futureWinnersObs = new BehaviorSubject<User[]>([]);
+    this.currWeek = new BehaviorSubject<>('');
+    this.nextWeek = new BehaviorSubject<>('');
     this.bubblesObs = new BehaviorSubject<Bubble[]>([]);
     this.getDemoBubbles();
     this.getWinners();
-    this.futureWinners();
   }
 
   getWinners() {
@@ -62,6 +65,12 @@ export class MifgafService {
         }
 
         this.winnersObs.next([...kevaWinners, ...hovaWinners]);
+        this.currWeek.next(kevaWinners[0].nextMifgafTime.seconds * 1000);
+        this.nextWeek.next((kevaWinners[0].nextMifgafTime.seconds + 604800) * 1000);
+
+        let futureWinners = users.filter(user => (user.nextMifgafTime.seconds * 1000) - (kevaWinners[0].nextMifgafTime.seconds + 604800) * 1000 <= 86400000 &&
+          (user.nextMifgafTime.seconds * 1000) - (kevaWinners[0].nextMifgafTime.seconds + 604800) * 1000 >= -86400000);
+        this.futureWinnersObs.next(futureWinners);
       }
     });
   }
