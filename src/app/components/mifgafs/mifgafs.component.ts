@@ -23,8 +23,8 @@ export class MifgafsComponent {
   bubbles:BehaviorSubject<Bubble[]>;
   manageNextMifgafText: string;
   manageNextMifgafTextt: string;
-  currWeek: BehaviorSubject;
-  nextWeek: BehaviorSubject;
+  currWeek: BehaviorSubject<any>;
+  nextWeek: BehaviorSubject<any>;
 
   constructor(private store: Store<AppState>,
               private mifgafService: MifgafService,

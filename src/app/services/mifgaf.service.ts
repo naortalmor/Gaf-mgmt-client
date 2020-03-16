@@ -14,8 +14,8 @@ import {Bubble} from '../models/interfaces/bubble';
 export class MifgafService {
   winnersObs: BehaviorSubject<User[]>;
   futureWinnersObs: BehaviorSubject<User[]>;
-  currWeek: BehaviorSubject<>;
-  nextWeek: BehaviorSubject<>;
+  currWeek: BehaviorSubject<any>;
+  nextWeek: BehaviorSubject<any>;
   bubblesObs: BehaviorSubject<Bubble[]>;
 
   constructor(private store: Store<AppState>,
@@ -24,8 +24,8 @@ export class MifgafService {
               private usersService: UsersService) {
     this.winnersObs = new BehaviorSubject<User[]>([]);
     this.futureWinnersObs = new BehaviorSubject<User[]>([]);
-    this.currWeek = new BehaviorSubject<>('');
-    this.nextWeek = new BehaviorSubject<>('');
+    this.currWeek = new BehaviorSubject<any>('');
+    this.nextWeek = new BehaviorSubject<any>('');
     this.bubblesObs = new BehaviorSubject<Bubble[]>([]);
     this.getDemoBubbles();
     this.getWinners();
@@ -88,14 +88,14 @@ export class MifgafService {
   }
 
   futureWinners() {
-    this.db.collection('/users').get().subscribe((userss: User[]) => {
+    this.db.collection('/users').get().subscribe(userss => {
       let users = userss.docs.map(doc => doc.data());
       if (users.length > 3) {
 
         this.db.collection('/mifgaf_time_saver').doc('mifgaf_time_saver').get().subscribe(mifgafTimeSaver => {
           let time = mifgafTimeSaver.data();
 
-          let usersWithOutFuture: User[] = users.filter(user => user.nextMifgafTime < firestore.Timestamp.now());
+          let usersWithOutFuture = users.filter(user => user.nextMifgafTime < firestore.Timestamp.now());
 
           if (usersWithOutFuture.length) {
             let kevaWinners = [];
