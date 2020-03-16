@@ -63,10 +63,10 @@ export class AuthService {
   }
 
   // Auth logic to run auth providers
-  AuthLogin(provider) {
+  AuthLogin(provider, status: string) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((result:auth.UserCredential) => {
-        this.SetUserData(result.user);
+        this.SetUserData(result.user, status);
       }).catch((error) => {
         window.alert(error);
       });
@@ -75,7 +75,7 @@ export class AuthService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user) {
+  SetUserData(user, status: string) {
     const userRef:AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData:User = {
       uid: user.uid,
@@ -86,7 +86,7 @@ export class AuthService {
       currentRound: user.current || 0,
       roles: {
         guest: true,
-        status: 'keva'
+        status: status
       }
     };
     return userRef.set(userData, {
@@ -104,8 +104,8 @@ export class AuthService {
   }
 
   // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+  GoogleAuth(status: string) {
+    return this.AuthLogin(new auth.GoogleAuthProvider(), status);
   }
 
   // // Sign up with email/password
