@@ -42,8 +42,4 @@ export class MifgafsComponent {
   mifgafExist() {
     this.mifgafService.mifgafExist(this.winners.getValue());
   }
-
-  cc() {
-    console.log(this.futureWinners.getValue());
-  }
 }
