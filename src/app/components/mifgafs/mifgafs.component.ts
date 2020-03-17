@@ -6,6 +6,8 @@ import {MifgafService} from 'src/app/services/mifgaf.service';
 import {AuthService} from 'src/app/routes/services/auth.service';
 import {User} from '../../models/user';
 import {Bubble} from '../../models/interfaces/bubble';
+import {faCalendar} from '@fortawesome/free-solid-svg-icons/faCalendar';
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
 
 const PAGE_HEADER: string = 'מפגפים!';
 const MANAGE_NEXT_MIFGAF_TEXT: string = 'אחראיים על המפגף הקרוב';
@@ -25,6 +27,7 @@ export class MifgafsComponent {
   manageNextMifgafTextt: string;
   currWeek: BehaviorSubject<any>;
   nextWeek: BehaviorSubject<any>;
+  faCalender = faCalendarAlt;
 
   constructor(private store: Store<AppState>,
               private mifgafService: MifgafService,
