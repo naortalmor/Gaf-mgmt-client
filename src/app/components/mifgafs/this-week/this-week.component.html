@@ -1,6 +1,6 @@
-<div class="row flx-wrap">
-  <div class="flx1" *ngFor="let person of currentWeekPersons">
-    <app-person [person]="person"></app-person>
+<div class="row">
+  <div *ngFor="let person of currentWeekPersons">
+    <app-person [style]="style" [person]="person"></app-person>
   </div>
 </div>
 

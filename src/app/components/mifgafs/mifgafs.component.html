@@ -1,23 +1,30 @@
-<div class="col ctr-al m-xxl">
-  <h1 class="title flx1">{{pageHeader}}</h1>
-  <div *ngIf="auth.isAdmin()" class="col flx2 ctr">
-    <span>הלו אדמין!</span>
-    <span>המפגפים הבאים:</span>
-    <span>צור תוכניות חדשות!</span>
-    <span>סמן שהמפגף ברשות מי שרשום למטה התקיים</span>
-    <button (click)="mifgafExist()">המפגף התקיים</button>
-  </div>
+<div class="col ctr">
   <div>
-    <h2 class="text-und font-bold p-m">{{manageNextMifgafText}}: {{currWeek | async | date:'dd.MM.y'}}</h2>
-    <app-this-week class="flx2" [currentWeekPersons]="winners | async"></app-this-week>
+    <span class="title flx1 font-nehama">{{pageHeader}}</span>
   </div>
-  <div>
-    <h2 class="text-und font-bold p-m">{{manageNextMifgafTextt}}: {{nextWeek | async | date:'dd.MM.y'}}</h2>
-    <app-this-week class="flx2" [currentWeekPersons]="futureWinners | async"></app-this-week>
+  <div class="p-m font-nehama winner-title">
+    {{manageNextMifgafText}}: {{currWeek | async | date:'dd.MM.y'}}
   </div>
-  <div class="row flx3 flx-wrap">
-    <div class="flx1" *ngFor="let demoBubble of bubbles | async">
-      <app-mifgaf-info [bubble]="demoBubble"></app-mifgaf-info>
+  <div class="row">
+    <div *ngIf="auth.isAdmin()" class="col flx2 ctr">
+      <button class="btn-mifgaf-exist font-nehama" (click)="mifgafExist()">המפגף התקיים</button>
+    </div>
+    <app-this-week [currentWeekPersons]="winners | async" [style]="'curr'"></app-this-week>
+  </div>
+  <div class="row pt-l">
+    <div class="p-m font-nehama next-winner-title ctr-al flx">
+      {{manageNextMifgafTextt}}: {{nextWeek | async | date:'dd.MM.y'}}
+    </div>
+    <div class="next-winner-img">
+      <app-this-week [currentWeekPersons]="futureWinners | async" [style]="'next'"></app-this-week>
+    </div>
+  </div>
+  <div class="row pt-m">
+    <div *ngFor="let bubble of bubbles | async">
+      <div class="flx col ctr m-s">
+        <div class="font-nehama winner-title">{{bubble.title}}</div>
+        <div class="font-nehama winner-title">{{bubble.data}}</div>
+      </div>
     </div>
   </div>
 </div>

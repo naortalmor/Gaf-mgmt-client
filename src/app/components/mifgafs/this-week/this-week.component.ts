@@ -10,6 +10,7 @@ import {User} from '../../../models/user';
 })
 export class ThisWeekComponent {
   @Input() currentWeekPersons: User[];
+  @Input() style: string;
 
   constructor() {
   }

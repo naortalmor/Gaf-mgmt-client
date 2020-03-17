@@ -1,10 +1,37 @@
 :host {
-  height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .title {
-  font-size: 30pt;
-  color: #044b7d;
+  font-size: 100px;
+  color: black;
+  text-shadow: darkgrey 5px 0px;
+}
+
+.font-nehama {
+  font-family: nehama;
+}
+
+.winner-title {
+  font-size: 30px;
+}
+
+.next-winner-title {
+  font-size: 25px;
+}
+
+.next-winner-img {
+  padding-left: 150px;
+  padding-right: 50px;
+}
+
+.btn-mifgaf-exist {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  font-size: initial;
 }

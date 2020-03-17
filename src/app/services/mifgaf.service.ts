@@ -163,18 +163,6 @@ export class MifgafService {
           let time = mifgafTimeSaver.data();
           this.bubblesObs.next([
             {
-              title: 'חיימון לימון',
-              data: 'מוסיף המון'
-            },
-            {
-              title: 'מה קרה לה?',
-              data: 'מי יודע'
-            },
-            {
-              title: 'ואתה יודע מי זה היה?',
-              data: 'נכון.... מאוד...'
-            },
-            {
               title: 'מתי עשיתי פעם אחרונה?',
               data: formatDate(user.lastMifgafTime.toMillis(), 'dd.MM.y', 'en-us')
             },
