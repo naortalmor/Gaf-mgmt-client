@@ -119,7 +119,6 @@ import { OthersSuggestionsComponent } from './components/launches/others-suggest
     MatOptionModule,
     MatDividerModule,
     FormsModule,
-    StoreModule.forRoot(reducers),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

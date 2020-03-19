@@ -1,4 +1,36 @@
-.person-text {
+:host {
+  display: flex;
+  justify-content: space-around;
+}
+
+.curr-person-text {
   text-align: center;
-  border: 1px solid black;
+  font-size: 30px;
+  font-family: nehama;
+}
+
+.curr-img {
+  width: 200px;
+  height: 200px;
+  margin: 15px;
+  border-radius: 35px;
+  border: black 1px solid;
+  box-shadow: 5px 10px 4px;
+  padding: 8px 0px 0px 8px;
+}
+
+.next-person-text {
+  text-align: center;
+  font-size: 15px;
+  font-family: nehama;
+}
+
+.next-img {
+  width: 75px;
+  height: 75px;
+  margin: 15px;
+  border-radius: 15px;
+  border: black 1px solid;
+  box-shadow: 4px 7px 4px;
+  padding: 5px 0px 0px 5px;
 }

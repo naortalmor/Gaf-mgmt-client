@@ -9,6 +9,7 @@ export interface User {
   typeId?:number;
   currentRound:number;
   lastMifgafTime?;
+  nextMifgafTime?;
 }
 
 export interface Roles {

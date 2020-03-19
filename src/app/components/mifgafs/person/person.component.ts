@@ -9,6 +9,7 @@ import {User} from '../../../models/user';
 })
 export class PersonComponent {
   @Input() person: User;
+  @Input() style: string;
 
   constructor() {
 

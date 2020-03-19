@@ -94,6 +94,10 @@ body {
   flex-wrap: wrap;
 }
 
+.flx {
+  display: flex;
+}
+
 .flx1 {
   flex: 1;
 }
@@ -198,6 +202,14 @@ body {
 
 .mr-s {
   margin-right: 5px;
+}
+
+.pt-m {
+  padding-top: 35px;
+}
+
+.pt-l {
+  padding-top: 50px;
 }
 
 .mr-m {

@@ -3,12 +3,25 @@
   <img class="logo-img p-s" src="../../../assets/logo.jpg" alt="'תמונת הצוות'">
   <h4>{{appPurpose}}</h4>
   <div class="p-s">
-    <button mat-button
-            class="button-style"
-            (click)="loginGoogle()">
-      {{connectButtonText}}
-      <fa-icon [title]="'Gmail'" [icon]="['fab', 'google-plus-g']"></fa-icon>
-    </button>
+    <div>
+      <mat-form-field>
+        <mat-label style="direction: rtl">בחר סוג שירות</mat-label>
+        <mat-select [formControl]="statusesControl" required>
+          <mat-option *ngFor="let status of statuses" [value]="status.value">
+            {{status.view}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="statusesControl.hasError('required')">שגיאה</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-button
+              class="button-style"
+              (click)="loginGoogle()">
+        {{connectButtonText}}
+        <fa-icon [title]="'Gmail'" [icon]="['fab', 'google-plus-g']"></fa-icon>
+      </button>
+    </div>
   </div>
   <div *ngIf="isLoading" class="p-m">
     {{loadingText}}
