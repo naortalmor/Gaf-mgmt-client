@@ -1,57 +1,38 @@
-import { Store } from '@ngrx/store';
-import { Injectable } from '@angular/core';
-import { AppState } from '../store/state';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { User } from '../models/user';
-import { firestore } from 'firebase/app';
-import { UsersService } from './users.service';
-import { formatDate } from '@angular/common';
-import { Bubble } from '../models/interfaces/bubble';
-import { config } from '../consts/config';
+import {Store} from '@ngrx/store';
+import {Injectable} from '@angular/core';
+import {AppState} from '../store/state';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {User} from '../models/user';
+import {firestore} from 'firebase/app';
+import {UsersService} from './users.service';
+import {formatDate} from '@angular/common';
+import {Bubble} from '../models/interfaces/bubble';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
-  winnersObs:BehaviorSubject<User[]>;
+  winnersObs: BehaviorSubject<User[]>;
   futureWinnersObs: BehaviorSubject<User[]>;
   currWeek: BehaviorSubject<any>;
   nextWeek: BehaviorSubject<any>;
-  bubblesObs:BehaviorSubject<Bubble[]>;
+  bubblesObs: BehaviorSubject<Bubble[]>;
 
-  infoBubblesObs:Subject<Bubble[]>;
-  private infoBubbles:Bubble[];
-
-  constructor(private store:Store<AppState>,
-              private http:HttpClient,
-              private db:AngularFirestore,
+  constructor(private store: Store<AppState>,
+              private http: HttpClient,
+              private db: AngularFirestore,
               private usersService: UsersService) {
     this.winnersObs = new BehaviorSubject<User[]>([]);
     this.futureWinnersObs = new BehaviorSubject<User[]>([]);
     this.currWeek = new BehaviorSubject<any>('');
     this.nextWeek = new BehaviorSubject<any>('');
     this.bubblesObs = new BehaviorSubject<Bubble[]>([]);
-    this.infoBubblesObs = new Subject<Bubble[]>();
     this.getDemoBubbles();
     this.getWinners();
   }
 
-  initInfoBubbles() {
-    this.infoBubbles = [];
-    this.http.get(`${config.serverUrl}/mifgafim/howLongShouldIWaitToWin`)
-      .subscribe((howlong:string) => this.insertBubble({
-        title: 'מתי אני מביא?',
-        data: howlong
-      }));
-    this.http.get(`${config.serverUrl}/mifgafim/whenIWonLastly`)
-      .subscribe((when:string) => this.insertBubble({
-        title: 'מתי הבאתי לאחרונה?',
-        data: when
-      }));
-  }
-
   getWinners() {
-    this.db.collection('/users').valueChanges().subscribe((users:User[]) => {
+    this.db.collection('/users').valueChanges().subscribe((users: User[]) => {
       if (users.length > 3) {
         const kevaWinners = [];
         const kevaUsers = users.filter(user => user.roles.status === 'keva');
@@ -94,7 +75,7 @@ export class MifgafService {
     });
   }
 
-  mifgafExist(winners:User[]) {
+  mifgafExist(winners: User[]) {
     winners.forEach(user => {
       this.db.collection('users').doc(`${user.uid}`).set({
         currentRound: user.currentRound + 1,
@@ -194,12 +175,5 @@ export class MifgafService {
         });
       }
     });
-  }
-
-  private insertBubble(bubble):void {
-    let bubbles = [...this.infoBubbles];
-    bubbles.push(bubble);
-    this.infoBubblesObs.next(bubbles);
-    this.infoBubbles = bubbles;
   }
 }
