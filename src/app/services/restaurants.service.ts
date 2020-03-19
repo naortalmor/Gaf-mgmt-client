@@ -66,6 +66,7 @@ export class RestaurantsService {
 
   updateRestaurantSurveyStatus(newStatus:boolean):void {
     this.http.post(`${config.serverUrl}/launches/updateRestaurantSurveyStatus`, {newStatus}).subscribe((status:boolean) => {
+      console.log(status);
       this.store.dispatch(UPDATE_RESTAURANT_STATUS({restaurantSurveyStatus: status}));
     });
   }

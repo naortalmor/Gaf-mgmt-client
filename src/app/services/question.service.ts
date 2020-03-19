@@ -17,7 +17,7 @@ export class QuestionService {
     let questions:QuestionBase<string>[] = [
       new DropdownQuestion({
         key: 'restaurant',
-        label: 'באיזה מסעדה ברצונך לאכול',
+        label: 'באיזה מסעדה ברצונך לאכול ?',
         options: options,
         required: true,
         order: 1

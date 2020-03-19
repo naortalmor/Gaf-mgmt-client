@@ -17,18 +17,18 @@ import { User } from '../../../models/user';
   styleUrls: ['./others-suggestions.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OthersSuggestionsComponent implements OnChanges{
+export class OthersSuggestionsComponent implements OnChanges {
   @Input() surveyOpened:boolean;
   @Input() restaurants:Restaurant[];
   @Input() restaurantSurvey:RestaurantSurvey[];
   @Input() users:User[];
   @Output() surveyOpenedEmitter:EventEmitter<void>;
-  @Output() surveySubmittedEmitter:EventEmitter<Restaurant>;
+  @Output() surveySubmittedEmitter:EventEmitter<Restaurant[]>;
   @Output() surveyClosedEmitter:EventEmitter<void>;
 
   constructor() {
     this.surveyOpenedEmitter = new EventEmitter<void>();
-    this.surveySubmittedEmitter = new EventEmitter<Restaurant>();
+    this.surveySubmittedEmitter = new EventEmitter<Restaurant[]>();
     this.surveyClosedEmitter = new EventEmitter<void>();
   }
 
@@ -40,8 +40,8 @@ export class OthersSuggestionsComponent implements OnChanges{
     this.surveyOpenedEmitter.emit();
   }
 
-  onSurveySubmitted(restaurant:Restaurant) {
-    this.surveySubmittedEmitter.emit(restaurant);
+  onSurveySubmitted(restaurants:Restaurant[]) {
+    this.surveySubmittedEmitter.emit(restaurants);
   }
 
   onSurveyClosed():void {

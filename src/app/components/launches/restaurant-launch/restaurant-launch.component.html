@@ -1,28 +1,26 @@
 <mat-tab-group [color]="'primary'"
                [backgroundColor]="'primary'"
                [style]="'tab-group'"
-               class="tab-group row flx1 ctr"
+               class="tab-group p-l"
                animationDuration="1000ms">
   <mat-tab label="{{tabs.OTHER}}">
-    <div class="box">
-      <app-others-suggestions
-        [surveyOpened]="surveyOpened"
-        [restaurantSurvey]="restaurantSurvey"
-        [users]="users"
-        (surveyOpenedEmitter)="onOpenSurvey()"
-        (surveySubmittedEmitter)="onSurveySubmitted($event)"
-        (surveyClosedEmitter)="onSurveyClosed()">
-      </app-others-suggestions>
-    </div>
+    <app-others-suggestions
+      class="col flx1 mt-l"
+      [surveyOpened]="surveyOpened"
+      [restaurants]="restaurants"
+      [restaurantSurvey]="restaurantSurvey"
+      [users]="users"
+      (surveyOpenedEmitter)="onOpenSurvey()"
+      (surveySubmittedEmitter)="onSurveySubmitted($event)"
+      (surveyClosedEmitter)="onSurveyClosed()">
+    </app-others-suggestions>
   </mat-tab>
   <mat-tab label="{{tabs.SUGGESTIONS}}">
-    <div class="box">
-      <app-suggestions-container (addRestaurant)="onAddRestaurant($event)"
-                                 class="launch-container"
-                                 [restaurants]="restaurants"
-                                 [filter]="suggestionsFilter"
-                                 (filterChangedEmitter)="onFilterChanged($event)">
-      </app-suggestions-container>
-    </div>
+    <app-suggestions-container class="col flx1 mt-l"
+                               [restaurants]="restaurants"
+                               [filter]="suggestionsFilter"
+                               (addRestaurant)="onAddRestaurant($event)"
+                               (filterChangedEmitter)="onFilterChanged($event)">
+    </app-suggestions-container>
   </mat-tab>
 </mat-tab-group>

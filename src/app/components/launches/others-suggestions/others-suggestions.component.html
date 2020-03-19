@@ -1,12 +1,13 @@
-<div class="col ctr">
+<div *ngIf="!surveyOpened" class="col ctr">
+  <span class="survey-not-opened"> אחרים עדיין לא הציעו מסעדות לאכול בהם היום !! </span>
   <button mat-button
-          *ngIf="!surveyOpened"
           class="button-style"
           (click)="onOpenSurvey()">
     פתח סקר
   </button>
-  <app-lunch-survey *ngIf="surveyOpened"
-                    [restaurants]="restaurants"
+</div>
+<div *ngIf="surveyOpened">
+  <app-lunch-survey [restaurants]="restaurants"
                     (submit)="onSurveySubmitted($event)"
                     (close)="onSurveyClosed()">
   </app-lunch-survey>

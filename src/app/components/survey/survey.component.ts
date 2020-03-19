@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { QuestionBase } from '../../models/question-model/question-base';
-import { SurveyType } from '../../models/enums/enums';
 
 @Component({
   selector: 'app-survey',
@@ -11,15 +10,32 @@ import { SurveyType } from '../../models/enums/enums';
 })
 export class SurveyComponent {
   @Input() question:QuestionBase<string>;
-  @Input() form:FormGroup;
+  @Output() save:EventEmitter<string[]>;
+  @Output() close:EventEmitter<void>;
 
-  result:string;
+  toppings = new FormControl();
 
   constructor() {
-    this.result = '';
+    this.save = new EventEmitter<string[]>();
+    this.close = new EventEmitter<void>();
   }
 
-  get surveyTypes() {
-    return SurveyType;
+  onClose():void {
+    this.close.emit();
+  }
+
+  onSave():void {
+    let selected:string[] = [];
+    if (this.toppings.value && this.toppings.value.length) {
+      this.toppings.value.forEach(select => {
+        this.question.options.forEach(rest => {
+          if (rest.value === select) {
+            selected.push(rest.key);
+          }
+        });
+      });
+    }
+
+    this.save.emit(selected);
   }
 }

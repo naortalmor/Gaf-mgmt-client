@@ -10,10 +10,10 @@
     {{restaurantLocationButton}}
   </button>
 </div>
-<div *ngIf="launchLocation !== launchLocations.notSelected" class="col xx ctr ">
-  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="flx1"></app-dining-room>
+<div *ngIf="launchLocation !== launchLocations.notSelected" class="col ctr">
+  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="col m-m"></app-dining-room>
   <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"
-                         class="flx1"
+                         class="col m-m"
                          [connectedUser]="connectedUser$ | async"
                          [restaurants]="restaurants$ | async"
                          [suggestionsFilter]="suggestionsFilter$ | async"

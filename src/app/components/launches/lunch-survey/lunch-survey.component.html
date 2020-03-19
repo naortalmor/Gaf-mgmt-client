@@ -1,16 +1,6 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <div *ngFor="let question of surveyQuestions" class="form-row">
-    <app-survey [question]="question" [form]="form"></app-survey>
-  </div>
-  <div class="form-row p-s spec">
-    <button mat-button
-            class="button-style"
-            type="submit"
-            [disabled]="!form.valid">שמור
-    </button>
-    <button mat-button
-            class="button-style"
-            type="button" (click)="onClose()">בטל סקר
-    </button>
-  </div>
-</form>
+<div *ngFor="let question of surveyQuestions" class="form-row">
+  <app-survey [question]="question"
+              (save)="onSubmit($event)"
+              (close)="onClose()">
+  </app-survey>
+</div>

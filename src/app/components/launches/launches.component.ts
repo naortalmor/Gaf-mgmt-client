@@ -51,6 +51,7 @@ export class LaunchesComponent {
     this.restaurants$ = this.store.select('restaurants');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
     this.surveyOpened$ = this.store.select('restaurantSurveyStatus');
+    this.surveyOpened$.subscribe(x => console.log(x));
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.users$ = this.store.select('users');
 
