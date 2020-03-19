@@ -5,7 +5,7 @@ import { Restaurant } from '../models/interfaces/restaurant';
 
 @Injectable({providedIn: 'root'})
 export class QuestionService {
-  getLaunchSurveyQuestions(restaurants:Restaurant[]) {
+  getLaunchSurveyQuestions(restaurants:Restaurant[]):QuestionBase<string>[] {
     let options:any[] = [];
     restaurants.forEach(rest => {
       let option = {

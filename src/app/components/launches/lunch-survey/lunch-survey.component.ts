@@ -16,7 +16,7 @@ export class LunchSurveyComponent implements OnChanges {
   @Input() restaurants:Restaurant[];
   @Output() close:EventEmitter<void>;
   @Output() submit:EventEmitter<Restaurant>;
-  surveyQuestions:QuestionBase<any>[];
+  surveyQuestions:QuestionBase<string>[];
 
   form:FormGroup;
   payLoad:RestaurantSurveyPayload = {restaurant: NO_SELECTED_RESTAURANT};
@@ -28,7 +28,7 @@ export class LunchSurveyComponent implements OnChanges {
   }
 
   ngOnChanges(changes:SimpleChanges):void {
-    if (changes.restaurants) {
+    if (changes.restaurants && this.restaurants) {
       this.updateForm();
     }
   }

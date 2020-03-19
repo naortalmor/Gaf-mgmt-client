@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { Restaurant } from '../../../models/interfaces/restaurant';
 import { RestaurantSurvey } from '../../../models/interfaces/restaurant-survey';
 import { User } from '../../../models/user';
@@ -9,7 +17,7 @@ import { User } from '../../../models/user';
   styleUrls: ['./others-suggestions.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OthersSuggestionsComponent {
+export class OthersSuggestionsComponent implements OnChanges{
   @Input() surveyOpened:boolean;
   @Input() restaurants:Restaurant[];
   @Input() restaurantSurvey:RestaurantSurvey[];
@@ -22,6 +30,10 @@ export class OthersSuggestionsComponent {
     this.surveyOpenedEmitter = new EventEmitter<void>();
     this.surveySubmittedEmitter = new EventEmitter<Restaurant>();
     this.surveyClosedEmitter = new EventEmitter<void>();
+  }
+
+  ngOnChanges(changes:SimpleChanges):void {
+    console.log(changes);
   }
 
   onOpenSurvey():void {

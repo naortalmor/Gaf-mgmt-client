@@ -17,7 +17,7 @@ const ADMIN_BUTTON_TEXT: string = 'מצב מנהל מערכת';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-  connectedUser: Observable<User>;
+  connectedUser$: Observable<User>;
   routOptions: RouteOption[];
   connectedUserText: string;
   disconnectButtonText: string;
@@ -34,6 +34,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.connectedUser = this.usersService.getCurrentUser();
+    this.connectedUser$ = this.usersService.getCurrentUser();
   }
 }
