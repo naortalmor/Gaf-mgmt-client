@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Restaurant } from '../../../models/interfaces/restaurant';
 import { RestaurantSurvey } from '../../../models/interfaces/restaurant-survey';
 import { User } from '../../../models/user';
@@ -17,34 +9,37 @@ import { User } from '../../../models/user';
   styleUrls: ['./others-suggestions.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OthersSuggestionsComponent implements OnChanges {
+export class OthersSuggestionsComponent {
   @Input() surveyOpened:boolean;
   @Input() restaurants:Restaurant[];
   @Input() restaurantSurvey:RestaurantSurvey[];
   @Input() users:User[];
   @Output() surveyOpenedEmitter:EventEmitter<void>;
   @Output() surveySubmittedEmitter:EventEmitter<Restaurant[]>;
-  @Output() surveyClosedEmitter:EventEmitter<void>;
+
+  mySurveyOpened:boolean;
 
   constructor() {
     this.surveyOpenedEmitter = new EventEmitter<void>();
     this.surveySubmittedEmitter = new EventEmitter<Restaurant[]>();
-    this.surveyClosedEmitter = new EventEmitter<void>();
-  }
-
-  ngOnChanges(changes:SimpleChanges):void {
-    console.log(changes);
+    this.mySurveyOpened = false;
   }
 
   onOpenSurvey():void {
     this.surveyOpenedEmitter.emit();
+    this.mySurveyOpened = true;
   }
 
   onSurveySubmitted(restaurants:Restaurant[]) {
+    this.mySurveyOpened = false;
     this.surveySubmittedEmitter.emit(restaurants);
   }
 
   onSurveyClosed():void {
-    this.surveyClosedEmitter.emit();
+    this.mySurveyOpened = false;
+  }
+
+  showSurvey():void {
+    this.mySurveyOpened = true;
   }
 }

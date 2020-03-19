@@ -21,8 +21,7 @@ export class RestaurantLaunchComponent {
   @Output() addRestaurantEmitter:EventEmitter<Restaurant>;
   @Output() filterChangedEmitter:EventEmitter<FilterSuggestions>;
   @Output() surveyOpenedEmitter:EventEmitter<void>;
-  @Output() surveySubmittedEmitter:EventEmitter<{ restaurant:Restaurant, connectedUser:User }>;
-  @Output() surveyClosedEmitter:EventEmitter<void>;
+  @Output() surveySubmittedEmitter:EventEmitter<{ restaurants:Restaurant[], connectedUser:User }>;
 
   tabs = RestaurantLaunchTabs;
 
@@ -30,8 +29,7 @@ export class RestaurantLaunchComponent {
     this.addRestaurantEmitter = new EventEmitter<Restaurant>();
     this.filterChangedEmitter = new EventEmitter<FilterSuggestions>();
     this.surveyOpenedEmitter = new EventEmitter<void>();
-    this.surveySubmittedEmitter = new EventEmitter<{ restaurant:Restaurant, connectedUser:User }>();
-    this.surveyClosedEmitter = new EventEmitter<void>();
+    this.surveySubmittedEmitter = new EventEmitter<{ restaurants:Restaurant[], connectedUser:User }>();
     this.tabs = RestaurantLaunchTabs;
   }
 
@@ -47,11 +45,7 @@ export class RestaurantLaunchComponent {
     this.surveyOpenedEmitter.emit();
   }
 
-  onSurveySubmitted(restaurant:Restaurant) {
-    this.surveySubmittedEmitter.emit({restaurant, connectedUser: this.connectedUser});
-  }
-
-  onSurveyClosed():void {
-    this.surveyClosedEmitter.emit();
+  onSurveySubmitted(restaurants:Restaurant[]) {
+    this.surveySubmittedEmitter.emit({restaurants, connectedUser: this.connectedUser});
   }
 }

@@ -36,7 +36,7 @@ export class RestaurantChartComponent implements OnChanges {
   }
 
   ngOnChanges(changes:SimpleChanges):void {
-    if (changes.restaurantSurvey) {
+    if (changes.restaurantSurvey && this.restaurantSurvey) {
       this.updateChartData();
     }
   }

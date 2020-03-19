@@ -34,8 +34,6 @@ export class LaunchesComponent {
   restaurantSurvey$:Observable<RestaurantSurvey[]>;
   users$:Observable<User[]>;
 
-  /* diningRoomOfToday$:Observable<string>; */
-
   constructor(private store:Store<AppState>,
               private usersService:UsersService,
               private restaurantsService:RestaurantsService) {
@@ -54,8 +52,6 @@ export class LaunchesComponent {
     this.surveyOpened$.subscribe(x => console.log(x));
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.users$ = this.store.select('users');
-
-    /* this.diningRoomOfToday$ = this.store.select('diningRoomOfToday');*/
   }
 
   chooseLocation(location:LaunchLocation):void {
@@ -75,12 +71,9 @@ export class LaunchesComponent {
     this.restaurantsService.updateRestaurantSurveyStatus(true);
   }
 
-  onSurveySubmitted(event:{restaurant:Restaurant, connectedUser:User}) {
-    this.restaurantsService.updateRestaurantSurvey(event.restaurant.id, event.connectedUser.uid);
-    this.onSurveyClosed();
-  }
-
-  onSurveyClosed():void {
-    this.restaurantsService.updateRestaurantSurveyStatus(false);
+  onSurveySubmitted(event:{ restaurants:Restaurant[], connectedUser:User }) {
+    if (event.restaurants && event.restaurants.length) {
+      this.restaurantsService.updateRestaurantSurvey(event.restaurants.map(res => res.id), event.connectedUser.uid);
+    }
   }
 }

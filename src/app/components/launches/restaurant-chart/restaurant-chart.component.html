@@ -1,15 +1,14 @@
-<div class="row ctr">
-  <app-voters-names *ngIf="voters.length"
-                    class="flx1"
-                    [header]="header"
-                    [voters]="voters"
-                    (closeEmitter)="closeVoters()">
-  </app-voters-names>
-  <app-chart *ngIf="chartData.length"
-             class="flx1"
-             [chartType]="chartType"
-             [chartData]="chartData"
-             [chartSizes]="chartSizes"
-             (chartValueSelectedEmitter)="onChartValueSelected($event)">
-  </app-chart>
-</div>
+<app-voters-names *ngIf="voters.length"
+                  class="flx1"
+                  [header]="header"
+                  [voters]="voters"
+                  (closeEmitter)="closeVoters()">
+</app-voters-names>
+<app-chart *ngIf="chartData.length"
+           class="flx1"
+           [chartType]="chartType"
+           [chartData]="chartData"
+           [chartSizes]="chartSizes"
+           (chartValueSelectedEmitter)="onChartValueSelected($event)">
+</app-chart>
+

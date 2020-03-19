@@ -6,14 +6,23 @@
     פתח סקר
   </button>
 </div>
-<div *ngIf="surveyOpened">
-  <app-lunch-survey [restaurants]="restaurants"
-                    (submit)="onSurveySubmitted($event)"
-                    (close)="onSurveyClosed()">
-  </app-lunch-survey>
-  <app-restaurant-chart
-    [restaurants]="restaurants"
-    [restaurantSurvey]="restaurantSurvey"
-    [users]="users">
+<div *ngIf="surveyOpened" class="col ctr">
+  <div *ngIf="!mySurveyOpened">
+    <button mat-button
+            class="button-style"
+            (click)="showSurvey()">
+      הצג סקר קיים
+    </button>
+  </div>
+  <div *ngIf="mySurveyOpened" class="lunch-survey">
+    <app-lunch-survey [restaurants]="restaurants"
+                      (submit)="onSurveySubmitted($event)"
+                      (close)="onSurveyClosed()">
+    </app-lunch-survey>
+  </div>
+  <app-restaurant-chart class="row ctr flx1 pt-m"
+                        [restaurants]="restaurants"
+                        [restaurantSurvey]="restaurantSurvey"
+                        [users]="users">
   </app-restaurant-chart>
 </div>
