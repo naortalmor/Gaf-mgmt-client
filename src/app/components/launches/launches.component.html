@@ -16,9 +16,9 @@
           (click)="chooseLocation(launchLocations.notSelected)">
     {{changeSelectionButton}}
   </button>
-  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="col overflow m-m"></app-dining-room>
+  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="col overflow mt-l"></app-dining-room>
   <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"
-                         class="col overflow m-m"
+                         class="col overflow mt-l"
                          [connectedUser]="connectedUser$ | async"
                          [restaurants]="restaurants$ | async"
                          [suggestionsFilter]="suggestionsFilter$ | async"
