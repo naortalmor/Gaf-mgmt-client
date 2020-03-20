@@ -11,9 +11,9 @@
   </button>
 </div>
 <div *ngIf="launchLocation !== launchLocations.notSelected" class="col ctr">
-  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="col m-m"></app-dining-room>
+  <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="col overflow m-m"></app-dining-room>
   <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"
-                         class="col m-m"
+                         class="col overflow m-m"
                          [connectedUser]="connectedUser$ | async"
                          [restaurants]="restaurants$ | async"
                          [suggestionsFilter]="suggestionsFilter$ | async"

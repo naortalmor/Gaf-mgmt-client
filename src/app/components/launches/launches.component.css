@@ -14,3 +14,7 @@
 .change-selection-button {
   width: 30%;
 }
+
+.overflow {
+  overflow-y: auto;
+}
