@@ -10,7 +10,12 @@
     {{restaurantLocationButton}}
   </button>
 </div>
-<div *ngIf="launchLocation !== launchLocations.notSelected" class="col ctr">
+<div *ngIf="launchLocation !== launchLocations.notSelected" class="col p-s">
+  <button mat-button
+          class="button-style change-selection-button"
+          (click)="chooseLocation(launchLocations.notSelected)">
+    {{changeSelectionButton}}
+  </button>
   <app-dining-room *ngIf="launchLocation === launchLocations.diningRoom" class="col overflow m-m"></app-dining-room>
   <app-restaurant-launch *ngIf="launchLocation === launchLocations.restaurant"
                          class="col overflow m-m"
@@ -25,9 +30,4 @@
                          (surveyOpenedEmitter)="onOpenSurvey()"
                          (surveySubmittedEmitter)="onSurveySubmitted($event)">
   </app-restaurant-launch>
-  <button mat-button
-          class="button-style change-selection-button"
-          (click)="chooseLocation(launchLocations.notSelected)">
-    {{changeSelectionButton}}
-  </button>
 </div>

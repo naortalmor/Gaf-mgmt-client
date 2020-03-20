@@ -12,9 +12,16 @@
 }
 
 .change-selection-button {
-  width: 30%;
+  align-self: flex-end;
+  font-weight: bold;
+  width: 130px;
 }
 
 .overflow {
   overflow-y: auto;
+}
+
+.xxx {
+  justify-content: left;
+  align-items: flex-end;
 }

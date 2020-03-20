@@ -13,7 +13,7 @@ import { RestaurantSurvey } from '../../models/interfaces/restaurant-survey';
 
 const RESTAURANT_LOCATION_BUTTON:string = 'מסעדות';
 const DINING_ROOM_LOCATION_BUTTON:string = 'חדר אוכל';
-const CHANGE_SELECTION_BUTTON:string = 'חזור אחורה לשינוי הבחירה';
+const CHANGE_SELECTION_BUTTON:string = 'חזור ושנה הבחירה';
 
 @Component({
   selector: 'app-launches',
