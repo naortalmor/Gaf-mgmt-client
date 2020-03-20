@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { RestaurantLaunchTabs } from '../../../models/enums/enums';
 import { User } from '../../../models/user';
 import { RestaurantSurvey } from '../../../models/interfaces/restaurant-survey';
+import { RestaurantsService } from '../../../services/restaurants.service';
 
 @Component({
   selector: 'app-restaurant-launch',
@@ -18,6 +19,7 @@ export class RestaurantLaunchComponent {
   @Input() surveyOpened:boolean;
   @Input() restaurantSurvey:RestaurantSurvey;
   @Input() users:User[];
+
   @Output() addRestaurantEmitter:EventEmitter<Restaurant>;
   @Output() filterChangedEmitter:EventEmitter<FilterSuggestions>;
   @Output() surveyOpenedEmitter:EventEmitter<void>;
@@ -25,12 +27,13 @@ export class RestaurantLaunchComponent {
 
   tabs = RestaurantLaunchTabs;
 
-  constructor() {
+  constructor(private restaurantsService:RestaurantsService) {
     this.addRestaurantEmitter = new EventEmitter<Restaurant>();
     this.filterChangedEmitter = new EventEmitter<FilterSuggestions>();
     this.surveyOpenedEmitter = new EventEmitter<void>();
     this.surveySubmittedEmitter = new EventEmitter<{ restaurants:Restaurant[], connectedUser:User }>();
     this.tabs = RestaurantLaunchTabs;
+    this.restaurantsService.initRestaurantSurvey();
   }
 
   onAddRestaurant(restaurant:Restaurant) {

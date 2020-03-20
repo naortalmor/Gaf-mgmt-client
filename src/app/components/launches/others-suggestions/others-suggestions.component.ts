@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Restaurant } from '../../../models/interfaces/restaurant';
 import { RestaurantSurvey } from '../../../models/interfaces/restaurant-survey';
 import { User } from '../../../models/user';

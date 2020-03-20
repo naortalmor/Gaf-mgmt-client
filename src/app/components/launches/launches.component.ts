@@ -38,7 +38,6 @@ export class LaunchesComponent {
               private usersService:UsersService,
               private restaurantsService:RestaurantsService) {
     this.restaurantsService.initRestaurants();
-    this.restaurantsService.initRestaurantSurvey();
     this.restaurantsService.initRestaurantSurveyStatus();
     this.launchLocations = LaunchLocation;
     this.launchLocation = this.launchLocations.notSelected;
