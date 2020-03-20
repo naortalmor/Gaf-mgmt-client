@@ -14,8 +14,6 @@ export class RestaurantListComponent {
 
   onAddRestaurant() {
     this.toAddRestaurant = !this.toAddRestaurant;
-    console.log(this.toAddRestaurant);
-
   }
 
   newRestaurant($event:Restaurant) {

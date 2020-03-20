@@ -17,7 +17,7 @@ const NOT_FOUND_IN_CHART:number = -1;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RestaurantChartComponent implements OnChanges {
-  @Input() restaurantSurvey:RestaurantSurvey[];
+  @Input() restaurantSurvey:RestaurantSurvey;
   @Input() restaurants:Restaurant[];
   @Input() users:User[];
 
@@ -44,9 +44,9 @@ export class RestaurantChartComponent implements OnChanges {
   onChartValueSelected(event:any):void {
     let restaurant:Restaurant = this.restaurants.find(restaurant => restaurant.name === event.name);
     if (restaurant) {
-      let restaurantSurvey:RestaurantSurvey = this.restaurantSurvey.find(survey => survey.restaurantId === restaurant.id);
-      if (restaurantSurvey) {
-        this.openVoters(restaurantSurvey.votersIds);
+      let votersIds:string[] = this.restaurantSurvey[restaurant.id];
+      if (votersIds) {
+        this.openVoters(votersIds);
       }
     }
   }
@@ -61,16 +61,17 @@ export class RestaurantChartComponent implements OnChanges {
   }
 
   private updateChartData():void {
-    this.restaurantSurvey.forEach((survey:RestaurantSurvey) => {
-      const restaurant:Restaurant = this.restaurants.find(restaurant => restaurant.id === survey.restaurantId);
+    let surveyKeys:string[] = Object.keys(this.restaurantSurvey);
+    for (let key of surveyKeys) {
+      const restaurant:Restaurant = this.restaurants.find(restaurant => restaurant.id.toString() === key);
       if (restaurant) {
         const chartData:ChartData = {
           name: restaurant.name,
-          value: survey.votersIds.length
+          value: this.restaurantSurvey[key].length
         };
         this.insertChartData(chartData);
       }
-    });
+    }
   }
 
   private insertChartData(chartData:ChartData):void {
@@ -78,7 +79,7 @@ export class RestaurantChartComponent implements OnChanges {
     if (restaurantResultIndex !== NOT_FOUND_IN_CHART) {
       this.chartData[restaurantResultIndex].value = chartData.value;
     } else {
-      this.chartData.push(chartData);
+      this.chartData = [...this.chartData, chartData];
     }
   }
 }

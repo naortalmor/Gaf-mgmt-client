@@ -10,7 +10,7 @@ import { Restaurant } from 'src/app/models/interfaces/restaurant';
 })
 
 export class AddRestaurant implements OnInit {
-  newRestuarantForm:FormGroup;
+  newRestaurantForm:FormGroup;
   RestaurantTypes = RestaurantTypes;
   rating:number = 3;
   starCount:number = 5;
@@ -20,7 +20,7 @@ export class AddRestaurant implements OnInit {
   @Output() closeForm = new EventEmitter<void>();
 
   ngOnInit() {
-    this.newRestuarantForm = new FormGroup({
+    this.newRestaurantForm = new FormGroup({
       name: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
       cuisine: new FormControl('', Validators.required),
@@ -35,18 +35,17 @@ export class AddRestaurant implements OnInit {
 
   onSubmit() {
     const newRestuarant:Restaurant = {
-      name: this.newRestuarantForm.get('name').value,
-      address: this.newRestuarantForm.get('address').value,
-      type: this.newRestuarantForm.get('cuisine').value,
-      isHvr: this.newRestuarantForm.get('hever').value,
-      isKosher: this.newRestuarantForm.get('kosher').value,
+      name: this.newRestaurantForm.get('name').value,
+      address: this.newRestaurantForm.get('address').value,
+      type: this.newRestaurantForm.get('cuisine').value,
+      isHvr: this.newRestaurantForm.get('hever').value,
+      isKosher: this.newRestaurantForm.get('kosher').value,
       rank: this.finishedRating
     };
     this.addRestaurant.emit(newRestuarant);
   }
 
   onCloseForm() {
-    console.log('closing');
     this.closeForm.emit();
   }
 }

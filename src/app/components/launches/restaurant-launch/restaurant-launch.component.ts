@@ -16,7 +16,7 @@ export class RestaurantLaunchComponent {
   @Input() restaurants:Restaurant[];
   @Input() suggestionsFilter:FilterSuggestions;
   @Input() surveyOpened:boolean;
-  @Input() restaurantSurvey:RestaurantSurvey[];
+  @Input() restaurantSurvey:RestaurantSurvey;
   @Input() users:User[];
   @Output() addRestaurantEmitter:EventEmitter<Restaurant>;
   @Output() filterChangedEmitter:EventEmitter<FilterSuggestions>;

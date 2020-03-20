@@ -1,13 +1,16 @@
-<div *ngFor="let restaurant of restaurants">
-  <app-restaurant [restaurant]="restaurant"></app-restaurant>
-</div>
-<div>
+<div class="col flx1">
+  <div class="flx1" *ngFor="let restaurant of restaurants">
+    <app-restaurant [restaurant]="restaurant"></app-restaurant>
+  </div>
   <button *ngIf="!toAddRestaurant"
           mat-button
-          class="button-style"
-          (click)="onAddRestaurant()">הוסף מסעדה
+          class="button-style flx1"
+          (click)="onAddRestaurant()">
+    הוסף מסעדה
   </button>
-</div>
-<div *ngIf="toAddRestaurant">
-  <app-add-restaurant (closeForm)="closeForm()" (addRestaurant)="newRestaurant($event)"></app-add-restaurant>
+  <app-add-restaurant *ngIf="toAddRestaurant"
+                      class="col ctr flx1 pt-m"
+                      (closeForm)="closeForm()"
+                      (addRestaurant)="newRestaurant($event)">
+  </app-add-restaurant>
 </div>

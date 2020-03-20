@@ -11,7 +11,7 @@ export interface AppState {
   events:CalendarEvent[];
   restaurants:Restaurant[];
   evenings:Evening[];
-  restaurantSurvey:RestaurantSurvey[];
+  restaurantSurvey:RestaurantSurvey;
   restaurantSurveyStatus:boolean;
   users:User[];
   thisWeekPersons:Person[];

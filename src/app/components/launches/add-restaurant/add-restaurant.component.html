@@ -1,7 +1,7 @@
-<mat-card class="card">
+<mat-card class="card flx1 col">
   <mat-card-content>
     <div class="col container">
-      <form [formGroup]="newRestuarantForm">
+      <form [formGroup]="newRestaurantForm">
         <mat-form-field class="example-full-width">
           <mat-label>שם</mat-label>
           <input class="row" matInput type="text" id='name' formControlName="name">
@@ -27,7 +27,7 @@
       <button mat-button
               class="button-style"
               (click)="onSubmit()"
-              [disabled]="!newRestuarantForm.valid">הוסף מסעדה
+              [disabled]="!newRestaurantForm.valid">הוסף מסעדה
       </button>
       <br>
       <button mat-button

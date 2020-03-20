@@ -12,7 +12,7 @@ import { User } from '../../../models/user';
 export class OthersSuggestionsComponent {
   @Input() surveyOpened:boolean;
   @Input() restaurants:Restaurant[];
-  @Input() restaurantSurvey:RestaurantSurvey[];
+  @Input() restaurantSurvey:RestaurantSurvey;
   @Input() users:User[];
   @Output() surveyOpenedEmitter:EventEmitter<void>;
   @Output() surveySubmittedEmitter:EventEmitter<Restaurant[]>;

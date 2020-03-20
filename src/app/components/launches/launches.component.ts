@@ -31,7 +31,7 @@ export class LaunchesComponent {
   restaurants$:Observable<Restaurant[]>;
   suggestionsFilter$:Observable<FilterSuggestions>;
   surveyOpened$:Observable<boolean>;
-  restaurantSurvey$:Observable<RestaurantSurvey[]>;
+  restaurantSurvey$:Observable<RestaurantSurvey>;
   users$:Observable<User[]>;
 
   constructor(private store:Store<AppState>,
@@ -49,14 +49,12 @@ export class LaunchesComponent {
     this.restaurants$ = this.store.select('restaurants');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
     this.surveyOpened$ = this.store.select('restaurantSurveyStatus');
-    this.surveyOpened$.subscribe(x => console.log(x));
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
     this.users$ = this.store.select('users');
   }
 
   chooseLocation(location:LaunchLocation):void {
     this.launchLocation = location;
-    console.log(this.launchLocation);
   }
 
   addRestaurant(restaurant:Restaurant):void {

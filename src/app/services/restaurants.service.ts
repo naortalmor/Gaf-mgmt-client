@@ -33,8 +33,7 @@ export class RestaurantsService {
   }
 
   initRestaurantSurvey():void {
-    this.http.get(`${config.serverUrl}/launches/getRestaurantSurvey`).subscribe((restaurantSurvey:RestaurantSurvey[]) => {
-      console.log(restaurantSurvey);
+    this.http.get(`${config.serverUrl}/launches/getRestaurantSurvey`).subscribe((restaurantSurvey:RestaurantSurvey) => {
       this.store.dispatch(INIT_RESTAURANTS_SURVEY({restaurantSurvey}));
     });
   }
@@ -48,16 +47,11 @@ export class RestaurantsService {
   }
 
   updateRestaurantSurvey(restaurantsIds:number[], voterId:string):void {
-    //Updating the db not work.... need to fix it
-      this.http.post(`${config.serverUrl}/launches/updateRestaurantSurvey`, {
-        ids: restaurantsIds,
-        voterId: voterId
-      }).subscribe((restaurantSurvey:RestaurantSurvey) => {
-        this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey}));
-      });
-
-    restaurantsIds.forEach(restaurantId => {
-      this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey: {restaurantId, votersIds: [voterId]}}));
+    this.http.post(`${config.serverUrl}/launches/updateRestaurantSurvey`, {
+      ids: restaurantsIds,
+      voterId: voterId
+    }).subscribe((restaurantSurvey:{ [id:string]:string[] }) => {
+       this.store.dispatch(UPDATE_RESTAURANTS_SURVEY({restaurantSurvey}));
     });
   }
 
@@ -72,4 +66,9 @@ export class RestaurantsService {
       this.store.dispatch(UPDATE_RESTAURANT_STATUS({restaurantSurveyStatus: status}));
     });
   }
+}
+
+interface NewVote {
+  ids:number[];
+  voterId:string;
 }
