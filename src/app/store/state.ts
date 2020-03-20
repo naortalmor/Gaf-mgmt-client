@@ -7,16 +7,14 @@ import { Person } from '../models/interfaces/person';
 import { Evening } from '../models/evening';
 
 export interface AppState {
-  mode:string;
   events:CalendarEvent[];
   restaurants:Restaurant[];
   evenings:Evening[];
-  restaurantSurvey:RestaurantSurvey[];
+  restaurantSurvey:RestaurantSurvey;
   restaurantSurveyStatus:boolean;
   users:User[];
   thisWeekPersons:Person[];
   suggestionsFilter:FilterSuggestions;
   currentUser:User;
-  allUsers:User[];
   diningRoomOfToday:string;
 }

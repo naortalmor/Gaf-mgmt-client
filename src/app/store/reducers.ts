@@ -7,10 +7,8 @@ import * as users from './users/users.reducer';
 import * as thisWeekPersonsReducer from './this-week-persons/this-week-persons.reducer';
 import * as restaurantSurveyStatusReducer from './restaurant-survey-opened/restaurant-survey-opened.reducer';
 import * as diningRoomOfTodayReducer from './dining-room-of-today/dining-room-of-today.reducer';
-import * as modes from '../store/modes/modes.reducer'
 
 export const reducers = {
-  mode: modes.reducer,
   events: eventsReducer.reducer,
   restaurants: restaurantsReducer.reducer,
   restaurantSurvey: restaurantSurveyReducer.reducer,
@@ -20,6 +18,5 @@ export const reducers = {
   evenings: eveningsReducer.reducer,
   suggestionsFilter: suggestionsFilter.reducer,
   currentUser: users.currentUserReducer,
-  allUsers: users.allUsersReducer,
   diningRoomOfToday: diningRoomOfTodayReducer.reducer
 };

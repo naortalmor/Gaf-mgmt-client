@@ -11,9 +11,9 @@ export enum RestaurantTypes {
   BURGER = 'המבורגר'
 }
 
-export enum Tabs {
+export enum RestaurantLaunchTabs {
   OTHER = 'אחרים רוצים',
-  SUGGESTIONS = 'הצעות'
+  SUGGESTIONS = 'אני רוצה להציע'
 }
 
 export enum Availability {
@@ -29,4 +29,10 @@ export enum ChartType {
 export enum SurveyType {
   textBox,
   dropdown
+}
+
+export enum LaunchLocation {
+  notSelected,
+  diningRoom,
+  restaurant
 }

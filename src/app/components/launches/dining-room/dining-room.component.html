@@ -1,0 +1,62 @@
+<div class="col flx1 ctr">
+  <div class="col flx1 ctr">
+    <h1 class="text-und"> איזה אוכל טעים יש היום בחדר אוכל ?? </h1>
+    <div class="row flx1">
+      <div class="flx1">
+        <h4 class="text-und">עיקריות</h4>
+        <div class="col">
+          <span>חזה עוף</span>
+          <span>שנצילונים</span>
+        </div>
+      </div>
+      <div class="flx1">
+        <h4 class="text-und">תוספות</h4>
+        <div class="col">
+          <span>אורז</span>
+          <span>פטיטים</span>
+        </div>
+      </div>
+      <div class="flx1">
+        <h4 class="text-und">סלטים</h4>
+        <div class="col">
+          <span>סלט טירס</span>
+          <span>סלט עגבניות</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col ctr">
+    <h3 class="text-und">הייתה בחדר אוכל? רוצה לעדכן את החברה..</h3>
+    <button mat-button
+            *ngIf="!addingFood"
+            class="button-style"
+            (click)="ToggleFoodButton()">
+      התחל הוספת אוכל
+    </button>
+    <button mat-button
+            *ngIf="addingFood"
+            class="button-style"
+            (click)="ToggleFoodButton()">
+      סיים הוספת אוכל
+    </button>
+    <div *ngIf="addingFood">
+      <div>
+        <span>הוספת אפשרות בחירה מרשימת היסטוריה</span>
+      </div>
+      <div class="col">
+        <span>הוספה ידנית של פריט שעדיין לא קיים ברשימה</span>
+        <label>
+          <input>
+        </label>
+      </div>
+      <div class="col">
+        <span> הפריטים שאני מעוניין להוסיף הם:</span>
+        <span>1. אורז</span>
+        <button mat-button
+                class="button-style">
+          הוספת את הפריטים לרשימה של היום
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

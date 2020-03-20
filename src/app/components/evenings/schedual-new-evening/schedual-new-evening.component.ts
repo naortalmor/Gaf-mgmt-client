@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 
 @Component({
@@ -6,7 +6,7 @@ import { CalendarEvent } from 'angular-calendar';
   templateUrl: './schedual-new-evening.component.html',
   styleUrls: ['./schedual-new-evening.component.css']
 })
-export class SchedualNewEveningComponent implements OnInit, OnChanges {
+export class SchedualNewEveningComponent {
   @Input() events:CalendarEvent[];
   @Output() eventAdded:EventEmitter<CalendarEvent>;
   @Output() eventDeleted:EventEmitter<CalendarEvent>;
@@ -14,15 +14,6 @@ export class SchedualNewEveningComponent implements OnInit, OnChanges {
   constructor() {
     this.eventAdded = new EventEmitter<CalendarEvent>();
     this.eventDeleted = new EventEmitter<CalendarEvent>();
-  }
-
-  ngOnInit() {
-  }
-
-  ngOnChanges(changes) {
-    if (changes.events) {
-      console.log(this.events);
-    }
   }
 
   addEvent(event:CalendarEvent):void {

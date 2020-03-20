@@ -1,27 +1,27 @@
-import {Store} from '@ngrx/store';
-import {Injectable} from '@angular/core';
-import {AppState} from '../store/state';
-import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {User} from '../models/user';
-import {firestore} from 'firebase/app';
-import {UsersService} from './users.service';
-import {formatDate} from '@angular/common';
-import {Bubble} from '../models/interfaces/bubble';
+import { Store } from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { AppState } from '../store/state';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from '../models/user';
+import { firestore } from 'firebase/app';
+import { UsersService } from './users.service';
+import { formatDate } from '@angular/common';
+import { Bubble } from '../models/interfaces/bubble';
 
 @Injectable({providedIn: 'root'})
 export class MifgafService {
-  winnersObs: BehaviorSubject<User[]>;
-  futureWinnersObs: BehaviorSubject<User[]>;
-  currWeek: BehaviorSubject<any>;
-  nextWeek: BehaviorSubject<any>;
-  bubblesObs: BehaviorSubject<Bubble[]>;
+  winnersObs:BehaviorSubject<User[]>;
+  futureWinnersObs:BehaviorSubject<User[]>;
+  currWeek:BehaviorSubject<any>;
+  nextWeek:BehaviorSubject<any>;
+  bubblesObs:BehaviorSubject<Bubble[]>;
 
-  constructor(private store: Store<AppState>,
-              private http: HttpClient,
-              private db: AngularFirestore,
-              private usersService: UsersService) {
+  constructor(private store:Store<AppState>,
+              private http:HttpClient,
+              private db:AngularFirestore,
+              private usersService:UsersService) {
     this.winnersObs = new BehaviorSubject<User[]>([]);
     this.futureWinnersObs = new BehaviorSubject<User[]>([]);
     this.currWeek = new BehaviorSubject<any>('');
@@ -32,7 +32,7 @@ export class MifgafService {
   }
 
   getWinners() {
-    this.db.collection('/users').valueChanges().subscribe((users: User[]) => {
+    this.db.collection('/users').valueChanges().subscribe((users:User[]) => {
       if (users.length > 3) {
         const kevaWinners = [];
         const kevaUsers = users.filter(user => user.roles.status === 'keva');
@@ -75,7 +75,7 @@ export class MifgafService {
     });
   }
 
-  mifgafExist(winners: User[]) {
+  mifgafExist(winners:User[]) {
     winners.forEach(user => {
       this.db.collection('users').doc(`${user.uid}`).set({
         currentRound: user.currentRound + 1,

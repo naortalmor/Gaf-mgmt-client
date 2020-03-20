@@ -1,0 +1,17 @@
+.survey-not-opened {
+  text-decoration: underline;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.lunch-survey {
+  border: 1px solid black;
+  padding: 5px;
+}

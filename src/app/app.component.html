@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="menu-connected-user-side row">
-        <div *ngIf="connectedUser | async as user"
+        <div *ngIf="connectedUser$ | async as user"
              class="connected-user">
           {{connectedUserText}} {{user.displayName}}
         </div>

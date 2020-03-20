@@ -1,0 +1,7 @@
+:host {
+  border: 5px solid #090542;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}

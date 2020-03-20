@@ -5,7 +5,7 @@ import { Restaurant } from '../models/interfaces/restaurant';
 
 @Injectable({providedIn: 'root'})
 export class QuestionService {
-  getLaunchSurveyQuestions(restaurants:Restaurant[]) {
+  getLaunchSurveyQuestions(restaurants:Restaurant[]):QuestionBase<string>[] {
     let options:any[] = [];
     restaurants.forEach(rest => {
       let option = {
@@ -17,7 +17,7 @@ export class QuestionService {
     let questions:QuestionBase<string>[] = [
       new DropdownQuestion({
         key: 'restaurant',
-        label: 'באיזה מסעדה ברצונך לאכול',
+        label: 'באיזה מסעדה ברצונך לאכול ?',
         options: options,
         required: true,
         order: 1

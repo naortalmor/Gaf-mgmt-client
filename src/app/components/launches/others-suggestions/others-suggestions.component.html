@@ -1,0 +1,28 @@
+<div *ngIf="!surveyOpened" class="col ctr">
+  <span class="survey-not-opened"> אחרים עדיין לא הציעו מסעדות לאכול בהם היום !! </span>
+  <button mat-button
+          class="button-style"
+          (click)="onOpenSurvey()">
+    פתח סקר
+  </button>
+</div>
+<div *ngIf="surveyOpened" class="col ctr">
+  <div *ngIf="!mySurveyOpened">
+    <button mat-button
+            class="button-style"
+            (click)="showSurvey()">
+      הצג סקר קיים
+    </button>
+  </div>
+  <div *ngIf="mySurveyOpened" class="lunch-survey">
+    <app-lunch-survey [restaurants]="restaurants"
+                      (submit)="onSurveySubmitted($event)"
+                      (close)="onSurveyClosed()">
+    </app-lunch-survey>
+  </div>
+  <app-restaurant-chart class="row ctr flx1 pt-m"
+                        [restaurants]="restaurants"
+                        [restaurantSurvey]="restaurantSurvey"
+                        [users]="users">
+  </app-restaurant-chart>
+</div>
