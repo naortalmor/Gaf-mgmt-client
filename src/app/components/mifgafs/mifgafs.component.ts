@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { AppState } from 'src/app/store/state';
 import { MifgafService } from 'src/app/services/mifgaf.service';
 import { AuthService } from 'src/app/routes/services/auth.service';
@@ -21,7 +21,6 @@ export class MifgafsComponent {
   pageHeader:string;
   winners:BehaviorSubject<User[]>;
   futureWinners:BehaviorSubject<User[]>;
-  currentUser:Observable<User>;
   bubbles:BehaviorSubject<Bubble[]>;
   manageNextMifgafText:string;
   manageNextMifgafTextt:string;

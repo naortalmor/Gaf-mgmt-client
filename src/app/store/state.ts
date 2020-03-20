@@ -7,7 +7,6 @@ import { Person } from '../models/interfaces/person';
 import { Evening } from '../models/evening';
 
 export interface AppState {
-  mode:string;
   events:CalendarEvent[];
   restaurants:Restaurant[];
   evenings:Evening[];
@@ -17,6 +16,5 @@ export interface AppState {
   thisWeekPersons:Person[];
   suggestionsFilter:FilterSuggestions;
   currentUser:User;
-  allUsers:User[];
   diningRoomOfToday:string;
 }

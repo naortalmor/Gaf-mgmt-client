@@ -45,12 +45,12 @@ export class LaunchesComponent {
     this.restaurantLocationButton = RESTAURANT_LOCATION_BUTTON;
     this.diningRoomLocationButton = DINING_ROOM_LOCATION_BUTTON;
     this.changeSelectionButton = CHANGE_SELECTION_BUTTON;
+    this.users$ = this.usersService.getAllUsers();
     this.connectedUser$ = this.usersService.getCurrentUser();
     this.restaurants$ = this.store.select('restaurants');
     this.suggestionsFilter$ = this.store.select('suggestionsFilter');
     this.surveyOpened$ = this.store.select('restaurantSurveyStatus');
     this.restaurantSurvey$ = this.store.select('restaurantSurvey');
-    this.users$ = this.store.select('users');
   }
 
   chooseLocation(location:LaunchLocation):void {
